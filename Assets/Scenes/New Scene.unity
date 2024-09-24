@@ -1216,8 +1216,14 @@ PrefabInstance:
     - target: {fileID: 1318759836681899005, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2866
+      value: 2884
       objectReference: {fileID: 0}
+    - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: _inputAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+        type: 3}
     - target: {fileID: 3759758649391458852, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Name

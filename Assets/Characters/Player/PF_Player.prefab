@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2869
+  m_VersionIndex: 2881
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -402,9 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputAsset: {fileID: -944628639613478452, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
-  _horizontalMovementAction: {fileID: 2820553227020955129, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
-    type: 3}
-  _verticalMovementAction: {fileID: 6055487539928548668, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+  _movementAction: {fileID: 5037944513307205859, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
   _attackAction: {fileID: -5529324722380038374, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}

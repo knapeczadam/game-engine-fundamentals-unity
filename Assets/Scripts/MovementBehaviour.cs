@@ -7,38 +7,23 @@ public class MovementBehaviour : MonoBehaviour
 {
     [SerializeField]
     private float _movementSpeed = 1.0f;
-
-    private Vector3 _desiredHorizontalMovementDirection = Vector3.zero;
-    public Vector3 DesiredHorizontalMovementDirection 
-    { 
-        get => _desiredHorizontalMovementDirection; 
-        set => _desiredHorizontalMovementDirection = value; 
-    }
     
-    private Vector3 _desiredVerticalMovementDirection = Vector3.zero;
-    public Vector3 DesiredVerticalMovementDirection 
+    private Vector3 _desiredMovementDirection = Vector3.zero;
+    public Vector3 DesiredMovementDirection 
     { 
-        get => _desiredVerticalMovementDirection; 
-        set => _desiredVerticalMovementDirection = value; 
+        get => _desiredMovementDirection; 
+        set => _desiredMovementDirection = value; 
     }
 
     private void Update()
     {
-        HandleHorizontalMovement();
-        HandleVerticalMovement();
+        HandleMovement();
     }
     
-    private void HandleHorizontalMovement()
+    private void HandleMovement()
     {
-        Vector3 horizontalMovement = _desiredHorizontalMovementDirection.normalized;
-        horizontalMovement *= _movementSpeed * Time.deltaTime;
-        transform.position += horizontalMovement;
-    }
-    
-    private void HandleVerticalMovement()
-    {
-        Vector3 verticalMovement = _desiredVerticalMovementDirection.normalized;
-        verticalMovement *= _movementSpeed * Time.deltaTime;
-        transform.position += verticalMovement;
+        Vector3 movement = _desiredMovementDirection.normalized;
+        movement *= _movementSpeed * Time.deltaTime;
+        transform.position += movement;
     }
 }

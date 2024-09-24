@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BasicCharacter : MonoBehaviour
 {
-    protected AttackBehaviour _attackBehaviour;
     protected MovementBehaviour _movementBehaviour;
+    protected AttackBehaviour   _attackBehaviour;
 
     protected virtual void Awake()
     {
-        _attackBehaviour   = GetComponent<AttackBehaviour>();
         _movementBehaviour = GetComponent<MovementBehaviour>();
+        _attackBehaviour   = GetComponent<AttackBehaviour>();
     }
 }

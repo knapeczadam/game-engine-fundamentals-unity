@@ -8,12 +8,9 @@ public class PlayerCharacter : BasicCharacter
 {
     [SerializeField] 
     private InputActionAsset _inputAsset;
-
-    [SerializeField] 
-    private InputActionReference _horizontalMovementAction;
     
     [SerializeField]
-    private InputActionReference _verticalMovementAction;
+    private InputActionReference _movementAction;
     
     [SerializeField]
     private InputActionReference _attackAction;
@@ -50,35 +47,21 @@ public class PlayerCharacter : BasicCharacter
 
     private void Update()
     {
-        HandleHorizontalMovementInput();
-        HandleVerticalMovementInput();
+        HandleMovementInput();
         HandleAttackInput();
     }
-
-    void HandleHorizontalMovementInput()
-    {
-        if (_movementBehaviour is null || _horizontalMovementAction is null)
-        {
-            Debug.LogError("MovementBehaviour or Horizontal Movement Action is not set in the PlayerCharacter component.");
-            return;
-        }
-        
-        float horizontalMovement = _horizontalMovementAction.action.ReadValue<float>();
-        Vector3 movement  = horizontalMovement * Vector3.right;
-        _movementBehaviour.DesiredHorizontalMovementDirection = movement;
-    }
     
-    void HandleVerticalMovementInput()
+    void HandleMovementInput()
     {
-        if (_movementBehaviour is null || _verticalMovementAction is null)
+        if (_movementBehaviour is null || _movementAction is null)
         {
-            Debug.LogError("MovementBehaviour or Vertical Movement Action is not set in the PlayerCharacter component.");
+            Debug.LogError("MovementBehaviour or Movement Action is not set in the PlayerCharacter component.");
             return;
         }
         
-        float verticalMovement = _verticalMovementAction.action.ReadValue<float>();
-        Vector3 movement  = verticalMovement * Vector3.forward;
-        _movementBehaviour.DesiredVerticalMovementDirection = movement;
+        Vector2 movement = _movementAction.action.ReadValue<Vector2>();
+        Vector3 movementDirection = new Vector3(movement.x, 0, movement.y);
+        _movementBehaviour.DesiredMovementDirection = movementDirection;
     }
     
     private void HandleAttackInput()
