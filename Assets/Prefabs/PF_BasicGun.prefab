@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 2744376002680189356}
   - component: {fileID: 4727895905314642383}
   m_Layer: 8
-  m_Name: BasicGun
+  m_Name: PF_BasicGun
   m_TagString: Friend
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 3754596834325181677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.531}
+  m_LocalPosition: {x: 0, y: 0, z: 0.803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

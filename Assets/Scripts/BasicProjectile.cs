@@ -12,7 +12,7 @@ public class BasicProjectile : MonoBehaviour
     private float _lifeTime = 1.0f;
 
     [SerializeField] 
-    private int _damage = 5;
+    private int _damage = 20;
 
     private void Awake()
     {
@@ -43,5 +43,15 @@ public class BasicProjectile : MonoBehaviour
             return true;
         }
         return false;
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        Health health = other.GetComponent<Health>();
+        if (health is object)
+        {
+            health.TakeDamage(_damage);
+            Kill();
+        }
     }
 }
