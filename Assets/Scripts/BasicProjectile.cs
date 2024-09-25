@@ -16,7 +16,7 @@ public class BasicProjectile : MonoBehaviour
 
     private void Awake()
     {
-        Invoke(nameof(Kill), _lifeTime);
+        Invoke(nameof(Die), _lifeTime);
     }
 
     private void FixedUpdate()
@@ -27,7 +27,7 @@ public class BasicProjectile : MonoBehaviour
         }
     }
 
-    private void Kill()
+    private void Die()
     {
         Destroy(gameObject);
     }
@@ -39,7 +39,7 @@ public class BasicProjectile : MonoBehaviour
         Ray collisionRay = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(collisionRay, Time.deltaTime * _speed, LayerMask.GetMask(RAYCAST_MASKS)))
         {
-            Kill();
+            Die();
             return true;
         }
         return false;
@@ -51,7 +51,7 @@ public class BasicProjectile : MonoBehaviour
         if (health is object)
         {
             health.TakeDamage(_damage);
-            Kill();
+            Die();
         }
     }
 }

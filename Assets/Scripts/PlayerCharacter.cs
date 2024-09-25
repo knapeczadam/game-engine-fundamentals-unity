@@ -50,8 +50,8 @@ public class PlayerCharacter : BasicCharacter
         HandleMovementInput();
         HandleAttackInput();
     }
-    
-    void HandleMovementInput()
+
+    private void HandleMovementInput()
     {
         if (_movementBehaviour is null || _movementAction is null)
         {
