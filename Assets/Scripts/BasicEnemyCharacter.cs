@@ -41,9 +41,8 @@ public class BasicEnemyCharacter : BasicCharacter
             {
                 Debug.Log("Attacking player");
                 _attackBehaviour.Attack();
+                // Invoke(nameof(Die), 0.2f);
             }
-            
-            Invoke(nameof(Die), 0.2f);
         }
     }
 

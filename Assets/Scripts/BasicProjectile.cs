@@ -44,9 +44,22 @@ public class BasicProjectile : MonoBehaviour
         }
         return false;
     }
+
+    private const string FRIEND_TAG = "Friend";
+    private const string ENEMY_TAG = "Enemy";
     
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag != FRIEND_TAG && other.tag != ENEMY_TAG)
+        {
+            return;
+        }
+        
+        if (other.tag == tag)
+        {
+            return;
+        }
+        
         Health health = other.GetComponent<Health>();
         if (health is object)
         {
