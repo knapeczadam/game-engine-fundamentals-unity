@@ -41,7 +41,7 @@ public class BasicWeapon : MonoBehaviour
     private void FireProjectile()
     {
         // no bullet to fire
-        if (_bulletTemplate is null)
+        if (_bulletTemplate == null)
         {
             return;
         }

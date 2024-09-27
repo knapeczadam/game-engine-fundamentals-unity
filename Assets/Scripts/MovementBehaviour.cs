@@ -40,7 +40,7 @@ public class MovementBehaviour : MonoBehaviour
     
     protected virtual void HandleMovement()
     {
-        if (_rigidbody is null)
+        if (_rigidbody == null)
         {
             Debug.LogError("Rigidbody is not set in the MovementBehaviour component.");
             return;

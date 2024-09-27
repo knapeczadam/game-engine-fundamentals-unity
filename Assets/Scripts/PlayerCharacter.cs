@@ -22,7 +22,7 @@ public class PlayerCharacter : BasicCharacter
     {
         base.Awake();
         
-        if (_inputAsset is null)
+        if (_inputAsset == null)
         {
             Debug.LogError("Input Asset is not set in the PlayerCharacter component.");
             return;
@@ -31,7 +31,7 @@ public class PlayerCharacter : BasicCharacter
 
     private void OnEnable()
     {
-        if (_inputAsset is object)
+        if (_inputAsset)
         {
             _inputAsset.Enable();
         }
@@ -39,7 +39,7 @@ public class PlayerCharacter : BasicCharacter
     
     private void OnDisable()
     {
-        if (_inputAsset is object)
+        if (_inputAsset)
         {
             _inputAsset.Disable();
         }
@@ -53,7 +53,7 @@ public class PlayerCharacter : BasicCharacter
 
     private void HandleMovementInput()
     {
-        if (_movementBehaviour is null || _movementAction is null)
+        if (_movementBehaviour == null || _movementAction == null)
         {
             Debug.LogError("MovementBehaviour or Movement Action is not set in the PlayerCharacter component.");
             return;
@@ -66,7 +66,7 @@ public class PlayerCharacter : BasicCharacter
     
     private void HandleAttackInput()
     {
-        if (_attackBehaviour is null || _attackAction is null)
+        if (_attackBehaviour == null || _attackAction == null)
         {
             Debug.LogError("AttackBehaviour or Attack Action is not set in the PlayerCharacter component.");
             return;

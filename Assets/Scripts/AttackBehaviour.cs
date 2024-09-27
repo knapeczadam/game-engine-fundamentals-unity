@@ -15,7 +15,7 @@ public class AttackBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        if (_gunTemplate is object && _socket is object)
+        if (_gunTemplate && _socket)
         {
             var gunObject = Instantiate(_gunTemplate, _socket.transform, true);
             gunObject.transform.localPosition = Vector3.zero;
@@ -26,7 +26,7 @@ public class AttackBehaviour : MonoBehaviour
 
     public void Attack()
     {
-        if (_weapon is object)
+        if (_weapon)
         {
             _weapon.Fire();
         }

@@ -61,7 +61,7 @@ public class BasicProjectile : MonoBehaviour
         }
         
         Health health = other.GetComponent<Health>();
-        if (health is object)
+        if (health)
         {
             health.TakeDamage(_damage);
             Die();

@@ -22,7 +22,7 @@ public class NavMeshMovementBehaviour : MovementBehaviour
     const float MOVEMENT_THRESHOLD = 0.25f;
     protected override void HandleMovement()
     {
-        if (_target is null)
+        if (_target == null)
         {
             _navMeshAgent.isStopped = true;
             return;

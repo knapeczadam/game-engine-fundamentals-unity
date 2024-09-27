@@ -13,7 +13,7 @@ public class BasicEnemyCharacter : BasicCharacter
     private void Start()
     {
         PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player is object)
+        if (player)
         {
             _playerTarget = player.gameObject;
         }
@@ -27,7 +27,7 @@ public class BasicEnemyCharacter : BasicCharacter
 
     private void HandleMovement()
     {
-        if (_movementBehaviour is object)
+        if (_movementBehaviour)
         {
             _movementBehaviour.Target = _playerTarget;
         }
@@ -35,7 +35,7 @@ public class BasicEnemyCharacter : BasicCharacter
 
     private void HandleAttack()
     {
-        if (_attackBehaviour is object && _playerTarget is object)
+        if (_attackBehaviour && _playerTarget)
         {
             if ((transform.position - _playerTarget.transform.position).sqrMagnitude <= _attackRange * _attackRange)
             {

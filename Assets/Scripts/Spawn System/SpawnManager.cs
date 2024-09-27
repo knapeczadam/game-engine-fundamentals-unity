@@ -12,10 +12,10 @@ public class SpawnManager : MonoBehaviour
     {
         get
         {
-            if (_instance is null && !ApplicationQuitting)
+            if (_instance == null && !ApplicationQuitting)
             {
                 _instance = FindObjectOfType<SpawnManager>();
-                if (_instance is null)
+                if (_instance == null)
                 {
                     GameObject newInstance = new GameObject("Singleton_SpawnManager");
                     _instance = newInstance.AddComponent<SpawnManager>();
@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
     {
         get
         {
-            return _instance is object;
+            return _instance;
         }
     }
 
@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (_instance is null)
+        if (_instance == null)
         {
             _instance = this;
         }
