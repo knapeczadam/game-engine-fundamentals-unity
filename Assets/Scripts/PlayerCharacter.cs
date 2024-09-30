@@ -13,6 +13,9 @@ public class PlayerCharacter : BasicCharacter
     private InputActionReference _movementAction;
     
     [SerializeField]
+    private InputActionReference _runAction;
+    
+    [SerializeField]
     private InputActionReference _attackAction;
     
     [SerializeField]
@@ -62,6 +65,8 @@ public class PlayerCharacter : BasicCharacter
         Vector2 movement = _movementAction.action.ReadValue<Vector2>();
         Vector3 movementDirection = new Vector3(movement.x, 0, movement.y);
         _movementBehaviour.DesiredMovementDirection = movementDirection;
+        
+        _movementBehaviour.IsRunning = _runAction.action.IsPressed();
     }
     
     private void HandleAttackInput()

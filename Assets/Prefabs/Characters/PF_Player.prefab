@@ -409,6 +409,8 @@ MonoBehaviour:
     type: 3}
   _movementAction: {fileID: 5037944513307205859, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
+  _runAction: {fileID: -5558234003233371753, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+    type: 3}
   _attackAction: {fileID: -5529324722380038374, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
   _rescueAction: {fileID: 2926779975954247518, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
@@ -442,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _rotationSpeed: 10
+  _smoothRotation: 1
 --- !u!54 &9082197393933412983
 Rigidbody:
   m_ObjectHideFlags: 0

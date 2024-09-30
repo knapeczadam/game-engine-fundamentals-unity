@@ -19,6 +19,13 @@ public class MovementBehaviour : MonoBehaviour
         get => _desiredMovementDirection; 
         set => _desiredMovementDirection = value; 
     }
+    
+    protected bool _isRunning = false;
+    public bool IsRunning
+    {
+        get => _isRunning;
+        set => _isRunning = value;
+    }
 
     protected GameObject _target;
     public GameObject Target
@@ -26,6 +33,9 @@ public class MovementBehaviour : MonoBehaviour
         get => _target;
         set => _target = value;
     }
+    
+    [SerializeField]
+    private bool _smoothRotation = true;
 
     protected virtual void Awake()
     {
@@ -47,7 +57,12 @@ public class MovementBehaviour : MonoBehaviour
         }
         
         Vector3 movement = _desiredMovementDirection.normalized;
-        movement *= _movementSpeed * Time.deltaTime;
+        float movementSpeed = _movementSpeed;
+        if (_isRunning)
+        {
+            movementSpeed *= 2.0f;
+        }
+        movement *= movementSpeed * Time.deltaTime;
         // transform.position += movement;
         _rigidbody.MovePosition(transform.position + movement);
     }
@@ -56,12 +71,18 @@ public class MovementBehaviour : MonoBehaviour
     {
         if (_desiredMovementDirection != Vector3.zero)
         {
-            // Rotates the character to face the direction of movement
-            // transform.rotation = Quaternion.LookRotation(_desiredMovementDirection);
+            if (_smoothRotation)
+            {
+                // Smoothly rotates the character to face the direction of movement.
+                Quaternion targetRotation = Quaternion.LookRotation(_desiredMovementDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                // Rotates the character to face the direction of movement
+                transform.rotation = Quaternion.LookRotation(_desiredMovementDirection);
+            }
             
-            // Smoothly rotates the character to face the direction of movement.
-            Quaternion targetRotation = Quaternion.LookRotation(_desiredMovementDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
         }
     }
 }
