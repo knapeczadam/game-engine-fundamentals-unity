@@ -44,18 +44,15 @@ public class BasicProjectile : MonoBehaviour
         }
         return false;
     }
-
-    private const string FRIEND_TAG = "Friend";
-    private const string ENEMY_TAG = "Enemy";
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != FRIEND_TAG && other.tag != ENEMY_TAG)
+        if (!other.CompareTag(Tags.FRIEND) && !other.CompareTag(Tags.ENEMY))
         {
             return;
         }
         
-        if (other.tag == tag)
+        if (other.CompareTag(tag))
         {
             return;
         }

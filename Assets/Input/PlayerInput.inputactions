@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Rescue",
+                    "name": "PickUp",
                     "type": "Button",
                     "id": "53125219-03f5-4cbb-ac0b-5db19e29ad04",
                     "expectedControlType": "Button",
@@ -211,7 +211,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rescue",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

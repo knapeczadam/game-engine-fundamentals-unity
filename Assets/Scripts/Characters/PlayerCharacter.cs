@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerCharacter : BasicCharacter
 {
@@ -19,7 +20,9 @@ public class PlayerCharacter : BasicCharacter
     private InputActionReference _attackAction;
     
     [SerializeField]
-    private InputActionReference _rescueAction;
+    private InputActionReference _pickUpAction;
+    
+    private PickUpBehaviour _pickUpBehaviour;
 
     protected override void Awake()
     {
@@ -30,6 +33,8 @@ public class PlayerCharacter : BasicCharacter
             Debug.LogError("Input Asset is not set in the PlayerCharacter component.");
             return;
         }
+        
+        _pickUpBehaviour = GetComponent<PickUpBehaviour>();
     }
 
     private void OnEnable()
@@ -38,6 +43,11 @@ public class PlayerCharacter : BasicCharacter
         {
             _inputAsset.Enable();
         }
+
+        if (_pickUpAction)
+        {
+            _pickUpAction.action.performed += HandlePickUpInput;
+        }
     }
     
     private void OnDisable()
@@ -45,6 +55,11 @@ public class PlayerCharacter : BasicCharacter
         if (_inputAsset)
         {
             _inputAsset.Disable();
+        }
+
+        if (_pickUpAction)
+        {
+            _pickUpAction.action.performed -= HandlePickUpInput;
         }
     }
 
@@ -81,10 +96,14 @@ public class PlayerCharacter : BasicCharacter
         {
             _attackBehaviour.Attack();
         }
-        
     }
-    
-    private void HandleRescue()
+
+    private void HandlePickUpInput(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            _pickUpBehaviour.PickUp();
+        }
     }
+
 }
