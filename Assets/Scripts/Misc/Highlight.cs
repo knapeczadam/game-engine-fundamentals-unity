@@ -7,26 +7,24 @@ using UnityEngine;
 public class Highlight : MonoBehaviour
 {
     private Material _originalMaterial;
+    private Renderer _renderer;
     
     [SerializeField]
     private Material _highlightMaterial;
     
     private void Awake()
     {
-        var rendererComponent = GetComponent<Renderer>();
-        _originalMaterial = rendererComponent.material;
+        _renderer = GetComponent<Renderer>();
+        _originalMaterial = _renderer.material;
     }
     
     public void EnableHighlight()
     {
-        
-        var rendererComponent = GetComponent<Renderer>();
-        rendererComponent.material = _highlightMaterial;
+        _renderer.material = _highlightMaterial;
     }
     
     public void DisableHighlight()
     {
-        var rendererComponent = GetComponent<Renderer>();
-        rendererComponent.material = _originalMaterial;
+        _renderer.material = _originalMaterial;
     }
 }
