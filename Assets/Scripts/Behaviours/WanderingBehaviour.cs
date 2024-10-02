@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(NavMeshAgent)), DisallowMultipleComponent]
 public class WanderingBehaviour : MovementBehaviour
 {
     [SerializeField]
@@ -27,19 +30,40 @@ public class WanderingBehaviour : MovementBehaviour
     {
         Vector3 randomDirection = Random.insideUnitSphere * _wanderRadius;
         randomDirection += transform.position;
-        NavMeshHit hit;
-        NavMeshSurface surface = FindObjectOfType<NavMeshSurface>();
-        NavMesh.SamplePosition(randomDirection, out hit, _wanderRadius, 1);
+
+        NavMesh.SamplePosition(randomDirection, out var hit, _wanderRadius, 1);
         Vector3 finalPosition = hit.position;
-        _target.transform.position = finalPosition;
+
+        if (_target)
+        {
+            _target.transform.position = finalPosition;
+        }
         _navMeshAgent.SetDestination(finalPosition);
     }
     
     protected override void HandleMovement()
     {
+        if (_target == null)
+        {
+            _navMeshAgent.isStopped = true;
+            return;
+        }
+        
         if ((_target.transform.position - transform.position).sqrMagnitude < 10)
         {
             CalculateNewDestination();
         }
+    }
+
+    private void OnEnable()
+    {
+        _navMeshAgent.enabled = true;
+        _navMeshAgent.isStopped = false;
+        CalculateNewDestination();
+    }
+    
+    private void OnDisable()
+    {
+        _navMeshAgent.enabled = false;
     }
 }

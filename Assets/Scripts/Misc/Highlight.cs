@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class Highlight : MonoBehaviour
 {
     private Material _originalMaterial;

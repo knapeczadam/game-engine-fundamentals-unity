@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.AI;
 
+[DisallowMultipleComponent]
 public class PickUpBehaviour : MonoBehaviour
 {
     private bool _catPickedUp = false;
@@ -13,15 +15,26 @@ public class PickUpBehaviour : MonoBehaviour
     {
         if (!_catPickedUp && _catDetected)
         {
-            _catPickedUp = true;
             Debug.Log("Cat picked up");
+            
+            _catPickedUp = true;
+            
+            // Reset the cat's position and rotation
+            _cat.transform.position = _socket.transform.position;
+            _cat.transform.rotation = Quaternion.identity;
+            
             _cat.transform.SetParent(_socket.transform);
+            
+            _cat.GetComponent<WanderingBehaviour>().enabled = false;
         }
         else if (_catPickedUp)
         {
             Debug.Log("Release the cat");
+            
             _catPickedUp = false;
             _cat.transform.SetParent(null);
+
+            _cat.GetComponent<WanderingBehaviour>().enabled = true;
         }
         else
         {
@@ -36,6 +49,14 @@ public class PickUpBehaviour : MonoBehaviour
             _catDetected = true;
             _cat = other.gameObject;
         }
+        else if (other.CompareTag(Tags.TREE))
+        {
+            _catDetected = other.gameObject.GetComponent<MyTree>().HasCat();
+            if (_catDetected)
+            {
+                _cat = other.gameObject.GetComponentInChildren<Cat>().gameObject;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -44,6 +65,14 @@ public class PickUpBehaviour : MonoBehaviour
         {
             _catDetected = false;
             _cat = null;
+        }
+        else if (other.CompareTag(Tags.TREE))
+        {
+            _catDetected = false;
+            if (!_catPickedUp)
+            {
+                _cat = null;
+            }
         }
     }
 }

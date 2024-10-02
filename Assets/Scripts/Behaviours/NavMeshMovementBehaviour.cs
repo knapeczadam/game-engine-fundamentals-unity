@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent)), DisallowMultipleComponent]
 public class NavMeshMovementBehaviour : MovementBehaviour
 {
     private NavMeshAgent _navMeshAgent;

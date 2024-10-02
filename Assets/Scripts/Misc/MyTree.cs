@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+[DisallowMultipleComponent]
+public class MyTree : MonoBehaviour
 {
     private List<Highlight> _highlights = new List<Highlight>();
     private void Awake()
@@ -18,7 +19,7 @@ public class Tree : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Tags.FRIEND))
+        if (HasCat() && other.CompareTag(Tags.FRIEND))
         {
             foreach (var highlight in _highlights)
             {
@@ -36,5 +37,11 @@ public class Tree : MonoBehaviour
                 highlight.DisableHighlight();
             }
         }
+    }
+
+    public bool HasCat()
+    {
+        var cat = gameObject.GetComponentInChildren<Cat>();
+        return cat != null;
     }
 }

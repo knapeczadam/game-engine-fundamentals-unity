@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+[DisallowMultipleComponent]
 public class PlayerCharacter : BasicCharacter
 {
     [SerializeField] 
