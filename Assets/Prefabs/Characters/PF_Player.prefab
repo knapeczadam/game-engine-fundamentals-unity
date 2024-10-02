@@ -446,7 +446,8 @@ MonoBehaviour:
     type: 3}
   _attackAction: {fileID: -5529324722380038374, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
-  _pickUpAction: {fileID: 0}
+  _pickUpAction: {fileID: 2926779975954247518, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+    type: 3}
 --- !u!114 &2856024945320579733
 MonoBehaviour:
   m_ObjectHideFlags: 0

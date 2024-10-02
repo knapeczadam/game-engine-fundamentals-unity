@@ -8,6 +8,10 @@ using UnityEngine;
 public class MyTree : MonoBehaviour
 {
     private List<Highlight> _highlights = new List<Highlight>();
+    
+    [SerializeField]
+    private Transform _catSocket = null;
+    
     private void Awake()
     {
         var highlightComponents = GetComponentsInChildren<Highlight>();
@@ -26,6 +30,21 @@ public class MyTree : MonoBehaviour
                 highlight.EnableHighlight();
             }
         }
+        else if (!HasCat() && other.CompareTag(Tags.CAT))
+        {
+            var aiCat = other.GetComponent<AiCat>();
+            if (aiCat)
+            {
+                var rootCat = aiCat.transform.parent;
+                var staticCat = rootCat.GetComponentInChildren<StaticCat>(true);
+                
+                rootCat.SetParent(_catSocket);
+                aiCat.gameObject.SetActive(false);
+                staticCat.gameObject.SetActive(true);
+                
+                staticCat.transform.position = _catSocket.position;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -41,7 +60,7 @@ public class MyTree : MonoBehaviour
 
     public bool HasCat()
     {
-        var cat = gameObject.GetComponentInChildren<Cat>();
+        var cat = gameObject.GetComponentInChildren<StaticCat>();
         return cat != null;
     }
 }

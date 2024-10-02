@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(NavMeshAgent)), DisallowMultipleComponent]
+[RequireComponent(typeof(NavMeshAgent))]
 public class WanderingBehaviour : MovementBehaviour
 {
     [SerializeField]
@@ -57,13 +57,7 @@ public class WanderingBehaviour : MovementBehaviour
 
     private void OnEnable()
     {
-        _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
         CalculateNewDestination();
-    }
-    
-    private void OnDisable()
-    {
-        _navMeshAgent.enabled = false;
     }
 }

@@ -6,7 +6,9 @@ public class PickUpBehaviour : MonoBehaviour
 {
     private bool _catPickedUp = false;
     private bool _catDetected = false;
-    private GameObject _cat = null;
+    private GameObject _aiCat = null;
+    private GameObject _staticCat = null;
+    private GameObject _rootCat = null;
     
     [SerializeField]
     private GameObject _socket = null;
@@ -19,22 +21,31 @@ public class PickUpBehaviour : MonoBehaviour
             
             _catPickedUp = true;
             
+            // Hide the AI cat and show the static cat
+            _aiCat.SetActive(false);
+            _staticCat.SetActive(true);
+            
             // Reset the cat's position and rotation
-            _cat.transform.position = _socket.transform.position;
-            _cat.transform.rotation = Quaternion.identity;
+            _staticCat.transform.position = _socket.transform.position;
+            _staticCat.transform.rotation = Quaternion.identity;
             
-            _cat.transform.SetParent(_socket.transform);
-            
-            _cat.GetComponent<WanderingBehaviour>().enabled = false;
+            _rootCat.transform.SetParent(_socket.transform);
         }
         else if (_catPickedUp)
         {
             Debug.Log("Release the cat");
             
             _catPickedUp = false;
-            _cat.transform.SetParent(null);
-
-            _cat.GetComponent<WanderingBehaviour>().enabled = true;
+            
+            // Hide the static cat and show the AI cat
+            _staticCat.SetActive(false);
+            _aiCat.SetActive(true);
+            
+            _rootCat.transform.SetParent(null);
+            
+            // Reset the cat's position and rotation
+            _aiCat.transform.position = transform.position;
+            _aiCat.transform.rotation = Quaternion.identity;
         }
         else
         {
@@ -47,14 +58,19 @@ public class PickUpBehaviour : MonoBehaviour
         if (other.CompareTag(Tags.CAT))
         {
             _catDetected = true;
-            _cat = other.gameObject;
+            
+            _aiCat = other.gameObject;
+            _staticCat = other.transform.parent.GetComponentInChildren<StaticCat>(true).gameObject;
+            _rootCat = other.transform.root.gameObject;
         }
         else if (other.CompareTag(Tags.TREE))
         {
             _catDetected = other.gameObject.GetComponent<MyTree>().HasCat();
             if (_catDetected)
             {
-                _cat = other.gameObject.GetComponentInChildren<Cat>().gameObject;
+                _staticCat = other.gameObject.GetComponentInChildren<StaticCat>().gameObject;
+                _aiCat = _staticCat.transform.parent.GetComponentInChildren<AiCat>(true).gameObject;
+                _rootCat = _staticCat.transform.parent.gameObject;
             }
         }
     }
@@ -64,14 +80,17 @@ public class PickUpBehaviour : MonoBehaviour
         if (other.CompareTag(Tags.CAT))
         {
             _catDetected = false;
-            _cat = null;
+            _aiCat = null;
+            _staticCat = null;
         }
         else if (other.CompareTag(Tags.TREE))
         {
             _catDetected = false;
             if (!_catPickedUp)
             {
-                _cat = null;
+                _staticCat = null;
+                _aiCat = null;
+                _rootCat = null;
             }
         }
     }
