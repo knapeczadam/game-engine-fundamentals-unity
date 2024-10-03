@@ -69,7 +69,7 @@ public class PickUpBehaviour : MonoBehaviour
             if (_catDetected)
             {
                 _staticCat = other.gameObject.GetComponentInChildren<StaticCat>().gameObject;
-                _aiCat = _staticCat.transform.parent.GetComponentInChildren<AiCat>(true).gameObject;
+                _aiCat = _staticCat.transform.parent.GetComponentInChildren<AICat>(true).gameObject;
                 _rootCat = _staticCat.transform.parent.gameObject;
             }
         }

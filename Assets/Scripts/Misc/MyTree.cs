@@ -32,7 +32,7 @@ public class MyTree : MonoBehaviour
         }
         else if (!HasCat() && other.CompareTag(Tags.CAT))
         {
-            var aiCat = other.GetComponent<AiCat>();
+            var aiCat = other.GetComponent<AICat>();
             if (aiCat)
             {
                 var rootCat = aiCat.transform.parent;

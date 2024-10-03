@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [DisallowMultipleComponent]
-public class AiCat : MonoBehaviour
+public class AICat : MonoBehaviour
 {
     private List<Highlight> _highlights = new List<Highlight>();
     private void Awake()
