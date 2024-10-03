@@ -22,8 +22,12 @@ public class PlayerCharacter : BasicCharacter
     
     [SerializeField]
     private InputActionReference _pickUpAction;
+
+    [SerializeField] 
+    private InputActionReference _switchWeaponAction;
     
     private PickUpBehaviour _pickUpBehaviour;
+    private SwitchWeaponBehaviour _switchWeaponBehaviour;
 
     protected override void Awake()
     {
@@ -36,6 +40,7 @@ public class PlayerCharacter : BasicCharacter
         }
         
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
+        _switchWeaponBehaviour = GetComponent<SwitchWeaponBehaviour>();
     }
 
     private void OnEnable()
@@ -48,6 +53,11 @@ public class PlayerCharacter : BasicCharacter
         if (_pickUpAction)
         {
             _pickUpAction.action.performed += HandlePickUpInput;
+        }
+        
+        if (_switchWeaponAction)
+        {
+            _switchWeaponAction.action.performed += HandleSwitchWeaponInput;
         }
     }
     
@@ -62,7 +72,13 @@ public class PlayerCharacter : BasicCharacter
         {
             _pickUpAction.action.performed -= HandlePickUpInput;
         }
+        
+        if (_switchWeaponAction)
+        {
+            _switchWeaponAction.action.performed -= HandleSwitchWeaponInput;
+        }
     }
+
 
     private void Update()
     {
@@ -104,6 +120,16 @@ public class PlayerCharacter : BasicCharacter
         if (context.performed)
         {
             _pickUpBehaviour.PickUp();
+        }
+    }
+    
+    private void HandleSwitchWeaponInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Values start from 1, so we need to subtract 1 to get the correct index
+            var weaponIndex = (int) context.ReadValue<float>();
+            _switchWeaponBehaviour.SwitchWeapon(weaponIndex - 1);
         }
     }
 

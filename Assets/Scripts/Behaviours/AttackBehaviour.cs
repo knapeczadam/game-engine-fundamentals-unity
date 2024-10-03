@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -12,8 +13,8 @@ public class AttackBehaviour : MonoBehaviour
     [SerializeField] 
     private GameObject _socket = null;
 
-    private BasicWeapon _weapon = null;
-
+    protected BasicWeapon Weapon { get; set; } = null;
+    
     private void Awake()
     {
         if (_gunTemplate && _socket)
@@ -21,15 +22,15 @@ public class AttackBehaviour : MonoBehaviour
             var gunObject = Instantiate(_gunTemplate, _socket.transform, true);
             gunObject.transform.localPosition = Vector3.zero;
             gunObject.transform.localRotation = Quaternion.identity;
-            _weapon = gunObject.GetComponent<BasicWeapon>();
+            Weapon = gunObject.GetComponent<BasicWeapon>();
         }
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
-        if (_weapon)
+        if (Weapon)
         {
-            _weapon.Fire();
+            Weapon.Fire();
         }
     }
 }
