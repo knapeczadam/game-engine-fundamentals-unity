@@ -12,7 +12,7 @@ public class BasicProjectile : MonoBehaviour
     private float _lifeTime = 1.0f;
 
     [SerializeField] 
-    private int _damage = 20;
+    private float _damage = 20.0f;
 
     private void Awake()
     {

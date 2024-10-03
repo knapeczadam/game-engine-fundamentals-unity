@@ -8,6 +8,9 @@ TagManager:
   - Friend
   - Cat
   - Tree
+  - SlowEnemy
+  - FastEnemy
+  - Boss
   layers:
   - Default
   - TransparentFX
