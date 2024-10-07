@@ -321,7 +321,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &588522278659070824
@@ -375,6 +375,7 @@ MonoBehaviour:
   _fireRate: 25
   _fireSockets:
   - {fileID: 2289473201588775759}
+  _weaponName: Basic Weapon
 --- !u!1 &3655068482412643536
 GameObject:
   m_ObjectHideFlags: 0

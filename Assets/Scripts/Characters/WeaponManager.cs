@@ -10,5 +10,9 @@ public class WeaponManager : MonoBehaviour
     public List<GameObject> Weapons => _weapons;
     
     private GameObject _currentWeapon = null;
-    public GameObject CurrentWeapon { get; set; } = null;
+    public GameObject CurrentWeapon 
+    {
+        get => _currentWeapon;
+        set => _currentWeapon = value;
+    }
 }

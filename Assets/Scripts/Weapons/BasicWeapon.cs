@@ -17,6 +17,10 @@ public class BasicWeapon : MonoBehaviour
     private bool _triggerPulled = false;
     private float _timeSinceLastShot = 0.0f;
 
+    [SerializeField]
+    private string _weaponName = "Basic Weapon";
+    public string WeaponName => _weaponName;
+
     private void Start()
     {
         // InvokeRepeating(nameof(Fire), 1.0f, 1.0f);
