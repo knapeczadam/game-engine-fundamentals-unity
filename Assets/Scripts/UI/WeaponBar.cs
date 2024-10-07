@@ -33,6 +33,19 @@ public class WeaponBar : MonoBehaviour
         }
     }
     
+    private void OnDestroy()
+    {
+        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+        if (player)
+        {
+            var switchWeaponBehaviour = player.GetComponent<SwitchWeaponBehaviour>();
+            if (switchWeaponBehaviour)
+            {
+                switchWeaponBehaviour.OnWeaponSwitched -= UpdateWeaponText;
+            }
+        }
+    }
+    
     private void UpdateWeaponText(int weaponIndex)
     {
         _weaponText.text = _weaponManager.CurrentWeapon.GetComponent<BasicWeapon>().WeaponName;
