@@ -13,6 +13,15 @@ public class PickUpBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject _socket = null;
     
+    private AttackBehaviour _attackBehaviour = null;
+    private MovementBehaviour _movementBehaviour = null;
+    
+    private void Awake()
+    {
+        _attackBehaviour = GetComponent<AttackBehaviour>();
+        _movementBehaviour = GetComponent<MovementBehaviour>();
+    }
+    
     public void PickUp()
     {
         if (!_catPickedUp && _catDetected)
@@ -20,6 +29,8 @@ public class PickUpBehaviour : MonoBehaviour
             Debug.Log("Cat picked up");
             
             _catPickedUp = true;
+            _attackBehaviour.canAttack = false;
+            _movementBehaviour.canRun = false;
             
             // Hide the AI cat and show the static cat
             _aiCat.SetActive(false);
@@ -36,6 +47,8 @@ public class PickUpBehaviour : MonoBehaviour
             Debug.Log("Release the cat");
             
             _catPickedUp = false;
+            _attackBehaviour.canAttack = true;
+            _movementBehaviour.canRun = true;
             
             // Hide the static cat and show the AI cat
             _staticCat.SetActive(false);

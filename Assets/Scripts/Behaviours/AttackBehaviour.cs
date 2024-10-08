@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class AttackBehaviour : MonoBehaviour
@@ -14,6 +15,8 @@ public class AttackBehaviour : MonoBehaviour
     private GameObject _socket = null;
 
     protected BasicWeapon Weapon { get; set; } = null;
+    
+    public bool canAttack = true;
     
     private void Awake()
     {
@@ -28,7 +31,7 @@ public class AttackBehaviour : MonoBehaviour
 
     public virtual void Attack()
     {
-        if (Weapon)
+        if (canAttack && Weapon)
         {
             Weapon.Fire();
         }

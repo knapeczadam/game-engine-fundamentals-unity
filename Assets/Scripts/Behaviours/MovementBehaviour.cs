@@ -26,6 +26,8 @@ public class MovementBehaviour : MonoBehaviour
         get => _isRunning;
         set => _isRunning = value;
     }
+    
+    public bool canRun = true;
 
     protected GameObject _target;
     public GameObject Target
@@ -58,7 +60,7 @@ public class MovementBehaviour : MonoBehaviour
         
         Vector3 movement = _desiredMovementDirection.normalized;
         float movementSpeed = _movementSpeed;
-        if (_isRunning)
+        if (canRun && _isRunning)
         {
             movementSpeed *= 2.0f;
         }
