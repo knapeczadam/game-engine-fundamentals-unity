@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class PickUpBehaviour : MonoBehaviour
 {
     private bool _catPickedUp = false;
+    public bool CatPickedUp => _catPickedUp;
     private bool _catDetected = false;
     private GameObject _aiCat = null;
     private GameObject _staticCat = null;
@@ -13,14 +14,8 @@ public class PickUpBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject _socket = null;
     
-    private AttackBehaviour _attackBehaviour = null;
-    private MovementBehaviour _movementBehaviour = null;
-    
-    private void Awake()
-    {
-        _attackBehaviour = GetComponent<AttackBehaviour>();
-        _movementBehaviour = GetComponent<MovementBehaviour>();
-    }
+    public delegate void PickUpAction(bool catPickedUp);
+    public event PickUpAction OnPickUp;
     
     public void PickUp()
     {
@@ -29,9 +24,8 @@ public class PickUpBehaviour : MonoBehaviour
             Debug.Log("Cat picked up");
             
             _catPickedUp = true;
-            _attackBehaviour.canAttack = false;
-            _movementBehaviour.canRun = false;
-            
+            OnPickUp?.Invoke(_catPickedUp);
+
             // Hide the AI cat and show the static cat
             _aiCat.SetActive(false);
             _staticCat.SetActive(true);
@@ -47,9 +41,8 @@ public class PickUpBehaviour : MonoBehaviour
             Debug.Log("Release the cat");
             
             _catPickedUp = false;
-            _attackBehaviour.canAttack = true;
-            _movementBehaviour.canRun = true;
-            
+            OnPickUp?.Invoke(_catPickedUp);
+
             // Hide the static cat and show the AI cat
             _staticCat.SetActive(false);
             _aiCat.SetActive(true);

@@ -16,8 +16,6 @@ public class AttackBehaviour : MonoBehaviour
 
     protected BasicWeapon Weapon { get; set; } = null;
     
-    public bool canAttack = true;
-    
     private void Awake()
     {
         if (_gunTemplate && _socket)
@@ -31,7 +29,7 @@ public class AttackBehaviour : MonoBehaviour
 
     public virtual void Attack()
     {
-        if (canAttack && Weapon)
+        if (Weapon)
         {
             Weapon.Fire();
         }

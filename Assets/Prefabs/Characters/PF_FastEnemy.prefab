@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 50043469608412279, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 44
+      objectReference: {fileID: 0}
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Name
@@ -76,7 +81,57 @@ PrefabInstance:
     - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: _maxHealth
-      value: 60
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 100000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 100000, guid: cfc7596704bbd7f489156fcd4c05c7e9, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[3]
+      value: 
+      objectReference: {fileID: 100000, guid: 6fe4d785744af2c40a2157f5b209d97f, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[4]
+      value: 
+      objectReference: {fileID: 100000, guid: aec54d7a991d7b644b145d550a4b7831, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[5]
+      value: 
+      objectReference: {fileID: 100000, guid: 14987c031123b98408a165a8bf1288d4, type: 3}
+    - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _bloodEffects.Array.data[6]
+      value: 
+      objectReference: {fileID: 100000, guid: 43dd1ba2a5dde844eb01240da13ab96b, type: 3}
+    - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5507644518660037737, guid: b46d0dae891d59b4eb649448305ce698, type: 3}

@@ -16,6 +16,9 @@ public class Health : MonoBehaviour
     public delegate void HealthChange(float startHealth, float currentHealth);
     public event HealthChange OnHealthChange;
     
+    [SerializeField]
+    private List<GameObject> _bloodEffects = new List<GameObject>();
+    
     private void Awake()
     {
         _currentHealth = _maxHealth;
@@ -47,6 +50,16 @@ public class Health : MonoBehaviour
     {
         _currentHealth -= damage;
         if (OnHealthChange != null) OnHealthChange.Invoke(_maxHealth, _currentHealth);
+        
+        if (_bloodEffects.Count > 0)
+        {
+            var bloodEffect = _bloodEffects[UnityEngine.Random.Range(0, _bloodEffects.Count)];
+            var yOffset = UnityEngine.Random.Range(0.001f, 0.10f);
+            var position = new Vector3(transform.position.x, yOffset, transform.position.z);
+            var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+            Instantiate(bloodEffect, position, rotation);
+        }
+        
         if (_currentHealth <= 0)
         {
             Die();

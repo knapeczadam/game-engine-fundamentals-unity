@@ -28,6 +28,7 @@ public class MovementBehaviour : MonoBehaviour
     }
     
     public bool canRun = true;
+    private PickUpBehaviour _pickUpBehaviour;
 
     protected GameObject _target;
     public GameObject Target
@@ -42,6 +43,20 @@ public class MovementBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _pickUpBehaviour = GetComponent<PickUpBehaviour>();
+    }
+
+    private void Start()
+    {
+        if (_pickUpBehaviour)
+        {
+            _pickUpBehaviour.OnPickUp += HandlePickUp;
+        }
+    }
+
+    private void HandlePickUp(bool catPickedUp)
+    {
+        canRun = !catPickedUp;
     }
 
     protected virtual void FixedUpdate()
