@@ -11,7 +11,12 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_Weapon5
+      value: PF_Weapon09
+      objectReference: {fileID: 0}
+    - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744376002680189356, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -71,13 +76,13 @@ PrefabInstance:
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: _weaponName
-      value: Grenade
+      value: Chargepack
       objectReference: {fileID: 0}
     - target: {fileID: 8401042708780459293, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6cf4935a25d16fa43bc489b40f773c53, type: 2}
+      objectReference: {fileID: 2100000, guid: 90e52c070e02ca540b9082987e74aa1b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

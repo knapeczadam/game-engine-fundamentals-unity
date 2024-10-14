@@ -21,6 +21,15 @@ public class BasicWeapon : MonoBehaviour
     private string _weaponName = "Basic Weapon";
     public string WeaponName => _weaponName;
 
+    
+    [SerializeField]
+    private bool _fastFire = false;
+    public bool FastFire
+    {
+        get => _fastFire;
+        set => _fastFire = value;
+    }
+
     private void Start()
     {
         // InvokeRepeating(nameof(Fire), 1.0f, 1.0f);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 3385636185279741751}
   m_Layer: 0
-  m_Name: blood3
+  m_Name: PF_Blood03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -18,6 +18,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_FastEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.607
+      objectReference: {fileID: 0}
     - target: {fileID: 4132704717983008822, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -126,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}

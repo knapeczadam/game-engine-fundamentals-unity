@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Blood : MonoBehaviour
 {
+    [SerializeField]
+    private float _minTimeToDestroy = 3f;
+    [SerializeField]
+    private float _maxTimeToDestroy = 10f;
     void Start()
     {
-        // var randomTime = Random.Range(3f, 10f);
-        // Destroy(gameObject, randomTime);
+        // Randomly destroy the blood effect after a random time
+        if (Random.Range(0, 1) == 1)
+        {
+            var randomTime = Random.Range(_minTimeToDestroy, _maxTimeToDestroy);
+            Destroy(gameObject, randomTime);
+        }
     }
 }

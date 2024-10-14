@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_Weapon1
+      value: PF_Weapon01
       objectReference: {fileID: 0}
     - target: {fileID: 2744376002680189356, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: _fireRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}

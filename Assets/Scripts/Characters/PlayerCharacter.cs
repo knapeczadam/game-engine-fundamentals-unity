@@ -28,6 +28,8 @@ public class PlayerCharacter : BasicCharacter
     
     private PickUpBehaviour _pickUpBehaviour;
     private SwitchWeaponBehaviour _switchWeaponBehaviour;
+    
+    private WeaponManager _weaponManager = null;
 
     protected override void Awake()
     {
@@ -41,6 +43,7 @@ public class PlayerCharacter : BasicCharacter
         
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
         _switchWeaponBehaviour = GetComponent<SwitchWeaponBehaviour>();
+        _weaponManager = GetComponent<WeaponManager>();
     }
 
     private void OnEnable()
@@ -108,10 +111,20 @@ public class PlayerCharacter : BasicCharacter
             Debug.LogError("AttackBehaviour or Attack Action is not set in the PlayerCharacter component.");
             return;
         }
-        
-        if (_attackAction.action.IsPressed())
+
+        if (_weaponManager.CurrentWeapon.GetComponent<BasicWeapon>().FastFire)
         {
-            _attackBehaviour.Attack();
+            if (_attackAction.action.IsPressed())
+            {
+                _attackBehaviour.Attack();
+            }
+        }
+        else
+        {
+            if (_attackAction.action.WasPerformedThisFrame())
+            {
+                _attackBehaviour.Attack();
+            }
         }
     }
 

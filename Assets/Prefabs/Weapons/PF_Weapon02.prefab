@@ -11,7 +11,12 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_Weapon2
+      value: PF_Weapon02
+      objectReference: {fileID: 0}
+    - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744376002680189356, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}

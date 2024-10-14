@@ -13,6 +13,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_SlowEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.739
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.051
+      objectReference: {fileID: 0}
     - target: {fileID: 4132704717983008822, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,6 +128,16 @@ PrefabInstance:
       propertyPath: _bloodEffects.Array.data[6]
       value: 
       objectReference: {fileID: 100000, guid: 43dd1ba2a5dde844eb01240da13ab96b, type: 3}
+    - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071392870338135058, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5507644518660037737, guid: b46d0dae891d59b4eb649448305ce698, type: 3}
     m_RemovedGameObjects: []
