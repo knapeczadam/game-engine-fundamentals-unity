@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SkyboxManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D _skyboxNight;
-    [SerializeField] private Texture2D _skyboxSunrise;
-    [SerializeField] private Texture2D _skyboxDay;
-    [SerializeField] private Texture2D _skyboxSunset;
+    [SerializeField] private Texture2D _skyboxNight   = null;
+    [SerializeField] private Texture2D _skyboxSunrise = null;
+    [SerializeField] private Texture2D _skyboxDay     = null;
+    [SerializeField] private Texture2D _skyboxSunset  = null;
     
     public IEnumerator LerpSkybox(Texture2D a, Texture2D b, float time)
     {
@@ -22,22 +22,22 @@ public class SkyboxManager : MonoBehaviour
         }
         RenderSettings.skybox.SetTexture("_Texture1", b);
     }
-    
+
     public void FromNightToSunrise()
     {
         StartCoroutine(LerpSkybox(_skyboxNight, _skyboxSunrise, 1));
     }
-    
+
     public void FromSunriseToDay()
     {
         StartCoroutine(LerpSkybox(_skyboxSunrise, _skyboxDay, 1));
     }
-    
+
     public void FromDayToSunset()
     {
         StartCoroutine(LerpSkybox(_skyboxDay, _skyboxSunset, 1));
     }
-    
+
     public void FromSunsetToNight()
     {
         StartCoroutine(LerpSkybox(_skyboxSunset, _skyboxNight, 1));

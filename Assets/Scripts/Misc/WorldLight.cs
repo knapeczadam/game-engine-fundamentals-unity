@@ -7,12 +7,8 @@ using UnityEngine;
 public class WorldLight : MonoBehaviour
 {
     private Light _light = null;
-
-    [SerializeField] 
-    private WorldTime _worldTime;
-
-    [SerializeField] 
-    private Gradient _gradient;
+    [SerializeField] private WorldTime _worldTime = null;
+    [SerializeField] private Gradient  _gradient  = null;
 
     private void Awake()
     {

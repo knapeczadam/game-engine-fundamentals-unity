@@ -13,6 +13,8 @@ public class CatManager : MonoBehaviour
     private PickUpBehaviour _pickUpBehaviour = null;
     private bool            _inSafeZone      = false;
     
+    private bool _isDay = false;
+    
     private void Awake()
     {
         var player = FindObjectOfType<PlayerCharacter>();
@@ -32,7 +34,7 @@ public class CatManager : MonoBehaviour
 
     private void HandlePickUp(bool catPickedUp)
     {
-        if (!catPickedUp && _inSafeZone)
+        if (_isDay && !catPickedUp && _inSafeZone)
         {
             _catCount++;
             OnCatCountChange?.Invoke(_catCount);
@@ -83,5 +85,10 @@ public class CatManager : MonoBehaviour
             GetComponentInChildren<Highlight>().DisableHighlight();
             _inSafeZone = false;
         }
+    }
+    
+    public void SetDay(bool isDay)
+    {
+        _isDay = isDay;
     }
 }

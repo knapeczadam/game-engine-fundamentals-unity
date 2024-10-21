@@ -6,8 +6,7 @@ using UnityEngine;
 public class WorldTime : MonoBehaviour
 {
     public event EventHandler<TimeSpan> WorldTimeChanged; 
-    [SerializeField]
-    private float _dayLength; // in seconds
+    [SerializeField] private float _dayLength; // in seconds
 
     private TimeSpan _currentTime;
     private float _minuteLength => _dayLength / WorldTimeConstants.MINUTES_IN_DAY;
