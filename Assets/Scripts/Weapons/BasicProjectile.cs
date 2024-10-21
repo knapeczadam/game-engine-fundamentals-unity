@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] 
-    private float _speed = 30.0f;
-
-    [SerializeField] 
-    private float _lifeTime = 1.0f;
-
-    [SerializeField] 
-    private float _damage = 20.0f;
+    [SerializeField] private float _speed    = 30.0f;
+    [SerializeField] private float _lifeTime = 1.0f;
+    [SerializeField] private float _damage   = 20.0f;
+    
+    private static readonly string[] RAYCAST_MASKS = { "Ground", "StaticLevel" };
+    private static readonly string[] SHOOTABLE_LAYERS = { "Enemy", "Friend" };
 
     private void Awake()
     {
@@ -32,8 +30,6 @@ public class BasicProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private static readonly string[] RAYCAST_MASKS = { "Ground", "StaticLevel" };
-
     private bool WallDetection()
     {
         Ray collisionRay = new Ray(transform.position, transform.forward);
@@ -47,7 +43,8 @@ public class BasicProjectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag(Tags.FRIEND) && !other.CompareTag(Tags.ENEMY))
+        var allowedLayers = LayerMask.GetMask(SHOOTABLE_LAYERS);
+        if ((allowedLayers & (1 << other.gameObject.layer)) == 0)
         {
             return;
         }

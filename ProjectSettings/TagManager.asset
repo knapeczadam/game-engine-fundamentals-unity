@@ -10,7 +10,7 @@ TagManager:
   - Tree
   - SlowEnemy
   - FastEnemy
-  - Boss
+  - BossEnemy
   layers:
   - Default
   - TransparentFX

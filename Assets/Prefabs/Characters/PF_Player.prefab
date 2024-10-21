@@ -398,12 +398,12 @@ GameObject:
   - component: {fileID: 649097492555634647}
   - component: {fileID: 9082197393933412983}
   - component: {fileID: 4406713122776762695}
-  - component: {fileID: 4998445671650506805}
   - component: {fileID: 9103443180395290921}
   - component: {fileID: 5887315547856892769}
   - component: {fileID: 8528998724052297772}
   - component: {fileID: 2728003387442968935}
   - component: {fileID: 640470700792874317}
+  - component: {fileID: 4924767170343786399}
   m_Layer: 8
   m_Name: PF_Player
   m_TagString: Friend
@@ -519,20 +519,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4998445671650506805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3759758649391458852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6ba62cca0941bb419aea9433217a26b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _bloodEffects: []
 --- !u!114 &9103443180395290921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +601,19 @@ MonoBehaviour:
   _gunTemplate: {fileID: 0}
   _socket: {fileID: 0}
   canAttack: 1
+--- !u!114 &4924767170343786399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759758649391458852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57563835284c8274c8d21f56d1954b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &4251882729350744990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,6 +1884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF_Weapon01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042646568461111000, guid: d68b6f95edb2dae4ea61002d35b162ad,
+        type: 3}
+      propertyPath: _fireRate
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
