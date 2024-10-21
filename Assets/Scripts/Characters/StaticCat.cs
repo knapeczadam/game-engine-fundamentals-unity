@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class StaticCat : MonoBehaviour
 {
+    [SerializeField] private GameObject _aiCat = null;
+    
     private void Awake()
     {
-        var rootCat = gameObject.transform.parent;
-        var aiCat = rootCat.GetComponentInChildren<AICat>(true);
-        aiCat.GetComponent<SeekingBehaviour>().Target = rootCat.root.gameObject;
+        _aiCat.GetComponent<SeekingBehaviour>().Target = transform.root.gameObject;
     }
 }

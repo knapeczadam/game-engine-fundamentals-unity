@@ -38,11 +38,9 @@ public class MyTree : MonoBehaviour
                 var rootCat = aiCat.transform.parent;
                 var staticCat = rootCat.GetComponentInChildren<StaticCat>(true);
                 
-                rootCat.SetParent(_catSocket);
+                rootCat.SetParent(_catSocket, false);
                 aiCat.gameObject.SetActive(false);
                 staticCat.gameObject.SetActive(true);
-                
-                staticCat.transform.position = _catSocket.position;
             }
         }
     }

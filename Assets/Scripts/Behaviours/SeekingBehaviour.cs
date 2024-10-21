@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class SeekingBehaviour : MovementBehaviour
 {
     private NavMeshAgent _navMeshAgent;
+    private const float MOVEMENT_THRESHOLD = 0.25f;
     
     protected override void Awake()
     {
@@ -17,7 +18,6 @@ public class SeekingBehaviour : MovementBehaviour
         _navMeshAgent.speed = _movementSpeed;
     }
 
-    const float MOVEMENT_THRESHOLD = 0.25f;
     protected override void HandleMovement()
     {
         if ((_target.transform.position - transform.position).sqrMagnitude > MOVEMENT_THRESHOLD)

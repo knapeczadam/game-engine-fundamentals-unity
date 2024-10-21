@@ -43,7 +43,7 @@ public class MovementBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _pickUpBehaviour = GetComponent<PickUpBehaviour>();
+        _pickUpBehaviour = GetComponent<PickUpBehaviour>(); // TODO: cat doesn't have this component
     }
 
     private void Start()

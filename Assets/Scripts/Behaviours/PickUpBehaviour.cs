@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class PickUpBehaviour : MonoBehaviour
 {
+    private bool _catDetected = false;
     private bool _catPickedUp = false;
     public bool CatPickedUp => _catPickedUp;
-    private bool _catDetected = false;
-    private GameObject _aiCat = null;
-    private GameObject _staticCat = null;
-    private GameObject _rootCat = null;
     
-    [SerializeField]
-    private GameObject _socket = null;
+    private GameObject _aiCat     = null;
+    private GameObject _staticCat = null;
+    private GameObject _rootCat   = null;
+    
+    [SerializeField] private GameObject _catSocket = null;
     
     public delegate void PickUpAction(bool catPickedUp);
     public event PickUpAction OnPickUp;
@@ -30,11 +31,7 @@ public class PickUpBehaviour : MonoBehaviour
             _aiCat.SetActive(false);
             _staticCat.SetActive(true);
             
-            // Reset the cat's position and rotation
-            _staticCat.transform.position = _socket.transform.position;
-            _staticCat.transform.rotation = Quaternion.identity;
-            
-            _rootCat.transform.SetParent(_socket.transform);
+            _rootCat.transform.SetParent(_catSocket.transform, false);
         }
         else if (_catPickedUp)
         {
@@ -47,7 +44,7 @@ public class PickUpBehaviour : MonoBehaviour
             _staticCat.SetActive(false);
             _aiCat.SetActive(true);
             
-            _rootCat.transform.SetParent(null);
+            _rootCat.transform.SetParent(null, false);
             
             // Reset the cat's position and rotation
             _aiCat.transform.position = transform.position;
