@@ -6,10 +6,9 @@ using UnityEngine.UIElements;
 
 public class HUD : MonoBehaviour
 {
-    private UIDocument _attachedDocument = null;
-    private VisualElement _root = null;
-    
-    private ProgressBar _healthBar = null;
+    private UIDocument    _attachedDocument = null;
+    private VisualElement _root             = null;
+    private IntegerField  _catCountField    = null;
 
     private void Start()
     {
@@ -21,26 +20,14 @@ public class HUD : MonoBehaviour
 
         if (_root != null)
         {
-            _healthBar = _root.Q<ProgressBar>();
+            _catCountField = _root.Q<IntegerField>();
 
-            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-            if (player)
+            CatManager catManager = FindObjectOfType<CatManager>();
+            if (catManager)
             {
-                Health playerHealth = player.GetComponent<Health>();
-                if (playerHealth)
-                {
-                    UpdateHealth(playerHealth.MaxHealth, playerHealth.CurrentHealth);
-                    playerHealth.OnHealthChange += UpdateHealth;
-                }
+                _catCountField.value = catManager.CatCount;
+                catManager.OnCatCountChange += (catCount) => _catCountField.value = catCount;
             }
         }
-    }
-
-    public void UpdateHealth(float startHealth, float currentHealth)
-    {
-        if (_healthBar == null) return;
-        
-        _healthBar.value = currentHealth / startHealth;
-        _healthBar.title = $"{currentHealth}/{startHealth}";
     }
 }

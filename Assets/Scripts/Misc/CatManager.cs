@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class CatManager : MonoBehaviour
 {
-    private int _catCount = 0;
-    private PickUpBehaviour _pickUpBehaviour;
-    private bool _inSafeZone = false;
+    private int             _catCount        = 0;
+    public int              CatCount => _catCount;
+    public delegate void    CatCountChange(int catCount);
+    public event CatCountChange OnCatCountChange = null;
+
+    private PickUpBehaviour _pickUpBehaviour = null;
+    private bool            _inSafeZone      = false;
     
     private void Awake()
     {
@@ -31,6 +35,7 @@ public class CatManager : MonoBehaviour
         if (!catPickedUp && _inSafeZone)
         {
             _catCount++;
+            OnCatCountChange?.Invoke(_catCount);
             Debug.Log($"Cat count: {_catCount}");
         }
     }
@@ -55,7 +60,19 @@ public class CatManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.FRIEND))
         {
-            
+            var pickUpBehaviour = other.gameObject.GetComponent<PickUpBehaviour>();
+            if (pickUpBehaviour)
+            {
+                if (pickUpBehaviour.CatPickedUp)
+                {
+                    _inSafeZone = true;
+                    GetComponentInChildren<Highlight>().EnableHighlight();
+                }
+                else
+                {
+                    GetComponentInChildren<Highlight>().DisableHighlight();
+                }
+            }
         }
     }
 
