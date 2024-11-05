@@ -1,17 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _player = null;
+    [SerializeField] private GameObject m_player = null;
 
     private void Update()
     {
-        if (_player == null)
+        if (m_player == null)
         {
             TriggerGameOver();
         }

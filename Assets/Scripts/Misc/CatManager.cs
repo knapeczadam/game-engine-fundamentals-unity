@@ -1,57 +1,58 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CatManager : MonoBehaviour
 {
-    private int             _catCount        = 0;
-    public int              CatCount => _catCount;
+    public int              m_catCount { get; private set; } = 0;
     public delegate void    CatCountChange(int catCount);
     public event CatCountChange OnCatCountChange = null;
 
-    private PickUpBehaviour _pickUpBehaviour = null;
-    private bool            _inSafeZone      = false;
-    
-    private bool _isDay = false;
+    private PickUpBehaviour m_pickUpBehaviour = null;
+    private bool m_inSafeZone  = false;
+    private bool            m_isDay           = false;
     
     private void Awake()
     {
         var player = FindObjectOfType<PlayerCharacter>();
         if (player)
         {
-            _pickUpBehaviour = player.GetComponent<PickUpBehaviour>();
+            m_pickUpBehaviour = player.GetComponent<PickUpBehaviour>();
         }
     }
 
     private void Start()
     {
-        if (_pickUpBehaviour)
+        if (m_pickUpBehaviour)
         {
-            _pickUpBehaviour.OnPickUp += HandlePickUp;
+            m_pickUpBehaviour.OnPickUp += HandlePickUp;
         }
     }
 
     private void HandlePickUp(bool catPickedUp)
     {
-        if (_isDay && !catPickedUp && _inSafeZone)
+        if (m_isDay && !catPickedUp && m_inSafeZone)
         {
-            _catCount++;
-            OnCatCountChange?.Invoke(_catCount);
-            Debug.Log($"Cat count: {_catCount}");
+            m_catCount++;
+            OnCatCountChange?.Invoke(m_catCount);
+            Debug.Log($"Cat count: {m_catCount}");
+            
         }
+    }
+    
+    public bool SafeZoneActive()
+    {
+        return m_inSafeZone && m_isDay;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(Tags.FRIEND))
+        if (other.gameObject.CompareTag(Tags.PLAYER))
         {
             var pickUpBehaviour = other.gameObject.GetComponent<PickUpBehaviour>();
             if (pickUpBehaviour)
             {
-                if (pickUpBehaviour.CatPickedUp)
+                if (pickUpBehaviour.m_catPickedUp)
                 {
-                    _inSafeZone = true;
+                    m_inSafeZone = true;
                     GetComponentInChildren<Highlight>().EnableHighlight();
                 }
             }
@@ -60,14 +61,14 @@ public class CatManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag(Tags.FRIEND))
+        if (other.gameObject.CompareTag(Tags.PLAYER))
         {
             var pickUpBehaviour = other.gameObject.GetComponent<PickUpBehaviour>();
             if (pickUpBehaviour)
             {
-                if (pickUpBehaviour.CatPickedUp)
+                if (pickUpBehaviour.m_catPickedUp)
                 {
-                    _inSafeZone = true;
+                    m_inSafeZone = true;
                     GetComponentInChildren<Highlight>().EnableHighlight();
                 }
                 else
@@ -80,15 +81,23 @@ public class CatManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(Tags.FRIEND))
+        if (other.gameObject.CompareTag(Tags.PLAYER))
         {
             GetComponentInChildren<Highlight>().DisableHighlight();
-            _inSafeZone = false;
+            m_inSafeZone = false;
         }
     }
     
     public void SetDay(bool isDay)
     {
-        _isDay = isDay;
+        m_isDay = isDay;
+    }
+
+    public void Reset()
+    {
+        m_catCount = 0;
+        OnCatCountChange?.Invoke(m_catCount);
+        m_isDay = false;
+        m_inSafeZone = false;
     }
 }

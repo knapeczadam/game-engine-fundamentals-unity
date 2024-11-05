@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    
     void Start()
     {
         PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
@@ -14,7 +10,7 @@ public class HealthBar : MonoBehaviour
             Health playerHealth = player.GetComponent<Health>();
             if (playerHealth)
             {
-                UpdateHealth(playerHealth.MaxHealth, playerHealth.CurrentHealth);
+                UpdateHealth(playerHealth.m_maxHealth, playerHealth.m_currentHealth);
                 playerHealth.OnHealthChange += UpdateHealth;
             }
         }

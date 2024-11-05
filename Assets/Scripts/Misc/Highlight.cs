@@ -1,31 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class Highlight : MonoBehaviour
 {
-    private Material _originalMaterial;
-    private Renderer _renderer;
-    
-    [SerializeField]
-    private Material _highlightMaterial;
+    [SerializeField] private Material m_highlightMaterial = null;
+    private Material m_originalMaterial = null;
+    private Renderer m_renderer         = null;
     
     private void Awake()
     {
-        _renderer = GetComponent<Renderer>();
-        _originalMaterial = _renderer.material;
+        m_renderer = GetComponent<Renderer>();
+        m_originalMaterial = m_renderer.material;
     }
     
     public void EnableHighlight()
     {
-        _renderer.material = _highlightMaterial;
+        m_renderer.material = m_highlightMaterial;
     }
     
     public void DisableHighlight()
     {
-        _renderer.material = _originalMaterial;
+        m_renderer.material = m_originalMaterial;
     }
 }

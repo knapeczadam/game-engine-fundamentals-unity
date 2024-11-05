@@ -1,27 +1,25 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 [DisallowMultipleComponent]
 public class AICat : MonoBehaviour
 {
-    private List<Highlight> _highlights = new List<Highlight>();
+    private List<Highlight> m_highlights = new List<Highlight>();
+    
     private void Awake()
     {
         var highlightComponents = GetComponentsInChildren<Highlight>();
         foreach (var highlightComponent in highlightComponents)
         {
-            _highlights.Add(highlightComponent);
+            m_highlights.Add(highlightComponent);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Tags.FRIEND))
+        if (other.CompareTag(Tags.PLAYER))
         {
-            foreach (var highlight in _highlights)
+            foreach (var highlight in m_highlights)
             {
                 highlight.EnableHighlight();
             }
@@ -30,9 +28,9 @@ public class AICat : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(Tags.FRIEND))
+        if (other.CompareTag(Tags.PLAYER))
         {
-            foreach (var highlight in _highlights)
+            foreach (var highlight in m_highlights)
             {
                 highlight.DisableHighlight();
             }

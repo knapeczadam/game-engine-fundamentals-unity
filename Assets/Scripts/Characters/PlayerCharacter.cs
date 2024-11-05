@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -8,77 +5,78 @@ using UnityEngine.Serialization;
 [DisallowMultipleComponent]
 public class PlayerCharacter : BasicCharacter
 {
-    [SerializeField] 
-    private InputActionAsset _inputAsset;
+    [SerializeField] private InputActionAsset     m_inputAsset         = null;
+    [SerializeField] private InputActionReference m_movementAction     = null;
+    [SerializeField] private InputActionReference m_runAction          = null;
+    [SerializeField] private InputActionReference m_attackAction       = null;
+    [SerializeField] private InputActionReference m_pickUpAction       = null;
+    [SerializeField] private InputActionReference m_switchWeaponAction ;
+    [SerializeField] private InputActionReference m_cameraDistanceAction       = null;  
+    [SerializeField] private InputActionReference m_cameraRotationAction = null;
+    [SerializeField] private CameraManager        m_cameraManager       = null;
     
-    [SerializeField]
-    private InputActionReference _movementAction;
-    
-    [SerializeField]
-    private InputActionReference _runAction;
-    
-    [SerializeField]
-    private InputActionReference _attackAction;
-    
-    [SerializeField]
-    private InputActionReference _pickUpAction;
-
-    [SerializeField] 
-    private InputActionReference _switchWeaponAction;
-    
-    private PickUpBehaviour _pickUpBehaviour;
-    private SwitchWeaponBehaviour _switchWeaponBehaviour;
-    
-    private WeaponManager _weaponManager = null;
+    private PickUpBehaviour       m_pickUpBehaviour       = null;
+    private SwitchWeaponBehaviour m_switchWeaponBehaviour = null;
+    private WeaponManager         m_weaponManager         = null;
 
     protected override void Awake()
     {
         base.Awake();
         
-        if (_inputAsset == null)
+        if (m_inputAsset == null)
         {
             Debug.LogError("Input Asset is not set in the PlayerCharacter component.");
             return;
         }
         
-        _pickUpBehaviour = GetComponent<PickUpBehaviour>();
-        _switchWeaponBehaviour = GetComponent<SwitchWeaponBehaviour>();
-        _weaponManager = GetComponent<WeaponManager>();
+        m_pickUpBehaviour       = GetComponent<PickUpBehaviour>();
+        m_switchWeaponBehaviour = GetComponent<SwitchWeaponBehaviour>();
+        m_weaponManager         = GetComponent<WeaponManager>();
     }
 
     private void OnEnable()
     {
-        if (_inputAsset)
+        if (m_inputAsset)
         {
-            _inputAsset.Enable();
+            m_inputAsset.Enable();
         }
 
-        if (_pickUpAction)
+        if (m_pickUpAction)
         {
-            _pickUpAction.action.performed += HandlePickUpInput;
+            m_pickUpAction.action.performed += HandlePickUpInput;
         }
         
-        if (_switchWeaponAction)
+        if (m_switchWeaponAction)
         {
-            _switchWeaponAction.action.performed += HandleSwitchWeaponInput;
+            m_switchWeaponAction.action.performed += HandleSwitchWeaponInput;
+        }
+        
+        if (m_cameraDistanceAction)
+        {
+            m_cameraDistanceAction.action.performed += HandleCameraDistanceInput;
         }
     }
     
     private void OnDisable()
     {
-        if (_inputAsset)
+        if (m_inputAsset)
         {
-            _inputAsset.Disable();
+            m_inputAsset.Disable();
         }
 
-        if (_pickUpAction)
+        if (m_pickUpAction)
         {
-            _pickUpAction.action.performed -= HandlePickUpInput;
+            m_pickUpAction.action.performed -= HandlePickUpInput;
         }
         
-        if (_switchWeaponAction)
+        if (m_switchWeaponAction)
         {
-            _switchWeaponAction.action.performed -= HandleSwitchWeaponInput;
+            m_switchWeaponAction.action.performed -= HandleSwitchWeaponInput;
+        }
+        
+        if (m_cameraDistanceAction)
+        {
+            m_cameraDistanceAction.action.performed -= HandleCameraDistanceInput;
         }
     }
 
@@ -87,43 +85,44 @@ public class PlayerCharacter : BasicCharacter
     {
         HandleMovementInput();
         HandleAttackInput();
+        HandleCameraRotationInput();
     }
 
     private void HandleMovementInput()
     {
-        if (_movementBehaviour == null || _movementAction == null)
+        if (m_movementBehaviour == null || m_movementAction == null)
         {
             Debug.LogError("MovementBehaviour or Movement Action is not set in the PlayerCharacter component.");
             return;
         }
         
-        Vector2 movement = _movementAction.action.ReadValue<Vector2>();
+        Vector2 movement = m_movementAction.action.ReadValue<Vector2>();
         Vector3 movementDirection = new Vector3(movement.x, 0, movement.y);
-        _movementBehaviour.DesiredMovementDirection = movementDirection;
+        m_movementBehaviour.m_desiredMovementDirection = movementDirection;
         
-        _movementBehaviour.IsRunning = _runAction.action.IsPressed();
+        m_movementBehaviour.m_runPressed = m_runAction.action.IsPressed();
     }
     
     private void HandleAttackInput()
     {
-        if (_attackBehaviour == null || _attackAction == null)
+        if (m_attackBehaviour == null || m_attackAction == null)
         {
             Debug.LogError("AttackBehaviour or Attack Action is not set in the PlayerCharacter component.");
             return;
         }
 
-        if (_weaponManager.CurrentWeapon.GetComponent<BasicWeapon>().FastFire)
+        if (m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>().m_fastFire)
         {
-            if (_attackAction.action.IsPressed())
+            if (m_attackAction.action.IsPressed())
             {
-                _attackBehaviour.Attack();
+                m_attackBehaviour.Attack();
             }
         }
         else
         {
-            if (_attackAction.action.WasPerformedThisFrame())
+            if (m_attackAction.action.WasPerformedThisFrame())
             {
-                _attackBehaviour.Attack();
+                m_attackBehaviour.Attack();
             }
         }
     }
@@ -132,7 +131,7 @@ public class PlayerCharacter : BasicCharacter
     {
         if (context.performed)
         {
-            _pickUpBehaviour.PickUp();
+            m_pickUpBehaviour.PickUp();
         }
     }
     
@@ -142,7 +141,40 @@ public class PlayerCharacter : BasicCharacter
         {
             // Values start from 1, so we need to subtract 1 to get the correct index
             var weaponIndex = (int) context.ReadValue<float>();
-            _switchWeaponBehaviour.SwitchWeapon(weaponIndex - 1);
+            m_switchWeaponBehaviour.SwitchWeapon(weaponIndex - 1);
+        }
+    }
+    
+    private void HandleCameraDistanceInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Debug.Log(context.ReadValue<float>());
+            var value = context.ReadValue<float>();
+            if (value > 0)
+            {
+                m_cameraManager.DecreaseCameraDistance();
+            }
+            else if (value < 0)
+            {
+                m_cameraManager.IncreaseCameraDistance();
+            }
+        }
+    }
+    
+    private void HandleCameraRotationInput()
+    {
+        if (m_cameraRotationAction.action.IsPressed())
+        {
+            var value = m_cameraRotationAction.action.ReadValue<float>();
+            if (value > 0)
+            {
+                m_cameraManager.RotateCameraRight();
+            }
+            else if (value < 0)
+            {
+                m_cameraManager.RotateCameraLeft();
+            }
         }
     }
 

@@ -1,40 +1,38 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 100;
-    public float MaxHealth => _maxHealth;
-    
-    private float _currentHealth = 0;
-    public float CurrentHealth => _currentHealth;
+    public float m_maxHealth      = 100.0f;
+    public float m_currentHealth { get; private set; } = 0.0f;
+    public bool  m_isDead        { get; private set; } = false;
     
     public delegate void HealthChange(float startHealth, float currentHealth);
     public event HealthChange OnHealthChange = null;
     
-    private bool _isDead = false;
-    public bool IsDead => _isDead;
-    
-    private void Awake()
+    protected virtual void Awake()
     {
-        _currentHealth = _maxHealth;
+        m_currentHealth = m_maxHealth;
     }
 
-    public virtual bool TakeDamage(float damage)
+    public virtual bool TakeDamage(float damage, float forceMultiplier = 1.0f)
     {
-        if (_isDead) return false;
+        if (m_isDead) return false;
         
-        _currentHealth -= damage;
-        if (OnHealthChange != null) OnHealthChange.Invoke(_maxHealth, _currentHealth);
+        m_currentHealth -= damage;
         
-        if (_currentHealth <= 0)
+        if (m_currentHealth > m_maxHealth)
         {
-            _isDead = true;
+            m_currentHealth = m_maxHealth;
+        }
+        
+        OnHealthChange?.Invoke(m_maxHealth, m_currentHealth);
+
+        if (m_currentHealth <= 0)
+        {
+            m_isDead = true;
             Die();
             
             return false;
@@ -42,6 +40,13 @@ public abstract class Health : MonoBehaviour
         
         return true;
     }
+    
 
     protected abstract void Die();
+    
+    public void Reset ()
+    {
+        m_currentHealth = m_maxHealth;
+        m_isDead = false;
+    }
 }

@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WorldTime : MonoBehaviour
 {
     public event EventHandler<TimeSpan> WorldTimeChanged; 
-    [SerializeField] private float _dayLength; // in seconds
-
-    private TimeSpan _currentTime;
-    private float _minuteLength => _dayLength / WorldTimeConstants.MINUTES_IN_DAY;
+    
+    [SerializeField] private float m_dayLength; // in seconds
+    private TimeSpan m_currentTime;
+    private float m_minuteLength => m_dayLength / WorldTimeConstants.MINUTES_IN_DAY;
 
     private void Start()
     {
@@ -18,9 +18,14 @@ public class WorldTime : MonoBehaviour
 
     private IEnumerator AddMinute()
     {
-        _currentTime += TimeSpan.FromMinutes(1);
-        WorldTimeChanged?.Invoke(this, _currentTime);
-        yield return new WaitForSeconds(_minuteLength);
+        WorldTimeChanged?.Invoke(this, m_currentTime);
+        m_currentTime += TimeSpan.FromMinutes(1);
+        yield return new WaitForSeconds(m_minuteLength);
         StartCoroutine(AddMinute());
+    }
+
+    public void Reset()
+    {
+        m_currentTime = TimeSpan.Zero;
     }
 }

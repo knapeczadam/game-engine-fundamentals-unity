@@ -1,27 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BasicProjectile : MonoBehaviour
 {
-    [SerializeField] private float _speed    = 30.0f;
-    [SerializeField] private float _lifeTime = 1.0f;
-    [SerializeField] private float _damage   = 20.0f;
+    [SerializeField] private float m_speed           = 30.0f;
+    [SerializeField] private float m_lifeTime        = 1.0f;
+    [SerializeField] private float m_damage          = 20.0f;
+    [SerializeField] private float m_forceMultiplier = 1.0f;
     
-    private static readonly string[] RAYCAST_MASKS = { "Ground", "StaticLevel" };
-    private static readonly string[] SHOOTABLE_LAYERS = { "Enemy", "Friend" };
+    private static readonly string[] m_RAYCAST_MASKS = { "Ground", "StaticLevel" };
+    private static readonly string[] m_SHOOTABLE_LAYERS = { "Enemy", "Friend" };
 
     private void Awake()
     {
-        Invoke(nameof(Die), _lifeTime);
+        Invoke(nameof(Die), m_lifeTime);
     }
 
     private void FixedUpdate()
     {
         if (!WallDetection())
         {
-            transform.position += transform.forward * (_speed * Time.deltaTime);
+            transform.position += transform.forward * (m_speed * Time.deltaTime);
         }
     }
 
@@ -33,7 +32,7 @@ public class BasicProjectile : MonoBehaviour
     private bool WallDetection()
     {
         Ray collisionRay = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(collisionRay, Time.deltaTime * _speed, LayerMask.GetMask(RAYCAST_MASKS)))
+        if (Physics.Raycast(collisionRay, Time.deltaTime * m_speed, LayerMask.GetMask(m_RAYCAST_MASKS)))
         {
             Die();
             return true;
@@ -43,7 +42,7 @@ public class BasicProjectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        var allowedLayers = LayerMask.GetMask(SHOOTABLE_LAYERS);
+        var allowedLayers = LayerMask.GetMask(m_SHOOTABLE_LAYERS);
         if ((allowedLayers & (1 << other.gameObject.layer)) == 0)
         {
             return;
@@ -57,7 +56,7 @@ public class BasicProjectile : MonoBehaviour
         Health health = other.GetComponent<Health>();
         if (health)
         {
-            health.TakeDamage(_damage);
+            health.TakeDamage(m_damage, m_forceMultiplier);
             Die();
         }
     }

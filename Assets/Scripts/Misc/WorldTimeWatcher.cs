@@ -1,31 +1,28 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class WorldTimeWatcher : MonoBehaviour
 {
-    [SerializeField]
-    private WorldTime _worldTime = null;
-    
-    [SerializeField]
-    private List<Schedule> _schedules = new List<Schedule>();
+    [SerializeField] private WorldTime      m_worldTime = null;
+    [SerializeField] private List<Schedule> m_schedules = new List<Schedule>();
 
     private void Start()
     {
-        _worldTime.WorldTimeChanged += CheckSchedule;
+        m_worldTime.WorldTimeChanged += CheckSchedule;
     }
     
     private void OnDestroy()
     {
-        _worldTime.WorldTimeChanged -= CheckSchedule;
+        m_worldTime.WorldTimeChanged -= CheckSchedule;
     }
 
     private void CheckSchedule(object sender, TimeSpan newTime)
     {
-        var schedule = _schedules.FirstOrDefault(s => s.Hour == newTime.Hours && s.Minute == newTime.Minutes);
+        var schedule = m_schedules.FirstOrDefault(s => s.Hour == newTime.Hours && s.Minute == newTime.Minutes);
         schedule?._action?.Invoke();
     }
 

@@ -355,12 +355,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &604898525 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 136786390067769328, guid: 891a21baadd18fe4084ecd38c5c39d33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1441749740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &947460202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1092,6 +1086,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 572875255}
+    - target: {fileID: 2177692165340993534, guid: 891a21baadd18fe4084ecd38c5c39d33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2909729210424274875, guid: 891a21baadd18fe4084ecd38c5c39d33,
         type: 3}
       propertyPath: m_Mesh
@@ -1218,7 +1217,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 604898525}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

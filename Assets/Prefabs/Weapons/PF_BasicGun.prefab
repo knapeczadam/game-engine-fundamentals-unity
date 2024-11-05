@@ -371,15 +371,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6169893454ff5478657a040714a4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletTemplate: {fileID: 281855875839270188, guid: 553d67aec3e08654fa454027eb396e1e,
+  m_bulletTemplate: {fileID: 281855875839270188, guid: 553d67aec3e08654fa454027eb396e1e,
     type: 3}
-  _fireRate: 25
-  _fireSockets:
+  m_fireRate: 25
+  m_fireSockets:
   - {fileID: 2289473201588775759}
-  _weaponName: Basic Weapon
-  _amplitude: 1
-  _frequency: 1
-  _fastFire: 0
+  m_amplitude: 1
+  m_frequency: 1
   _camera: {fileID: 0}
   _onFireEvent:
     m_PersistentCalls:

@@ -1,27 +1,33 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    private Dictionary<int, int> m_spawnedObjects = new Dictionary<int, int>();
+
+    private readonly Dictionary<int, int> m_maxSpawnedObjects = new Dictionary<int, int>()
+    {
+        {1, 5},
+        {2, 3},
+        {3, 1}
+    };
+    
     #region SINGLETON INSTANCE
-    private static SpawnManager _instance = null;
+    private static SpawnManager m_instance = null;
     public static SpawnManager Instance
     {
         get
         {
-            if (_instance == null && !ApplicationQuitting)
+            if (m_instance == null && !ApplicationQuitting)
             {
-                _instance = FindObjectOfType<SpawnManager>();
-                if (_instance == null)
+                m_instance = FindObjectOfType<SpawnManager>();
+                if (m_instance == null)
                 {
                     GameObject newInstance = new GameObject("Singleton_SpawnManager");
-                    _instance = newInstance.AddComponent<SpawnManager>();
+                    m_instance = newInstance.AddComponent<SpawnManager>();
                 }
             }
-            return _instance;
+            return m_instance;
         }
     }
 
@@ -29,7 +35,7 @@ public class SpawnManager : MonoBehaviour
     {
         get
         {
-            return _instance;
+            return m_instance;
         }
     }
 
@@ -43,11 +49,11 @@ public class SpawnManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (_instance == null)
+        if (m_instance == null)
         {
-            _instance = this;
+            m_instance = this;
         }
-        else if (_instance != this)
+        else if (m_instance != this)
         {
             Destroy(gameObject);
         }
@@ -55,9 +61,9 @@ public class SpawnManager : MonoBehaviour
 
     protected void OnDestroy()
     {
-        if (_instance == this)
+        if (m_instance == this)
         {
-            _instance = null;
+            m_instance = null;
         }
     }
     
@@ -85,7 +91,26 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (var spawnPoint in _spawnPoints)
         {
+            var spawnId = spawnPoint.GetComponent<MyID>().GetID();
+            int maxSpawned = m_maxSpawnedObjects[spawnId];
+            if (!m_spawnedObjects.ContainsKey(spawnId))
+            {
+                m_spawnedObjects.Add(spawnId, 0);
+            }
+            if (m_spawnedObjects[spawnId] >= maxSpawned)
+            {
+                continue;
+            }
             spawnPoint.Spawn();
+            m_spawnedObjects[spawnId]++;
+        }
+    }
+    
+    public void Despawn(int id)
+    {
+        if (m_spawnedObjects.ContainsKey(id))
+        {
+            m_spawnedObjects[id]--;
         }
     }
 

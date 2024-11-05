@@ -8640,9 +8640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87653ecbca8647645aee97864e2b1093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 30
-  _lifeTime: 2
-  _damage: 5
+  m_speed: 30
+  m_lifeTime: 1
+  m_damage: 20
+  m_forceMultiplier: 1
 --- !u!54 &1946453960428859806
 Rigidbody:
   m_ObjectHideFlags: 0

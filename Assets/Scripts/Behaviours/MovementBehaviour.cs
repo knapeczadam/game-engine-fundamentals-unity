@@ -1,62 +1,36 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    protected float _movementSpeed = 1.0f;
+    public bool       m_runPressed               = false;
+    public GameObject m_target                   = null;
+    public Vector3    m_desiredMovementDirection = Vector3.zero;
     
-    [SerializeField]
-    private float _rotationSpeed = 10.0f;
-    
-    protected Rigidbody _rigidbody;
-    
-    protected Vector3 _desiredMovementDirection = Vector3.zero;
-    public Vector3 DesiredMovementDirection 
-    { 
-        get => _desiredMovementDirection; 
-        set => _desiredMovementDirection = value; 
-    }
-    
-    protected bool _isRunning = false;
-    public bool IsRunning
-    {
-        get => _isRunning;
-        set => _isRunning = value;
-    }
-    
-    public bool canRun = true;
-    private PickUpBehaviour _pickUpBehaviour;
+    [SerializeField] protected float m_movementSpeed  = 1.0f;
+    protected Rigidbody m_rigidbody = null;
 
-    protected GameObject _target;
-    public GameObject Target
-    {
-        get => _target;
-        set => _target = value;
-    }
-    
-    [SerializeField]
-    private bool _smoothRotation = true;
+    [SerializeField] private   float m_rotationSpeed  = 10.0f;
+    [SerializeField] private   bool  m_smoothRotation = true;
+    private PickUpBehaviour m_pickUpBehaviour = null;
+    private bool            m_canRun          = true;
 
     protected virtual void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _pickUpBehaviour = GetComponent<PickUpBehaviour>(); // TODO: cat doesn't have this component
+        m_rigidbody       = GetComponent<Rigidbody>();
+        m_pickUpBehaviour = GetComponent<PickUpBehaviour>(); // TODO: cat doesn't have this component
     }
 
     private void Start()
     {
-        if (_pickUpBehaviour)
+        if (m_pickUpBehaviour)
         {
-            _pickUpBehaviour.OnPickUp += HandlePickUp;
+            m_pickUpBehaviour.OnPickUp += HandlePickUp;
         }
     }
 
     private void HandlePickUp(bool catPickedUp)
     {
-        canRun = !catPickedUp;
+        m_canRun = !catPickedUp;
     }
 
     protected virtual void FixedUpdate()
@@ -67,39 +41,44 @@ public class MovementBehaviour : MonoBehaviour
     
     protected virtual void HandleMovement()
     {
-        if (_rigidbody == null)
+        if (m_rigidbody == null)
         {
             Debug.LogError("Rigidbody is not set in the MovementBehaviour component.");
             return;
         }
         
-        Vector3 movement = _desiredMovementDirection.normalized;
-        float movementSpeed = _movementSpeed;
-        if (canRun && _isRunning)
+        Vector3 movement = m_desiredMovementDirection.normalized;
+        float movementSpeed = m_movementSpeed;
+        if (m_canRun && m_runPressed)
         {
             movementSpeed *= 2.0f;
         }
+
+        if (m_runPressed && !m_canRun)
+        {
+            Debug.Log("Cannot run while carrying a cat.");
+        }
+        
         movement *= movementSpeed * Time.deltaTime;
         // transform.position += movement;
-        _rigidbody.MovePosition(transform.position + movement);
+        m_rigidbody.MovePosition(transform.position + movement);
     }
     
     protected virtual void HandleRotation()
     {
-        if (_desiredMovementDirection != Vector3.zero)
+        if (m_desiredMovementDirection != Vector3.zero)
         {
-            if (_smoothRotation)
+            if (m_smoothRotation)
             {
                 // Smoothly rotates the character to face the direction of movement.
-                Quaternion targetRotation = Quaternion.LookRotation(_desiredMovementDirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                Quaternion targetRotation = Quaternion.LookRotation(m_desiredMovementDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_rotationSpeed * Time.deltaTime);
             }
             else
             {
                 // Rotates the character to face the direction of movement
-                transform.rotation = Quaternion.LookRotation(_desiredMovementDirection);
+                transform.rotation = Quaternion.LookRotation(m_desiredMovementDirection);
             }
-            
         }
     }
 }

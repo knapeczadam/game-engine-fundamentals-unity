@@ -1070,6 +1070,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 107761212}
   m_SourcePrefab: {fileID: 100100000, guid: 78d0c799c4f02764da867621c9a48d8b, type: 3}
+--- !u!114 &622441160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5446429932454360000, guid: 78d0c799c4f02764da867621c9a48d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 622441159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587e8197c306aa248b3ac0d5f64d7f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721635190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +3646,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 759785806804773250, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 838586732338143319, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3664,6 +3681,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1892077159}
+    - target: {fileID: 1066994057908071993, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 1145803728284395500, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3679,6 +3701,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 3004
       objectReference: {fileID: 0}
+    - target: {fileID: 1753037704359633474, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 1836348914687372183, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3689,6 +3716,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1034569061}
+    - target: {fileID: 3107634690019277630, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
+    - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 3472509096683633923, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3714,6 +3751,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 566483169}
+    - target: {fileID: 3718142353620602127, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 3759758649391458852, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Name
@@ -3749,6 +3791,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1765878944}
+    - target: {fileID: 5263022836007916533, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 5568506146021280992, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3864,6 +3911,11 @@ PrefabInstance:
       propertyPath: _fastFire
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8201472667783180208, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 8382743965844301933, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -3889,6 +3941,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 944830724}
+    - target: {fileID: 8597931815477616051, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
+    - target: {fileID: 8646022176257153121, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
+    - target: {fileID: 8654199918178239366, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 622441160}
     - target: {fileID: 8733020514980661843, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh

@@ -1,5 +1,5 @@
 
-public class Tags 
+public static class Tags 
 {
     public const string PLAYER = "Player";
     public const string FRIEND = "Friend";

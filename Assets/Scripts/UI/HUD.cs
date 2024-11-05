@@ -1,32 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class HUD : MonoBehaviour
 {
-    private UIDocument    _attachedDocument = null;
-    private VisualElement _root             = null;
-    private IntegerField  _catCountField    = null;
+    private UIDocument    m_attachedDocument = null;
+    private VisualElement m_root             = null;
+    private IntegerField  m_catCountField    = null;
 
     private void Start()
     {
-        _attachedDocument = GetComponent<UIDocument>();
-        if (_attachedDocument)
+        m_attachedDocument = GetComponent<UIDocument>();
+        if (m_attachedDocument)
         {
-            _root = _attachedDocument.rootVisualElement;
+            m_root = m_attachedDocument.rootVisualElement;
         }
 
-        if (_root != null)
+        if (m_root != null)
         {
-            _catCountField = _root.Q<IntegerField>();
+            m_catCountField = m_root.Q<IntegerField>();
 
             CatManager catManager = FindObjectOfType<CatManager>();
             if (catManager)
             {
-                _catCountField.value = catManager.CatCount;
-                catManager.OnCatCountChange += (catCount) => _catCountField.value = catCount;
+                m_catCountField.value = catManager.m_catCount;
+                catManager.OnCatCountChange += (catCount) => m_catCountField.value = catCount;
             }
         }
     }

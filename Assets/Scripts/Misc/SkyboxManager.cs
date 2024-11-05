@@ -1,14 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SkyboxManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D _skyboxNight   = null;
-    [SerializeField] private Texture2D _skyboxSunrise = null;
-    [SerializeField] private Texture2D _skyboxDay     = null;
-    [SerializeField] private Texture2D _skyboxSunset  = null;
+    [SerializeField] private Texture2D m_skyboxNight   = null;
+    [SerializeField] private Texture2D m_skyboxSunrise = null;
+    [SerializeField] private Texture2D m_skyboxDay     = null;
+    [SerializeField] private Texture2D m_skyboxSunset  = null;
     
     public IEnumerator LerpSkybox(Texture2D a, Texture2D b, float time)
     {
@@ -23,23 +22,40 @@ public class SkyboxManager : MonoBehaviour
         RenderSettings.skybox.SetTexture("_Texture1", b);
     }
 
+    public void Reset()
+    {
+        RenderSettings.skybox.SetTexture("_Texture1", m_skyboxNight);
+        RenderSettings.skybox.SetTexture("_Texture2", m_skyboxNight);
+        RenderSettings.skybox.SetFloat("_Blend", 0);
+    }
+    
+    public void FromNightToDay()
+    {
+        StartCoroutine(LerpSkybox(m_skyboxNight, m_skyboxDay, 1));
+    }
+    
+    public void FromDayToNight()
+    {
+        StartCoroutine(LerpSkybox(m_skyboxDay, m_skyboxNight, 1));
+    }
+
     public void FromNightToSunrise()
     {
-        StartCoroutine(LerpSkybox(_skyboxNight, _skyboxSunrise, 1));
+        StartCoroutine(LerpSkybox(m_skyboxNight, m_skyboxSunrise, 1));
     }
 
     public void FromSunriseToDay()
     {
-        StartCoroutine(LerpSkybox(_skyboxSunrise, _skyboxDay, 1));
+        StartCoroutine(LerpSkybox(m_skyboxSunrise, m_skyboxDay, 1));
     }
 
     public void FromDayToSunset()
     {
-        StartCoroutine(LerpSkybox(_skyboxDay, _skyboxSunset, 1));
+        StartCoroutine(LerpSkybox(m_skyboxDay, m_skyboxSunset, 1));
     }
 
     public void FromSunsetToNight()
     {
-        StartCoroutine(LerpSkybox(_skyboxSunset, _skyboxNight, 1));
+        StartCoroutine(LerpSkybox(m_skyboxSunset, m_skyboxNight, 1));
     }
 }

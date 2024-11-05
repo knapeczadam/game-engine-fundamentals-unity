@@ -1,30 +1,27 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(TMP_Text))]
 public class WorldTimeDisplay : MonoBehaviour
 {
-    [SerializeField]
-    private WorldTime _worldTime = null;
-
-    private TMP_Text _text;
+    [SerializeField] private WorldTime m_worldTime = null;
+    private TMP_Text m_text;
 
     private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
-        _worldTime.WorldTimeChanged += OnWorldTimeChanged;
+        m_text = GetComponent<TMP_Text>();
+        m_worldTime.WorldTimeChanged += OnWorldTimeChanged;
     }
     
     private void OnDestroy()
     {
-        _worldTime.WorldTimeChanged -= OnWorldTimeChanged;
+        m_worldTime.WorldTimeChanged -= OnWorldTimeChanged;
     }
 
     private void OnWorldTimeChanged(object sender, TimeSpan newTime)
     {
-        _text.SetText(newTime.ToString(@"hh\:mm"));
+        m_text.SetText(newTime.ToString(@"hh\:mm"));
     }
 }

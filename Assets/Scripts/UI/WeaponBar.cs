@@ -1,21 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class WeaponBar : MonoBehaviour
 {
-    private TMP_Text _weaponText = null;
-    private WeaponManager _weaponManager = null;
+    private TMP_Text      m_weaponText    = null;
+    private WeaponManager m_weaponManager = null;
 
     private void Awake()
     {
-        _weaponText = GetComponent<TMP_Text>();
+        m_weaponText = GetComponent<TMP_Text>();
         PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
         if (player)
         {
-            _weaponManager = player.GetComponent<WeaponManager>();
+            m_weaponManager = player.GetComponent<WeaponManager>();
         }
     }
 
@@ -48,6 +45,6 @@ public class WeaponBar : MonoBehaviour
     
     private void UpdateWeaponText(int weaponIndex)
     {
-        _weaponText.text = _weaponManager.CurrentWeapon.GetComponent<BasicWeapon>().WeaponName;
+        m_weaponText.text = m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>().m_weaponName;
     }
 }

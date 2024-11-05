@@ -2,12 +2,12 @@ using UnityEngine;
 
     public class BasicCharacter : MonoBehaviour
     {
-        protected MovementBehaviour _movementBehaviour;
-        protected AttackBehaviour   _attackBehaviour;
+        protected MovementBehaviour m_movementBehaviour = null;
+        protected AttackBehaviour   m_attackBehaviour   = null;
 
         protected virtual void Awake()
         {
-            _movementBehaviour = GetComponent<MovementBehaviour>();
-            _attackBehaviour   = GetComponent<AttackBehaviour>();
+            m_movementBehaviour = GetComponent<MovementBehaviour>();
+            m_attackBehaviour   = GetComponent<AttackBehaviour>();
         }
     }

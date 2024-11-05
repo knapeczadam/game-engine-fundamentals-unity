@@ -1,38 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent)), DisallowMultipleComponent]
 public class NavMeshMovementBehaviour : MovementBehaviour
 {
-    private NavMeshAgent _navMeshAgent;
-    private Vector3 _previousTargetPosition = Vector3.zero;
+    private NavMeshAgent m_navMeshAgent           = null;
+    private Vector3      m_previousTargetPosition = Vector3.zero;
+    private const float  m_MOVEMENT_THRESHOLD      = 0.25f;
 
     protected override void Awake()
     {
         base.Awake();
         
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = _movementSpeed;
+        m_navMeshAgent = GetComponent<NavMeshAgent>();
+        m_navMeshAgent.speed = m_movementSpeed;
 
-        _previousTargetPosition = transform.position;
+        m_previousTargetPosition = transform.position;
     }
     
-    const float MOVEMENT_THRESHOLD = 0.25f;
     protected override void HandleMovement()
     {
-        if (_target == null)
+        if (m_target == null)
         {
-            _navMeshAgent.isStopped = true;
+            m_navMeshAgent.isStopped = true;
             return;
         }
         
-        if ((_target.transform.position - _previousTargetPosition).sqrMagnitude > MOVEMENT_THRESHOLD * MOVEMENT_THRESHOLD)
+        if ((m_target.transform.position - m_previousTargetPosition).sqrMagnitude > m_MOVEMENT_THRESHOLD * m_MOVEMENT_THRESHOLD)
         {
-            _navMeshAgent.SetDestination(_target.transform.position);
-            _navMeshAgent.isStopped = false;
-            _previousTargetPosition = _target.transform.position;
+            m_navMeshAgent.SetDestination(m_target.transform.position);
+            m_navMeshAgent.isStopped = false;
+            m_previousTargetPosition = m_target.transform.position;
         }
     }
 }

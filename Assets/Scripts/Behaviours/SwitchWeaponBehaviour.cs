@@ -1,21 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchWeaponBehaviour : MonoBehaviour
 {
-    private WeaponManager _weaponManager = null;
-    
     public delegate void WeaponSwitched(int weaponIndex);
-    public event WeaponSwitched OnWeaponSwitched;
+    public event WeaponSwitched OnWeaponSwitched = null;
+    
+    private WeaponManager m_weaponManager = null;
     
     private void Awake()
     {
-        _weaponManager = GetComponent<WeaponManager>();
+        m_weaponManager = GetComponent<WeaponManager>();
         
         // Switch to the first weapon in the list
-        if (_weaponManager.Weapons.Count > 0)
+        if (m_weaponManager.m_weapons.Count > 0)
         {
             SwitchWeapon(0);
         }
@@ -23,13 +20,20 @@ public class SwitchWeaponBehaviour : MonoBehaviour
 
     public void SwitchWeapon(int weaponIndex)
     {
-        if (weaponIndex < 0 || weaponIndex >= _weaponManager.Weapons.Count)
-            return;
-
-        for (int i = 0; i < _weaponManager.Weapons.Count; i++)
+        if (weaponIndex < 0 || weaponIndex >= m_weaponManager.m_weapons.Count)
         {
-            _weaponManager.Weapons[i].SetActive(i == weaponIndex);
-            _weaponManager.CurrentWeapon = _weaponManager.Weapons[weaponIndex];
+            return;
+        }
+
+        if (m_weaponManager.AllowedWeapons[weaponIndex] == false)
+        {
+            return;
+        }
+        
+        for (int i = 0; i < m_weaponManager.m_weapons.Count; i++)
+        {
+            m_weaponManager.m_weapons[i].SetActive(i == weaponIndex);
+            m_weaponManager.m_currentWeapon = m_weaponManager.m_weapons[weaponIndex];
         }
         
         // Invoke WeaponBar's UpdateWeaponText method

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf67af102d449e4ea78cf92de74d559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _catSocket: {fileID: 0}
+  m_catSocket: {fileID: 136121391125773508}
 --- !u!1 &4487360896791210325
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,7 +8742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae1b88a79e56d140b3027da7963304e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlightMaterial: {fileID: 2100000, guid: 9d8126eeb67789542ae939ea1d8de651, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: 9d8126eeb67789542ae939ea1d8de651, type: 2}
 --- !u!114 &2390107134780877514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8774,7 +8774,7 @@ GameObject:
   m_Layer: 0
   m_Name: CatSocket
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10094,4 +10094,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae1b88a79e56d140b3027da7963304e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlightMaterial: {fileID: 2100000, guid: f9cd2618756c0544c8d2477ce94dbc81, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: f9cd2618756c0544c8d2477ce94dbc81, type: 2}

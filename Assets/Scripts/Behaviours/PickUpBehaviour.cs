@@ -1,54 +1,62 @@
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class PickUpBehaviour : MonoBehaviour
 {
-    private bool _catDetected = false;
-    private bool _catPickedUp = false;
-    public bool CatPickedUp => _catPickedUp;
-    
-    private GameObject _aiCat     = null;
-    private GameObject _staticCat = null;
-    private GameObject _rootCat   = null;
+    public bool m_catPickedUp { get; private set; } = false;
+    public delegate void PickUpAction(bool catPickedUp);
+    public event PickUpAction OnPickUp = null;
+    private GameObject m_aiCat       = null;
+    private GameObject m_staticCat   = null;
+    private GameObject m_rootCat     = null;
     
     [SerializeField] private GameObject _catSocket = null;
-    
-    public delegate void PickUpAction(bool catPickedUp);
-    public event PickUpAction OnPickUp;
+    [SerializeField] CatManager m_catManager = null;
+    private bool       m_catDetected = false;
     
     public void PickUp()
     {
-        if (!_catPickedUp && _catDetected)
+        if (!m_catPickedUp && m_catDetected)
         {
             Debug.Log("Cat picked up");
             
-            _catPickedUp = true;
-            OnPickUp?.Invoke(_catPickedUp);
+            m_catPickedUp = true;
+            OnPickUp?.Invoke(m_catPickedUp);
 
             // Hide the AI cat and show the static cat
-            _aiCat.SetActive(false);
-            _staticCat.SetActive(true);
+            m_aiCat.SetActive(false);
+            m_staticCat.SetActive(true);
             
-            _rootCat.transform.SetParent(_catSocket.transform, false);
+            m_rootCat.transform.SetParent(_catSocket.transform, false);
         }
-        else if (_catPickedUp)
+        else if (m_catPickedUp)
         {
             Debug.Log("Release the cat");
             
-            _catPickedUp = false;
-            OnPickUp?.Invoke(_catPickedUp);
+            m_catPickedUp = false;
+            OnPickUp?.Invoke(m_catPickedUp);
 
-            // Hide the static cat and show the AI cat
-            _staticCat.SetActive(false);
-            _aiCat.SetActive(true);
+            if (m_catManager && m_catManager.SafeZoneActive())
+            {
+                // Hide the static cat and show the AI cat
+                m_aiCat.SetActive(false);
+                m_staticCat.SetActive(true);
+                
+                var catSocket = m_rootCat.GetComponent<Cat>().m_catSocket;
+                m_rootCat.transform.SetParent(catSocket.transform, false);
+            }
+            else
+            {
+                // Hide the static cat and show the AI cat
+                m_staticCat.SetActive(false);
+                m_aiCat.SetActive(true);
             
-            _rootCat.transform.SetParent(null, false);
+                m_rootCat.transform.SetParent(null, false);
             
-            // Reset the cat's position and rotation
-            _aiCat.transform.position = transform.position;
-            _aiCat.transform.rotation = Quaternion.identity;
+                // Reset the cat's position and rotation
+                m_aiCat.transform.position = transform.position;
+                m_aiCat.transform.rotation = Quaternion.identity;
+            }
         }
         else
         {
@@ -60,20 +68,20 @@ public class PickUpBehaviour : MonoBehaviour
     {
         if (other.CompareTag(Tags.CAT))
         {
-            _catDetected = true;
+            m_catDetected = true;
             
-            _aiCat = other.gameObject;
-            _staticCat = other.transform.parent.GetComponentInChildren<StaticCat>(true).gameObject;
-            _rootCat = other.transform.root.gameObject;
+            m_aiCat = other.gameObject;
+            m_staticCat = other.transform.parent.GetComponentInChildren<StaticCat>(true).gameObject;
+            m_rootCat = other.transform.root.gameObject;
         }
         else if (other.CompareTag(Tags.TREE))
         {
-            _catDetected = other.gameObject.GetComponent<MyTree>().HasCat();
-            if (_catDetected)
+            m_catDetected = other.gameObject.GetComponent<MyTree>().HasCat();
+            if (m_catDetected)
             {
-                _staticCat = other.gameObject.GetComponentInChildren<StaticCat>().gameObject;
-                _aiCat = _staticCat.transform.parent.GetComponentInChildren<AICat>(true).gameObject;
-                _rootCat = _staticCat.transform.parent.gameObject;
+                m_staticCat = other.gameObject.GetComponentInChildren<StaticCat>().gameObject;
+                m_aiCat = m_staticCat.transform.parent.GetComponentInChildren<AICat>(true).gameObject;
+                m_rootCat = m_staticCat.transform.parent.gameObject;
             }
         }
     }
@@ -82,18 +90,18 @@ public class PickUpBehaviour : MonoBehaviour
     {
         if (other.CompareTag(Tags.CAT))
         {
-            _catDetected = false;
-            _aiCat = null;
-            _staticCat = null;
+            m_catDetected = false;
+            m_aiCat = null;
+            m_staticCat = null;
         }
         else if (other.CompareTag(Tags.TREE))
         {
-            _catDetected = false;
-            if (!_catPickedUp)
+            m_catDetected = false;
+            if (!m_catPickedUp)
             {
-                _staticCat = null;
-                _aiCat = null;
-                _rootCat = null;
+                m_staticCat = null;
+                m_aiCat = null;
+                m_rootCat = null;
             }
         }
     }

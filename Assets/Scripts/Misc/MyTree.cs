@@ -1,31 +1,27 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class MyTree : MonoBehaviour
 {
-    private List<Highlight> _highlights = new List<Highlight>();
-    
-    [SerializeField]
-    private Transform _catSocket = null;
+    [SerializeField] private Transform m_catSocket = null;
+    private List<Highlight> m_highlights = new List<Highlight>();
     
     private void Awake()
     {
         var highlightComponents = GetComponentsInChildren<Highlight>();
         foreach (var highlightComponent in highlightComponents)
         {
-            _highlights.Add(highlightComponent);
+            m_highlights.Add(highlightComponent);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (HasCat() && other.CompareTag(Tags.FRIEND))
+        if (HasCat() && other.CompareTag(Tags.PLAYER))
         {
-            foreach (var highlight in _highlights)
+            foreach (var highlight in m_highlights)
             {
                 highlight.EnableHighlight();
             }
@@ -38,7 +34,7 @@ public class MyTree : MonoBehaviour
                 var rootCat = aiCat.transform.parent;
                 var staticCat = rootCat.GetComponentInChildren<StaticCat>(true);
                 
-                rootCat.SetParent(_catSocket, false);
+                rootCat.SetParent(m_catSocket, false);
                 aiCat.gameObject.SetActive(false);
                 staticCat.gameObject.SetActive(true);
             }
@@ -47,9 +43,9 @@ public class MyTree : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(Tags.FRIEND))
+        if (other.CompareTag(Tags.PLAYER))
         {
-            foreach (var highlight in _highlights)
+            foreach (var highlight in m_highlights)
             {
                 highlight.DisableHighlight();
             }

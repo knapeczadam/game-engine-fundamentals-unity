@@ -120,6 +120,26 @@ PrefabInstance:
       propertyPath: m_SelectedVertices.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _hitScore
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _killScore
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_hitScore
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_killScore
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Name
@@ -200,11 +220,32 @@ PrefabInstance:
       propertyPath: m_Height
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5507644518660037737, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_socket
+      value: 
+      objectReference: {fileID: 1683754477544891036}
+    - target: {fileID: 5507644518660037737, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_gunTemplate
+      value: 
+      objectReference: {fileID: 6078101462185820614, guid: 37f5475204683f246a3f17b6b33fb1ba,
+        type: 3}
     - target: {fileID: 6958613458963384966, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 31570ac532f36d943b13b3356f9f11d7, type: 2}
+    - target: {fileID: 7687464436366707063, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: _id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687464436366707063, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_id
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7979848087333232763, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: _maxHealth
@@ -259,6 +300,12 @@ PrefabInstance:
       addedObject: {fileID: 7663260264338670128}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b46d0dae891d59b4eb649448305ce698, type: 3}
+--- !u!1 &1683754477544891036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7479095402999257189, guid: b46d0dae891d59b4eb649448305ce698,
+    type: 3}
+  m_PrefabInstance: {fileID: 8112936084097104633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4929774182962016650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3818177145857493875, guid: b46d0dae891d59b4eb649448305ce698,

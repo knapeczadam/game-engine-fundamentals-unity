@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] 
-    private GameObject _spawnTemplate = null;
+    [SerializeField] private GameObject m_spawnTemplate = null;
 
     private void OnEnable()
     {
@@ -25,6 +22,6 @@ public class SpawnPoint : MonoBehaviour
 
     public GameObject Spawn()
     {
-        return Instantiate(_spawnTemplate, transform.position, transform.rotation);
+        return Instantiate(m_spawnTemplate, transform.position, transform.rotation);
     }
 }

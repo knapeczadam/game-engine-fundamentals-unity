@@ -1,31 +1,31 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Light))]
 public class WorldLight : MonoBehaviour
 {
-    private Light _light = null;
-    [SerializeField] private WorldTime _worldTime = null;
-    [SerializeField] private Gradient  _gradient  = null;
+    private Light m_light = null;
+    [SerializeField] private float m_startEulerX = 180.0f;
+    [SerializeField] private WorldTime m_worldTime = null;
+    [SerializeField] private Gradient  m_gradient  = null;
 
     private void Awake()
     {
-        _light = GetComponent<Light>();
-        _worldTime.WorldTimeChanged += OnWorldTimeChanged;
+        m_light = GetComponent<Light>();
+        m_worldTime.WorldTimeChanged += OnWorldTimeChanged;
     }
-
+    
     private void OnWorldTimeChanged(object sender, TimeSpan newTime)
     {
         Debug.Log(PercentOfDay(newTime));
-        _light.transform.rotation = Quaternion.Euler(PercentOfDay(newTime) * 360 - 90, 0, 0);
-        _light.color = _gradient.Evaluate(PercentOfDay(newTime));
+        m_light.transform.rotation = Quaternion.Euler(PercentOfDay(newTime) * 360 + m_startEulerX, 0, 0);
+        m_light.color = m_gradient.Evaluate(PercentOfDay(newTime));
     }
 
     private void OnDestroy()
     {
-        _worldTime.WorldTimeChanged -= OnWorldTimeChanged;
+        m_worldTime.WorldTimeChanged -= OnWorldTimeChanged;
     }
 
     private float PercentOfDay(TimeSpan timeSpan)

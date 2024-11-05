@@ -1,38 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SeekingBehaviour : MovementBehaviour
 {
-    private NavMeshAgent _navMeshAgent;
-    private const float MOVEMENT_THRESHOLD = 0.25f;
+    private NavMeshAgent m_navMeshAgent;
+    private const float m_MOVEMENT_THRESHOLD = 0.25f;
     
     protected override void Awake()
     {
         base.Awake();
 
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = _movementSpeed;
+        m_navMeshAgent = GetComponent<NavMeshAgent>();
+        m_navMeshAgent.speed = m_movementSpeed;
     }
 
     protected override void HandleMovement()
     {
-        if ((_target.transform.position - transform.position).sqrMagnitude > MOVEMENT_THRESHOLD)
+        if ((m_target.transform.position - transform.position).sqrMagnitude > m_MOVEMENT_THRESHOLD)
         {
-            _navMeshAgent.isStopped = false;
-            _navMeshAgent.SetDestination(_target.transform.position);
+            m_navMeshAgent.isStopped = false;
+            m_navMeshAgent.SetDestination(m_target.transform.position);
         }
         else
         {
-            _navMeshAgent.isStopped = true;
+            m_navMeshAgent.isStopped = true;
         }
     }
     
     private void OnEnable()
     {
-        _navMeshAgent.isStopped = false;
+        m_navMeshAgent.isStopped = false;
     }
 }

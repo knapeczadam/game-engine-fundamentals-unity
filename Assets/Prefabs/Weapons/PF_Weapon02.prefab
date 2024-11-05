@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339567876284503576, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
@@ -75,6 +80,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
+      propertyPath: _fastFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
       propertyPath: _amplitude
       value: 0.4
       objectReference: {fileID: 0}
@@ -85,9 +95,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
+      propertyPath: m_fastFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
       propertyPath: _weaponName
       value: Uzi
       objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_weaponName
+      value: Uzi
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: _bulletTemplate
+      value: 
+      objectReference: {fileID: 4779312076606057451, guid: 7105d90a499861a46bd191bfa0b9fa1e,
+        type: 3}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_bulletTemplate
+      value: 
+      objectReference: {fileID: 4779312076606057451, guid: 7105d90a499861a46bd191bfa0b9fa1e,
+        type: 3}
     - target: {fileID: 8401042708780459293, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -11,7 +11,7 @@ public class PlayerHealth : Health
         var health = other.gameObject.GetComponent<Health>();
         if (health && health.enabled)   
         {
-            if (health.IsDead)
+            if (health.m_isDead)
             {
                 return;
             }
@@ -28,7 +28,30 @@ public class PlayerHealth : Health
                 case Tags.BOSS_ENEMY:
                     TakeDamage(0.5f);
                     break;
+                case Tags.ENEMY: // base case
+                    TakeDamage(0.25f);
+                    break;
             }
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (m_currentHealth < m_maxHealth)
+            {
+                StartCoroutine(RestoreHealth());
+            }
+        }
+    }
+    
+    private IEnumerator RestoreHealth()
+    {
+        while (m_currentHealth < m_maxHealth)
+        {
+            TakeDamage(-0.1f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

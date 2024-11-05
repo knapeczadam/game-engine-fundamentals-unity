@@ -1,21 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BasicEnemyCharacter : BasicCharacter
 {
-    private GameObject _playerTarget = null;
-    
-    [SerializeField]
-    private float _attackRange = 2.0f;
+     [SerializeField] private float m_attackRange = 2.0f;
+    private GameObject m_playerTarget = null;
 
     private void Start()
     {
         PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
         if (player)
         {
-            _playerTarget = player.gameObject;
+            m_playerTarget = player.gameObject;
         }
     }
 
@@ -27,20 +23,20 @@ public class BasicEnemyCharacter : BasicCharacter
 
     private void HandleMovement()
     {
-        if (_movementBehaviour)
+        if (m_movementBehaviour)
         {
-            _movementBehaviour.Target = _playerTarget;
+            m_movementBehaviour.m_target = m_playerTarget;
         }
     }
 
     private void HandleAttack()
     {
-        if (_attackBehaviour && _playerTarget)
+        if (m_attackBehaviour && m_playerTarget)
         {
-            if ((transform.position - _playerTarget.transform.position).sqrMagnitude <= _attackRange * _attackRange)
+            if ((transform.position - m_playerTarget.transform.position).sqrMagnitude <= m_attackRange * m_attackRange)
             {
                 Debug.Log("Attacking player");
-                _attackBehaviour.Attack();
+                m_attackBehaviour.Attack();
                 // Invoke(nameof(Die), 0.2f);
             }
         }

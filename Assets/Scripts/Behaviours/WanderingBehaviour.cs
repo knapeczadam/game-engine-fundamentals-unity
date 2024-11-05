@@ -1,55 +1,51 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class WanderingBehaviour : MovementBehaviour
-{
-    [SerializeField]
-    private float _wanderRadius = 10;
+{ 
+    [SerializeField] private float m_wanderRadius = 10;
+    private NavMeshAgent m_navMeshAgent = null ;
     
-    private NavMeshAgent _navMeshAgent;
     protected override void Awake()
     {
         base.Awake();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = _movementSpeed;
+        m_navMeshAgent = GetComponent<NavMeshAgent>();
+        m_navMeshAgent.speed = m_movementSpeed;
     }
     
     private void Start()
     {
-        Target = new GameObject("Wandering Target");
+        m_target = new GameObject("Wandering Target");
         CalculateNewDestination();
     }
     
     private void CalculateNewDestination()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * _wanderRadius;
+        Vector3 randomDirection = Random.insideUnitSphere * m_wanderRadius;
         randomDirection += transform.position;
 
-        NavMesh.SamplePosition(randomDirection, out var hit, _wanderRadius, 1);
+        NavMesh.SamplePosition(randomDirection, out var hit, m_wanderRadius, 1);
         Vector3 finalPosition = hit.position;
 
-        if (_target)
+        if (m_target)
         {
-            _target.transform.position = finalPosition;
+            m_target.transform.position = finalPosition;
         }
-        _navMeshAgent.SetDestination(finalPosition);
+        m_navMeshAgent.SetDestination(finalPosition);
     }
     
     protected override void HandleMovement()
     {
-        if (_target == null)
+        if (m_target == null)
         {
-            _navMeshAgent.isStopped = true;
+            m_navMeshAgent.isStopped = true;
             return;
         }
         
-        if ((_target.transform.position - transform.position).sqrMagnitude < 10)
+        if ((m_target.transform.position - transform.position).sqrMagnitude < 10)
         {
             CalculateNewDestination();
         }
@@ -57,7 +53,7 @@ public class WanderingBehaviour : MovementBehaviour
 
     private void OnEnable()
     {
-        _navMeshAgent.isStopped = false;
+        m_navMeshAgent.isStopped = false;
         CalculateNewDestination();
     }
 }

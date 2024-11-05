@@ -1,15 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class StaticCat : MonoBehaviour
 {
-    [SerializeField] private GameObject _aiCat = null;
+    [SerializeField] private GameObject m_aiCat = null;
     
     private void Awake()
     {
-        _aiCat.GetComponent<SeekingBehaviour>().Target = transform.root.gameObject;
+        m_aiCat.GetComponent<SeekingBehaviour>().m_target = transform.root.gameObject;
     }
 }

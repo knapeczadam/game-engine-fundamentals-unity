@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7535976316654541011}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.781805, y: -5.6097565, z: 67.66321}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,76 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75387ef3408e0c548b5a1b7eb17eba37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldTime: {fileID: 0}
-  _schedules:
-  - Hour: 6
-    Minute: 0
-    _action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1124769701703510407}
-          m_TargetAssemblyTypeName: adam, Assembly-CSharp
-          m_MethodName: FromNightToSunrise
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Hour: 8
-    Minute: 0
-    _action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1124769701703510407}
-          m_TargetAssemblyTypeName: adam, Assembly-CSharp
-          m_MethodName: FromSunriseToDay
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Hour: 18
-    Minute: 0
-    _action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1124769701703510407}
-          m_TargetAssemblyTypeName: adam, Assembly-CSharp
-          m_MethodName: FromDayToSunset
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Hour: 20
-    Minute: 0
-    _action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1124769701703510407}
-          m_TargetAssemblyTypeName: adam, Assembly-CSharp
-          m_MethodName: FromSunsetToNight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_worldTime: {fileID: 0}
+  m_schedules: []
 --- !u!114 &1124769701703510407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69344564393dc7a40ad51aa63b5010f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skyboxNight: {fileID: 2800000, guid: 3cf4d52b14bd4254d9f4fd063f8d9bfd, type: 3}
-  _skyboxSunrise: {fileID: 2800000, guid: 99bb9346a54a1ef45b3d086ccba8cfad, type: 3}
-  _skyboxDay: {fileID: 2800000, guid: 53129b20db5c19c4a9f4fcd4efd08b96, type: 3}
-  _skyboxSunset: {fileID: 2800000, guid: 89878140665978f4f9f27f55a61fb12d, type: 3}
+  m_skyboxNight: {fileID: 2800000, guid: 3cf4d52b14bd4254d9f4fd063f8d9bfd, type: 3}
+  m_skyboxSunrise: {fileID: 2800000, guid: 7deb3454b299fae498f2365d40aee326, type: 3}
+  m_skyboxDay: {fileID: 2800000, guid: 90bac99dc822bf641b140cdc291b845e, type: 3}
+  m_skyboxSunset: {fileID: 2800000, guid: 88c4ef1770f6491408e50fd96829b1b6, type: 3}

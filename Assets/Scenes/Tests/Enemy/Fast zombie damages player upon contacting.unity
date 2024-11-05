@@ -287,6 +287,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &176033125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5446429932454360000, guid: 78d0c799c4f02764da867621c9a48d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551221895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587e8197c306aa248b3ac0d5f64d7f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &270475083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +405,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2021648144}
+    - target: {fileID: 759785806804773250, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 891837933369936026, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -403,6 +420,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 76693222}
+    - target: {fileID: 1066994057908071993, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 1318759836681899005, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -413,11 +435,31 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 2953
       objectReference: {fileID: 0}
+    - target: {fileID: 1753037704359633474, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
+    - target: {fileID: 3107634690019277630, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
+    - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 3645283321862914830, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 541272739}
+    - target: {fileID: 3718142353620602127, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 3759758649391458852, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Name
@@ -428,6 +470,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1470263900}
+    - target: {fileID: 5263022836007916533, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 5817577549144353733, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
@@ -503,11 +550,31 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 951636867}
+    - target: {fileID: 8201472667783180208, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     - target: {fileID: 8453854416382918338, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 634190355}
+    - target: {fileID: 8597931815477616051, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
+    - target: {fileID: 8646022176257153121, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
+    - target: {fileID: 8654199918178239366, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 176033125}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
