@@ -6,6 +6,6 @@ public class StaticCat : MonoBehaviour
     
     private void Awake()
     {
-        m_aiCat.GetComponent<SeekingBehaviour>().m_target = transform.root.gameObject;
+        // m_aiCat.GetComponent<SeekingBehaviour>().m_target = transform.root.gameObject;
     }
 }

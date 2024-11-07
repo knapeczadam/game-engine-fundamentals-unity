@@ -85,8 +85,15 @@ public class EnemyHealth : Health
         GetComponent<NavMeshMovementBehaviour>().enabled =        false;
         GetComponent<BasicEnemyCharacter>().enabled      =        false;
         
-        var renderer = GetComponentInChildren<Renderer>();
-        renderer.material.color = Color.black;
+        var renderers = GetComponentsInChildren<Renderer>();
+        // renderer.material.color = Color.black;
+        foreach (var renderer in renderers)
+        {
+            foreach (var material in renderer.materials)
+            {
+                material.color = Color.black;
+            }
+        }
         
         var attack = GetComponent<AttackBehaviour>();
         if (attack)
@@ -97,7 +104,7 @@ public class EnemyHealth : Health
         var rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
         rigidbody.mass = 0.01f;
-        Destroy(gameObject, m_deathTime);
+        // Destroy(gameObject, m_deathTime);
         
         // despawn the enemy
         SpawnManager.Instance.Despawn(m_id);

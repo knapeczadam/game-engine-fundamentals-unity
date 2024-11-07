@@ -8642,7 +8642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 30
   m_lifeTime: 1
-  m_damage: 20
+  m_damage: 10
   m_forceMultiplier: 1
 --- !u!54 &1946453960428859806
 Rigidbody:

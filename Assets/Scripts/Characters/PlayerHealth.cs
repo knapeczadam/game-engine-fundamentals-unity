@@ -23,7 +23,7 @@ public class PlayerHealth : Health
                     TakeDamage(0.1f);
                     break;
                 case Tags.FAST_ENEMY:
-                    TakeDamage(0.01f);
+                    TakeDamage(0.05f);
                     break;
                 case Tags.BOSS_ENEMY:
                     TakeDamage(0.5f);
