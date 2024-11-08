@@ -458,7 +458,12 @@ MonoBehaviour:
     type: 3}
   m_cameraRotationAction: {fileID: -1923116884805994921, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
     type: 3}
+  m_cameraTiltAction: {fileID: -5939848911804961759, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+    type: 3}
+  m_pauseAction: {fileID: 670944946107970774, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+    type: 3}
   m_cameraManager: {fileID: 0}
+  m_pauseMenu: {fileID: 0}
 --- !u!114 &649097492555634647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +812,7 @@ Transform:
   m_GameObject: {fileID: 6011969316101541100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.933, y: 1.398, z: -0.075}
+  m_LocalPosition: {x: 0.9, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

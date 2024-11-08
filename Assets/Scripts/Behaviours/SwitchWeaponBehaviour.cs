@@ -25,7 +25,7 @@ public class SwitchWeaponBehaviour : MonoBehaviour
             return;
         }
 
-        if (m_weaponManager.AllowedWeapons[weaponIndex] == false)
+        if (m_weaponManager.m_allowedWeapons[weaponIndex] == false)
         {
             return;
         }

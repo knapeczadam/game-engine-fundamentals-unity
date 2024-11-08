@@ -67,6 +67,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CameraTilt",
+                    "type": "Button",
+                    "id": "bb027426-1d92-46c4-8377-69dfad99e53c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "4adf7124-ea91-45df-801d-b4e9aaab9a66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -379,19 +397,41 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "0ecfcf4f-5622-465d-87d7-9dfe64ee90af",
-                    "path": "<Mouse>/scroll/y",
+                    "name": "1D Axis",
+                    "id": "5c09d4fa-9793-44c3-b7dc-81a239e98b1b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraDistance",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "8a6734a2-526f-4aef-9d98-b75d0d4ae401",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CameraDistance",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5ccae71b-9fb5-4640-abdc-fb74f527188c",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraDistance",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "1D Axis",
-                    "id": "66618a71-3b59-43d9-9eb2-e8ee646beebe",
+                    "id": "840f80e2-8457-4092-bf78-d0c7f03fd4e2",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -402,8 +442,8 @@
                 },
                 {
                     "name": "negative",
-                    "id": "3e122a68-17c4-4f0c-b3d8-c9c1bf3b0a67",
-                    "path": "<Mouse>/leftButton",
+                    "id": "9ff0e1ae-a0c3-4b48-bbc4-d2fa46712a2c",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -413,14 +453,69 @@
                 },
                 {
                     "name": "positive",
-                    "id": "b95ab7bd-0c93-4723-bc81-87dcab85a57c",
-                    "path": "<Mouse>/rightButton",
+                    "id": "f26a84a1-5ba2-4517-b321-b367bac2b754",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CameraRotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "97d9074c-59c4-4a89-a7d4-bd14112edf8f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraTilt",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d68531a0-494a-4044-92db-daf7e47899f8",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraTilt",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "42a12a59-99a6-47a5-bf62-c2b33c6144ec",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraTilt",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f06fc4bb-1079-41ca-aad6-b6346299f11a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89c13adc-bf47-40e3-b9d9-72c56a9cba74",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

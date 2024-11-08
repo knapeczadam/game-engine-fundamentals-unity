@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CatManager : MonoBehaviour
 {
-    public int              m_catCount { get; private set; } = 0;
-    public delegate void    CatCountChange(int catCount);
+    public int              m_catCount { get; set; } = 0;
+    public delegate void    CatCountChange(int catCount, CatManager catManager);
     public event CatCountChange OnCatCountChange = null;
 
     private PickUpBehaviour m_pickUpBehaviour = null;
@@ -32,7 +32,7 @@ public class CatManager : MonoBehaviour
         if (m_isDay && !catPickedUp && m_inSafeZone)
         {
             m_catCount++;
-            OnCatCountChange?.Invoke(m_catCount);
+            OnCatCountChange?.Invoke(m_catCount, this);
             Debug.Log($"Cat count: {m_catCount}");
             
         }
@@ -96,7 +96,7 @@ public class CatManager : MonoBehaviour
     public void Reset()
     {
         m_catCount = 0;
-        OnCatCountChange?.Invoke(m_catCount);
+        OnCatCountChange?.Invoke(m_catCount, this);
         m_isDay = false;
         m_inSafeZone = false;
     }

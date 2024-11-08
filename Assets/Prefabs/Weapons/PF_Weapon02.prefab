@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_weaponName
-      value: Uzi
+      value: UZI
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}

@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2527565916059041661, guid: 553d67aec3e08654fa454027eb396e1e,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527565916059041661, guid: 553d67aec3e08654fa454027eb396e1e,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
       propertyPath: _speed

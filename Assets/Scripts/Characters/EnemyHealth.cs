@@ -7,6 +7,10 @@ using UnityEngine.Serialization;
 public class EnemyHealth : Health
 {
     [SerializeField] private List<GameObject> m_bloodEffects = new List<GameObject>();
+    [SerializeField] private GameObject          m_bloodSplatter    = null;
+    [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD0 = null;
+    [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD1 = null;
+    [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD2 = null;
     private float m_deathTime = 10.0f;
     
     private int m_id        = 0;
@@ -75,6 +79,7 @@ public class EnemyHealth : Health
         var position = new Vector3(transform.position.x, yOffset, transform.position.z);
         var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
         Instantiate(bloodEffect, position, rotation);
+        Instantiate(m_bloodSplatter, new Vector3(transform.position.x, 1.4f, transform.position.z), rotation);
     }
 
     protected override void Die()
@@ -85,15 +90,17 @@ public class EnemyHealth : Health
         GetComponent<NavMeshMovementBehaviour>().enabled =        false;
         GetComponent<BasicEnemyCharacter>().enabled      =        false;
         
-        var renderers = GetComponentsInChildren<Renderer>();
-        // renderer.material.color = Color.black;
-        foreach (var renderer in renderers)
-        {
-            foreach (var material in renderer.materials)
-            {
-                material.color = Color.black;
-            }
-        }
+        m_bodyRendererLOD0.material.color = Color.black;
+        m_bodyRendererLOD0.material.DisableKeyword("_EMISSION");
+        m_bodyRendererLOD0.material.SetFloat("_EmissiveExposureWeight", 0.0f);
+        
+        m_bodyRendererLOD1.material.color = Color.black;
+        m_bodyRendererLOD1.material.DisableKeyword("_EMISSION");
+        m_bodyRendererLOD1.material.SetFloat("_EmissiveExposureWeight", 0.0f);
+        
+        m_bodyRendererLOD2.material.color = Color.black;
+        m_bodyRendererLOD2.material.DisableKeyword("_EMISSION");
+        m_bodyRendererLOD2.material.SetFloat("_EmissiveExposureWeight", 0.0f);
         
         var attack = GetComponent<AttackBehaviour>();
         if (attack)

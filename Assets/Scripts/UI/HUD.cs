@@ -23,8 +23,13 @@ public class HUD : MonoBehaviour
             if (catManager)
             {
                 m_catCountField.value = catManager.m_catCount;
-                catManager.OnCatCountChange += (catCount) => m_catCountField.value = catCount;
+                catManager.OnCatCountChange += OnCatCountChange;
             }
         }
+    }
+
+    private void OnCatCountChange(int catCount, CatManager catManager)
+    {
+        m_catCountField.value = catCount;
     }
 }

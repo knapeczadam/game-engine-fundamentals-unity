@@ -5,15 +5,19 @@ using UnityEngine.Serialization;
 [DisallowMultipleComponent]
 public class PlayerCharacter : BasicCharacter
 {
-    [SerializeField] private InputActionAsset     m_inputAsset         = null;
-    [SerializeField] private InputActionReference m_movementAction     = null;
-    [SerializeField] private InputActionReference m_runAction          = null;
-    [SerializeField] private InputActionReference m_attackAction       = null;
-    [SerializeField] private InputActionReference m_pickUpAction       = null;
-    [SerializeField] private InputActionReference m_switchWeaponAction ;
-    [SerializeField] private InputActionReference m_cameraDistanceAction       = null;  
+    [SerializeField] private InputActionAsset     m_inputAsset           = null;
+    [SerializeField] private InputActionReference m_movementAction       = null;
+    [SerializeField] private InputActionReference m_runAction            = null;
+    [SerializeField] private InputActionReference m_attackAction         = null;
+    [SerializeField] private InputActionReference m_pickUpAction         = null;
+    [SerializeField] private InputActionReference m_switchWeaponAction   ;
+    [SerializeField] private InputActionReference m_cameraDistanceAction = null; 
     [SerializeField] private InputActionReference m_cameraRotationAction = null;
-    [SerializeField] private CameraManager        m_cameraManager       = null;
+    [SerializeField] private InputActionReference m_cameraTiltAction     = null;
+    [SerializeField] private InputActionReference m_pauseAction     = null;
+    [SerializeField] private CameraManager        m_cameraManager        = null;
+    
+    [SerializeField] private GameObject m_pauseMenu = null;
     
     private PickUpBehaviour       m_pickUpBehaviour       = null;
     private SwitchWeaponBehaviour m_switchWeaponBehaviour = null;
@@ -50,11 +54,6 @@ public class PlayerCharacter : BasicCharacter
         {
             m_switchWeaponAction.action.performed += HandleSwitchWeaponInput;
         }
-        
-        if (m_cameraDistanceAction)
-        {
-            m_cameraDistanceAction.action.performed += HandleCameraDistanceInput;
-        }
     }
     
     private void OnDisable()
@@ -73,11 +72,6 @@ public class PlayerCharacter : BasicCharacter
         {
             m_switchWeaponAction.action.performed -= HandleSwitchWeaponInput;
         }
-        
-        if (m_cameraDistanceAction)
-        {
-            m_cameraDistanceAction.action.performed -= HandleCameraDistanceInput;
-        }
     }
 
 
@@ -86,6 +80,23 @@ public class PlayerCharacter : BasicCharacter
         HandleMovementInput();
         HandleAttackInput();
         HandleCameraRotationInput();
+        HandleCameraDistanceInput();
+        HandleCameraTiltInput();
+        HandlePauseInput();
+    }
+
+    private void HandlePauseInput()
+    {
+        if (m_pauseAction.action.WasPerformedThisFrame())
+        {
+            ToggleTimeScale();
+        }
+    }
+    
+    public void ToggleTimeScale()
+    {
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        m_pauseMenu.SetActive(!m_pauseMenu.activeSelf);
     }
 
     private void HandleMovementInput()
@@ -145,12 +156,11 @@ public class PlayerCharacter : BasicCharacter
         }
     }
     
-    private void HandleCameraDistanceInput(InputAction.CallbackContext context)
+    private void HandleCameraDistanceInput()
     {
-        if (context.performed)
+        if (m_cameraDistanceAction.action.IsPressed())
         {
-            // Debug.Log(context.ReadValue<float>());
-            var value = context.ReadValue<float>();
+            var value = m_cameraDistanceAction.action.ReadValue<float>();
             if (value > 0)
             {
                 m_cameraManager.DecreaseCameraDistance();
@@ -174,6 +184,22 @@ public class PlayerCharacter : BasicCharacter
             else if (value < 0)
             {
                 m_cameraManager.RotateCameraLeft();
+            }
+        }
+    }
+    
+    private void HandleCameraTiltInput()
+    {
+        if (m_cameraTiltAction.action.IsPressed())
+        {
+            var value = m_cameraTiltAction.action.ReadValue<float>();
+            if (value > 0)
+            {
+                m_cameraManager.TiltCameraUp();
+            }
+            else if (value < 0)
+            {
+                m_cameraManager.TiltCameraDown();
             }
         }
     }

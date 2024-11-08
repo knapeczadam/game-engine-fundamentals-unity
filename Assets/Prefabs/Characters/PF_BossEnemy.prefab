@@ -231,6 +231,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7966002441250906931}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &492319591071642057 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7519321484094722810, guid: 4d99d47e6e48a714c895368aed8a8fa6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7966002441250906931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &492319591071642059 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7519321484094722808, guid: 4d99d47e6e48a714c895368aed8a8fa6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7966002441250906931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &492319591071642061 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7519321484094722814, guid: 4d99d47e6e48a714c895368aed8a8fa6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7966002441250906931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8112936084097104633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,17 +295,17 @@ PrefabInstance:
     - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.741
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.186
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1580986403785634945, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.11
+      value: 0.246
       objectReference: {fileID: 0}
     - target: {fileID: 2548676409882637392, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
@@ -374,6 +392,26 @@ PrefabInstance:
       propertyPath: m_maxHealth
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_bloodSplatter
+      value: 
+      objectReference: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_bodyRendererLOD0
+      value: 
+      objectReference: {fileID: 492319591071642057}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_bodyRendererLOD1
+      value: 
+      objectReference: {fileID: 492319591071642059}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_bodyRendererLOD2
+      value: 
+      objectReference: {fileID: 492319591071642061}
     - target: {fileID: 5507644518660037737, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_socket

@@ -50,11 +50,21 @@ public class CameraManager : MonoBehaviour
     
     public void RotateCameraLeft()
     {
-        _camera.transform.rotation = Quaternion.Euler(_cameraRotationStart.eulerAngles.x, _camera.transform.rotation.eulerAngles.y + 0.5f, _cameraRotationStart.eulerAngles.z);
+        _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x, _camera.transform.rotation.eulerAngles.y + 0.5f, _camera.transform.eulerAngles.z);
     }
     
     public void RotateCameraRight()
     {
-        _camera.transform.rotation = Quaternion.Euler(_cameraRotationStart.eulerAngles.x, _camera.transform.rotation.eulerAngles.y - 0.5f, _cameraRotationStart.eulerAngles.z);
+        _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x, _camera.transform.rotation.eulerAngles.y - 0.5f, _camera.transform.eulerAngles.z);
+    }
+    
+    public void TiltCameraUp()
+    {
+        _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x + 0.5f, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
+    }
+    
+    public void TiltCameraDown()
+    {
+        _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x - 0.5f, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
     }
 }

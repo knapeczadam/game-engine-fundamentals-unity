@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,21 +8,21 @@ public class WeaponManager : MonoBehaviour
     public List<GameObject> m_weapons = new List<GameObject>();
     public GameObject m_currentWeapon { get; set; } = null;
     
-    private readonly Dictionary<int, int> _weaponRules = new Dictionary<int, int>()
+    private readonly Dictionary<int, int> m_weaponRules = new Dictionary<int, int>()
     {
         {0, 0},  // default weapon needs 0 cast
-        {1, 2},  // uzi needs 5 cast
-        {2, 15}, // shotgun needs an additional 10 cast 
-        {3, 30},
-        {4, 50},
-        {5, 75},
-        {6, 105},
-        {7, 145},
-        {8, 195},
-        {9, 255},
+        {1, 3},  
+        {2, 5},
+        {3, 10},
+        {4, 15},
+        {5, 20},
+        {6, 30},
+        {7, 50},
+        {8, 100},
+        {9, 200},
     };
     
-    private Dictionary<int, bool> _allowedWeapons = new Dictionary<int, bool>()
+    public Dictionary<int, bool> m_allowedWeapons = new Dictionary<int, bool>()
     {
         {0, true},
         {1, false},
@@ -34,7 +35,10 @@ public class WeaponManager : MonoBehaviour
         {8, false},
         {9, false},
     };
-    public Dictionary<int, bool> AllowedWeapons => _allowedWeapons;
+    
+    [SerializeField] private List<GameObject> m_animations = new List<GameObject>();
+    [SerializeField] private List<GameObject> m_weaponDisplay = new List<GameObject>();
+    [SerializeField] private TMP_Text m_weaponText = null;
     
     private CatManager _catManager = null;
     
@@ -55,15 +59,21 @@ public class WeaponManager : MonoBehaviour
         }
     }
     
-    private void OnCatCountChange(int catCount)
+    private void OnCatCountChange(int catCount, CatManager catManager)
     {
-        foreach (var allowedWeapon in _allowedWeapons)
+        foreach (var allowedWeapon in m_allowedWeapons)
         {
             if (!allowedWeapon.Value)
             {
-                if (catCount >= _weaponRules[allowedWeapon.Key])
+                m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key]}";
+                if (catCount >= m_weaponRules[allowedWeapon.Key])
                 {
-                    _allowedWeapons[allowedWeapon.Key] = true;
+                    m_allowedWeapons[allowedWeapon.Key] = true;
+                    m_animations[allowedWeapon.Key].SetActive(true);
+                    m_weaponDisplay[allowedWeapon.Key - 1].SetActive(false);
+                    m_weaponDisplay[allowedWeapon.Key].SetActive(true);
+                    catManager.m_catCount = 0;
+                    m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key + 1]}";
                 }
                 break;
             }
@@ -72,11 +82,11 @@ public class WeaponManager : MonoBehaviour
 
     public void Reset()
     {
-        foreach (var allowedWeapon in _allowedWeapons)
+        foreach (var allowedWeapon in m_allowedWeapons)
         {
-            _allowedWeapons[allowedWeapon.Key] = false;
+            m_allowedWeapons[allowedWeapon.Key] = false;
         }
-        _allowedWeapons[0] = true;
+        m_allowedWeapons[0] = true;
 
         foreach (var weapon in m_weapons)
         {
