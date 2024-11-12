@@ -22,4 +22,18 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    
+    public void LoadMainMenu()
+    {
+        StartCoroutine(LoadMainMenuSceneAsync());
+    }
+    
+    private IEnumerator LoadMainMenuSceneAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Menu");
+        while (asyncLoad != null && !asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }

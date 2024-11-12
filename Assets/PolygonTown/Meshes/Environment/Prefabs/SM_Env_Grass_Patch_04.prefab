@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a7d86396916d34446b9593fe365817e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.698362
+      value: 75.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7d86396916d34446b9593fe365817e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.009648323
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7d86396916d34446b9593fe365817e0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.300995
+      value: 31.69
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7d86396916d34446b9593fe365817e0,
         type: 3}
@@ -60,6 +60,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a7d86396916d34446b9593fe365817e0,
         type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a7d86396916d34446b9593fe365817e0,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d243afc5521dfa7468f22fdb1f2daa40, type: 2}
@@ -67,6 +72,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Grass_Patch_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a7d86396916d34446b9593fe365817e0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.220123
+      value: 81.582
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.711
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 81.14428
+      value: 29.157
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9854737
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.16982865
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
@@ -51,12 +51,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 19.556
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4037216812548315151, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4037216812548315151, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
@@ -68,13 +73,57 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -333883051310635639, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5df01d56d9bbe3c428077c3ccea26b03,
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Plant_Vege_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839845633138437235, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1839845633138437235, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8048523601613034321}
   m_SourcePrefab: {fileID: 100100000, guid: 5df01d56d9bbe3c428077c3ccea26b03, type: 3}
+--- !u!1 &1001353202184419345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1839845633138437235, guid: 5df01d56d9bbe3c428077c3ccea26b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472101708932043874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8048523601613034321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001353202184419345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

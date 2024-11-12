@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -11,6 +12,9 @@ public class EnemyHealth : Health
     [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD0 = null;
     [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD1 = null;
     [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD2 = null;
+    [SerializeField] private GameObject m_canvas = null;
+    [SerializeField] private GameObject m_scoreTextTemplate = null;
+    
     private float m_deathTime = 10.0f;
     
     private int m_id        = 0;
@@ -118,5 +122,11 @@ public class EnemyHealth : Health
         
         // add the kill score to the player
         ScoreManager.Instance.AddScore(m_killScore);
+        
+        var text = Instantiate(m_scoreTextTemplate, m_canvas.transform);
+        text.GetComponent<TMP_Text>().text = $"{m_killScore}";
+        var position = new Vector3(transform.position.x, 2.0f, transform.position.z);
+        text.transform.position = Camera.main.WorldToScreenPoint(position);
+        text.SetActive(true);
     }
 }

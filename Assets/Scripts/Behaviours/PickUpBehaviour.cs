@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -9,11 +10,17 @@ public class PickUpBehaviour : MonoBehaviour
     private GameObject m_aiCat       = null;
     private GameObject m_staticCat   = null;
     private GameObject m_rootCat     = null;
+    private WeaponManager m_weaponManager = null;
     
     [SerializeField] private GameObject _catSocket = null;
     [SerializeField] CatManager m_catManager = null;
     private bool       m_catDetected = false;
-    
+
+    private void Awake()
+    {
+        m_weaponManager = GetComponent<WeaponManager>();
+    }
+
     public void PickUp()
     {
         if (!m_catPickedUp && m_catDetected)
@@ -22,6 +29,7 @@ public class PickUpBehaviour : MonoBehaviour
             
             m_catPickedUp = true;
             OnPickUp?.Invoke(m_catPickedUp);
+            m_weaponManager.m_currentWeapon.SetActive(false);
 
             // Hide the AI cat and show the static cat
             m_aiCat.SetActive(false);
@@ -35,6 +43,7 @@ public class PickUpBehaviour : MonoBehaviour
             
             m_catPickedUp = false;
             OnPickUp?.Invoke(m_catPickedUp);
+            m_weaponManager.m_currentWeapon.SetActive(true);
 
             if (m_catManager && m_catManager.SafeZoneActive())
             {
@@ -49,13 +58,13 @@ public class PickUpBehaviour : MonoBehaviour
             {
                 // Hide the static cat and show the AI cat
                 m_staticCat.SetActive(false);
-                m_aiCat.SetActive(true);
             
                 m_rootCat.transform.SetParent(null, false);
             
                 // Reset the cat's position and rotation
                 m_aiCat.transform.position = transform.position;
-                m_aiCat.transform.rotation = Quaternion.identity;
+                m_aiCat.transform.rotation = transform.rotation;
+                m_aiCat.SetActive(true);
             }
         }
         else

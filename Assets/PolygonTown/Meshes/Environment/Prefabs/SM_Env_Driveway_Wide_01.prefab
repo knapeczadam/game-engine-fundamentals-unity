@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Driveway_Wide_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abaeda9ec8e58da4783ddbc629d48464,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587418612091692130, guid: abaeda9ec8e58da4783ddbc629d48464,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3587418612091692130, guid: abaeda9ec8e58da4783ddbc629d48464,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -72,6 +82,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963970653369944197, guid: abaeda9ec8e58da4783ddbc629d48464,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623688170478533199, guid: abaeda9ec8e58da4783ddbc629d48464,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

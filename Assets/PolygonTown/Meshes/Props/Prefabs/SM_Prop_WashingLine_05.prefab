@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.04
+      value: 69.962
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0005977154
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.48
+      value: 37.272
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
@@ -58,15 +58,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6404822258491124688, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_WashingLine_05
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1488571803946707706, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488571803946707706, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425363555170342232, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3425363555170342232, guid: 4f7d20510198d4f4ba8c01d3952b66af,
         type: 3}
@@ -76,5 +96,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6404822258491124688, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4611732548608979924}
   m_SourcePrefab: {fileID: 100100000, guid: 4f7d20510198d4f4ba8c01d3952b66af, type: 3}
+--- !u!1 &3317238139033146213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6404822258491124688, guid: 4f7d20510198d4f4ba8c01d3952b66af,
+    type: 3}
+  m_PrefabInstance: {fileID: 654344194624440149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4611732548608979924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317238139033146213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

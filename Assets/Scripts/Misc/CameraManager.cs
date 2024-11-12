@@ -60,11 +60,13 @@ public class CameraManager : MonoBehaviour
     
     public void TiltCameraUp()
     {
+        if (_camera.transform.eulerAngles.x + 0.5f > 90.0f) return;
         _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x + 0.5f, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
     }
     
     public void TiltCameraDown()
     {
+        if (_camera.transform.eulerAngles.x - 0.5f < 0.0f) return;
         _camera.transform.rotation = Quaternion.Euler(_camera.transform.eulerAngles.x - 0.5f, _camera.transform.eulerAngles.y, _camera.transform.eulerAngles.z);
     }
 }

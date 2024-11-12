@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.48423767
+      value: 58.902016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.033838272
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.028717
+      value: 35.649673
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.91545403
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.40242276
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
@@ -51,12 +51,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -47.459
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5206016678164848539, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5206016678164848539, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
@@ -68,13 +73,57 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -271250122469901550, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Bush_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819701060011901210, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3819701060011901210, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 340271535489611534}
   m_SourcePrefab: {fileID: 100100000, guid: 6d3d37c3914409e41a84f7e7602bd5a7, type: 3}
+--- !u!1 &1915314152746920605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3819701060011901210, guid: 6d3d37c3914409e41a84f7e7602bd5a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3429172200525228935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &340271535489611534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915314152746920605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

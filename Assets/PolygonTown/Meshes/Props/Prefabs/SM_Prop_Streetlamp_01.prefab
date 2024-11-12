@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2243247389360054145
 Transform:
@@ -45,13 +45,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 79.22606
   m_InnerSpotAngle: 28.153831
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -189,8 +189,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 194706, guid: e7aa3eba36ce5d04c84a01925e585932,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1637767263495975215}
   m_SourcePrefab: {fileID: 100100000, guid: e7aa3eba36ce5d04c84a01925e585932, type: 3}
+--- !u!1 &1811415357520981466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 194706, guid: e7aa3eba36ce5d04c84a01925e585932,
+    type: 3}
+  m_PrefabInstance: {fileID: 1811415357521089864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1637767263495975215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811415357520981466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1811415357521211806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419030, guid: e7aa3eba36ce5d04c84a01925e585932,
@@ -208,7 +237,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.97
+      value: 87.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
@@ -218,27 +247,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 17.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.39454526
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.9188765
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
@@ -248,7 +277,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 133.525
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}
@@ -269,6 +298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533294838804013634, guid: ef6ef1acc3b694743b3666c9b28d4670,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5533294838804013634, guid: ef6ef1acc3b694743b3666c9b28d4670,
         type: 3}

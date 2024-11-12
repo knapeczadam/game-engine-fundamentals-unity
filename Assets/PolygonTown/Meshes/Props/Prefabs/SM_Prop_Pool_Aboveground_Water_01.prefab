@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 531cd592d04b5af488fad9988b969dfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.62
+      value: 47.983
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531cd592d04b5af488fad9988b969dfe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531cd592d04b5af488fad9988b969dfe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.6
+      value: 45.385
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531cd592d04b5af488fad9988b969dfe,
         type: 3}
@@ -60,6 +60,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 531cd592d04b5af488fad9988b969dfe,
         type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 531cd592d04b5af488fad9988b969dfe,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d243afc5521dfa7468f22fdb1f2daa40, type: 2}
@@ -67,6 +72,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Pool_Aboveground_Water_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 531cd592d04b5af488fad9988b969dfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

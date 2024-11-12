@@ -48,7 +48,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         if (m_instance == null)
         {
             m_instance = this;

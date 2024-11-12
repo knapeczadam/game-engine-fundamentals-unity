@@ -10,8 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.24
+      value: -92.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
@@ -21,32 +36,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.5
+      value: 79.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5030366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.5030366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.49694487
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.49694487
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
@@ -56,7 +71,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 89.302
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 74a322db6f630664cbabe8f7713f96ae,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 74a322db6f630664cbabe8f7713f96ae,
         type: 3}
@@ -67,6 +87,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Generic_Mountains_Grass_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74a322db6f630664cbabe8f7713f96ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

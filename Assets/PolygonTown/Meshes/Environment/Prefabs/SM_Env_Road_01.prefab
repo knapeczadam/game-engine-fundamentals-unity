@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
         type: 3}
@@ -107,6 +107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044855461676389517, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8044855461676389517, guid: d96e8c7755dc20b49a0e4fd51f5d36e2,
         type: 3}

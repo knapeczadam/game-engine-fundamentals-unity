@@ -600,6 +600,9 @@ MonoBehaviour:
   - {fileID: 4532865107213917972}
   - {fileID: 52924718594412882}
   - {fileID: 4845108524639218469}
+  m_animations: []
+  m_weaponDisplay: []
+  m_weaponText: {fileID: 0}
 --- !u!114 &640470700792874317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1058,7 +1061,7 @@ Transform:
   m_GameObject: {fileID: 8611856959933990653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.116, y: 0.816, z: 0.641}
+  m_LocalPosition: {x: -0.925, y: 0.823, z: -0.144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

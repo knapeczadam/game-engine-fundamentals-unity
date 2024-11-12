@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40ef41f675e126941ae9fda7209128ea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.13
+      value: 43.483883
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40ef41f675e126941ae9fda7209128ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.803
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40ef41f675e126941ae9fda7209128ea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.53
+      value: 43.34231
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40ef41f675e126941ae9fda7209128ea,
         type: 3}
@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_ToyBlock_03
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40ef41f675e126941ae9fda7209128ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 4999577091653640596, guid: 40ef41f675e126941ae9fda7209128ea,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -76,5 +81,91 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7859339969002460418, guid: 40ef41f675e126941ae9fda7209128ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6683874868307279714}
+    - targetCorrespondingSourceObject: {fileID: 7859339969002460418, guid: 40ef41f675e126941ae9fda7209128ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3990477442924019889}
+    - targetCorrespondingSourceObject: {fileID: 7859339969002460418, guid: 40ef41f675e126941ae9fda7209128ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2413775139491483260}
   m_SourcePrefab: {fileID: 100100000, guid: 40ef41f675e126941ae9fda7209128ea, type: 3}
+--- !u!1 &6336941558621326472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7859339969002460418, guid: 40ef41f675e126941ae9fda7209128ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 4242578634774354314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6683874868307279714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336941558621326472}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4529995840797546762, guid: 40ef41f675e126941ae9fda7209128ea, type: 3}
+--- !u!54 &3990477442924019889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336941558621326472}
+  serializedVersion: 4
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2413775139491483260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336941558621326472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

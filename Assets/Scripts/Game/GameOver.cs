@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private GameObject m_player = null;
+    [SerializeField] private List<UnityEvent> m_onGameOver = new List<UnityEvent>();
 
     private void Update()
     {
@@ -13,9 +16,12 @@ public class GameOver : MonoBehaviour
             TriggerGameOver();
         }
     }
-
+    
     void TriggerGameOver()
     {
-        SceneManager.LoadScene(0);
+        foreach (var unityEvent in m_onGameOver)
+        {
+            unityEvent.Invoke();
+        }
     }
 }

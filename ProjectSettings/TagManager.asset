@@ -11,6 +11,7 @@ TagManager:
   - SlowEnemy
   - FastEnemy
   - BossEnemy
+  - Item
   layers:
   - Default
   - TransparentFX

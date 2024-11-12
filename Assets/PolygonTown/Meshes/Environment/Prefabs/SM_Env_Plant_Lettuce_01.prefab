@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.617153
+      value: 38.139
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.535
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.283623
+      value: 22.839
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
@@ -58,10 +58,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4837897709483994359, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Plant_Lettuce_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774615302906607752, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774615302906607752, guid: 096fbfaa0d429db4c818f98bbc0230d3,
         type: 3}
@@ -73,8 +88,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8096076955655215252, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4837897709483994359, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8509228722491584150}
   m_SourcePrefab: {fileID: 100100000, guid: 096fbfaa0d429db4c818f98bbc0230d3, type: 3}
+--- !u!1 &7143263516321737508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4837897709483994359, guid: 096fbfaa0d429db4c818f98bbc0230d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6916875883741100077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8509228722491584150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143263516321737508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

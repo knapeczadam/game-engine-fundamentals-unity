@@ -10,8 +10,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.060818
+      value: 24.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
@@ -21,12 +26,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.267456
+      value: 33.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
@@ -36,7 +41,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
@@ -51,7 +56,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
@@ -63,10 +68,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5168161406211951993, guid: c2df0d8a575edad4b888602d43ad7aad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1692513866210732231, guid: c2df0d8a575edad4b888602d43ad7aad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}
       propertyPath: m_Name
       value: SM_Env_Road_SpeedBump_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2df0d8a575edad4b888602d43ad7aad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273409416546384647, guid: c2df0d8a575edad4b888602d43ad7aad,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2273409416546384647, guid: c2df0d8a575edad4b888602d43ad7aad,
         type: 3}

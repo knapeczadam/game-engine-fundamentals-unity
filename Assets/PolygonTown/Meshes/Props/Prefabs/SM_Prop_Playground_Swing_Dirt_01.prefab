@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 41.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 47.534107
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
@@ -58,10 +58,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2595121482479955069, guid: bc434ff321a881848bc2b9c69446288b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Playground_Swing_Dirt_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc434ff321a881848bc2b9c69446288b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819790827446139204, guid: bc434ff321a881848bc2b9c69446288b,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2819790827446139204, guid: bc434ff321a881848bc2b9c69446288b,
         type: 3}
@@ -72,6 +87,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370417747381603224, guid: bc434ff321a881848bc2b9c69446288b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
