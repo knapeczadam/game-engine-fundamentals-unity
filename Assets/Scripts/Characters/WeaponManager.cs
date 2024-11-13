@@ -8,6 +8,8 @@ public class WeaponManager : MonoBehaviour
     public List<GameObject> m_weapons = new List<GameObject>();
     public GameObject m_currentWeapon { get; set; } = null;
     
+    [SerializeField] private bool m_isTutorial = false;
+    
     private readonly Dictionary<int, int> m_weaponRules = new Dictionary<int, int>()
     {
         {0, 0},  // default weapon needs 0 cast
@@ -48,6 +50,12 @@ public class WeaponManager : MonoBehaviour
         if (_catManager)
         {
             _catManager.OnCatCountChange += OnCatCountChange;
+        }
+        
+        if (m_isTutorial)
+        {
+            m_weaponRules[1] = 2;
+            m_weaponRules[2] = 0;
         }
     }
     

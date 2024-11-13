@@ -47,12 +47,19 @@ public class PickUpBehaviour : MonoBehaviour
 
             if (m_catManager && m_catManager.SafeZoneActive())
             {
-                // Hide the static cat and show the AI cat
-                m_aiCat.SetActive(false);
-                m_staticCat.SetActive(true);
+                if (m_catManager.m_destroyCat)
+                {
+                    Destroy(m_rootCat);
+                }
+                else
+                {
+                    // Hide the AI cat and show the static cat
+                    m_aiCat.SetActive(false);
+                    m_staticCat.SetActive(true);
                 
-                var catSocket = m_rootCat.GetComponent<Cat>().m_catSocket;
-                m_rootCat.transform.SetParent(catSocket.transform, false);
+                    var catSocket = m_rootCat.GetComponent<Cat>().m_catSocket;
+                    m_rootCat.transform.SetParent(catSocket.transform, false);
+                }
             }
             else
             {

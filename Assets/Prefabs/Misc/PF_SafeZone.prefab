@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae1b88a79e56d140b3027da7963304e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_highlightMaterial: {fileID: 2100000, guid: b0eae656d1a9b2944a981153adc4d1ab, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: e51dfa65e192b7e428895a7f8c8f208d, type: 2}
 --- !u!1 &4668102991834160566
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7402314708887901064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a45bb0962478d1942b0cea238c830d0c, type: 2}
   m_CullingMode: 0

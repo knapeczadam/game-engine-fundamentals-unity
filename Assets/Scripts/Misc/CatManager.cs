@@ -9,6 +9,7 @@ public class CatManager : MonoBehaviour
     private PickUpBehaviour m_pickUpBehaviour = null;
     private bool m_inSafeZone  = false;
     private bool            m_isDay           = false;
+    public bool m_destroyCat = false;
     
     private void Awake()
     {

@@ -6,18 +6,23 @@ using UnityEngine.Serialization;
 public class PlayerCharacter : BasicCharacter
 {
     [SerializeField] private InputActionAsset     m_inputAsset           = null;
+    [Header("Movement Input Actions")]
     [SerializeField] private InputActionReference m_movementAction       = null;
     [SerializeField] private InputActionReference m_runAction            = null;
+    [Header("Weapon Input Actions")]
     [SerializeField] private InputActionReference m_attackAction         = null;
-    [SerializeField] private InputActionReference m_pickUpAction         = null;
     [SerializeField] private InputActionReference m_switchWeaponAction   ;
+    [Header("Camera Input Actions")]
     [SerializeField] private InputActionReference m_cameraDistanceAction = null; 
     [SerializeField] private InputActionReference m_cameraRotationAction = null;
     [SerializeField] private InputActionReference m_cameraTiltAction     = null;
-    [SerializeField] private InputActionReference m_pauseAction     = null;
     [SerializeField] private CameraManager        m_cameraManager        = null;
-    
-    [SerializeField] private GameObject m_pauseMenu = null;
+    [Header("Misc Input Actions")]
+    [SerializeField] private InputActionReference m_pickUpAction         = null;
+    [SerializeField] private InputActionReference m_pauseAction     = null;
+    [Header("Pause")]
+    [SerializeField] private GameManager          m_gameManager          = null;
+    [SerializeField] private GameObject           m_pauseMenu            = null;
     
     private PickUpBehaviour       m_pickUpBehaviour       = null;
     private SwitchWeaponBehaviour m_switchWeaponBehaviour = null;
@@ -87,18 +92,19 @@ public class PlayerCharacter : BasicCharacter
 
     private void HandlePauseInput()
     {
+        if (m_pauseAction == null)
+        {
+            Debug.LogError("PauseAction is not set in the PlayerCharacter component.");
+            return;
+        }
+        
         if (m_pauseAction.action.WasPerformedThisFrame())
         {
-            ToggleTimeScale();
+            m_gameManager.ToggleTimeScale();
+            m_pauseMenu.SetActive(!m_pauseMenu.activeSelf);
         }
     }
     
-    public void ToggleTimeScale()
-    {
-        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-        m_pauseMenu.SetActive(!m_pauseMenu.activeSelf);
-    }
-
     private void HandleMovementInput()
     {
         if (m_movementBehaviour == null || m_movementAction == null)
@@ -158,6 +164,12 @@ public class PlayerCharacter : BasicCharacter
     
     private void HandleCameraDistanceInput()
     {
+        if (m_cameraDistanceAction == null)
+        {
+            Debug.LogError("CameraDistanceAction is not set in the PlayerCharacter component.");
+            return;
+        }
+        
         if (m_cameraDistanceAction.action.IsPressed())
         {
             var value = m_cameraDistanceAction.action.ReadValue<float>();
@@ -174,6 +186,12 @@ public class PlayerCharacter : BasicCharacter
     
     private void HandleCameraRotationInput()
     {
+        if (m_cameraRotationAction == null)
+        {
+            Debug.LogError("CameraRotationAction is not set in the PlayerCharacter component.");
+            return;
+        }
+        
         if (m_cameraRotationAction.action.IsPressed())
         {
             var value = m_cameraRotationAction.action.ReadValue<float>();
@@ -190,6 +208,12 @@ public class PlayerCharacter : BasicCharacter
     
     private void HandleCameraTiltInput()
     {
+        if (m_cameraTiltAction == null)
+        {
+            Debug.LogError("CameraTiltAction is not set in the PlayerCharacter component.");
+            return;
+        }
+        
         if (m_cameraTiltAction.action.IsPressed())
         {
             var value = m_cameraTiltAction.action.ReadValue<float>();
