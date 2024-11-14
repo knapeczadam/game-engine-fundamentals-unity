@@ -54,7 +54,12 @@ public class MovementBehaviour : MonoBehaviour
             movementSpeed *= 2.0f;
         }
 
-        if (m_runPressed && !m_canRun)
+        if (!m_canRun)
+        {
+            movementSpeed *= 0.5f;
+        }
+
+        if (!m_canRun && m_runPressed)
         {
             Debug.Log("Cannot run while carrying a cat.");
         }

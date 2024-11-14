@@ -58,7 +58,7 @@ public class EnemyHealth : Health
         // add rigidbody temporarily to allow the enemy to get pushed back
         var rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
-        rb.AddForce(-transform.forward, ForceMode.Impulse);
+        rb.AddForce(-transform.forward * forceMultiplier, ForceMode.Impulse);
         
         // disable the rigidbody after 0.5 seconds
         StartCoroutine(DisableRigidbody(rb, agent, movement));

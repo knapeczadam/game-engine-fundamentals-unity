@@ -5527,6 +5527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79267f892befc5f4bbd44aea82194a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_highScoreText: {fileID: 1094452496}
+  m_currentScoreText: {fileID: 0}
 --- !u!1 &1120158487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad,
@@ -10217,7 +10219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030617485
 RectTransform:
   m_ObjectHideFlags: 0

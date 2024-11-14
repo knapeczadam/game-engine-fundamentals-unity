@@ -90,7 +90,7 @@ public class PickUpBehaviour : MonoBehaviour
             m_staticCat = other.transform.parent.GetComponentInChildren<StaticCat>(true).gameObject;
             m_rootCat = other.transform.root.gameObject;
         }
-        else if (other.CompareTag(Tags.TREE))
+        else if (!m_catPickedUp && other.CompareTag(Tags.TREE))
         {
             m_catDetected = other.gameObject.GetComponent<MyTree>().HasCat();
             if (m_catDetected)

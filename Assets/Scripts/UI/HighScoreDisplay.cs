@@ -1,18 +1,24 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class HighScoreDisplay : MonoBehaviour
 {
-    private TMP_Text m_scoreText = null;
+    [SerializeField] private TMP_Text m_highScoreText = null;
+    [SerializeField] private TMP_Text m_currentScoreText = null;
 
-    private void Awake()
+    private void OnEnable()
     {
-        m_scoreText = GetComponent<TMP_Text>();
-    }
-
-    private void Start()
-    {
-        var highScore = PlayerPrefs.GetInt("HighScore", 0);
-        m_scoreText.text = highScore.ToString();
+        if (m_highScoreText)
+        {
+            var highScore = PlayerPrefs.GetInt("HighScore", 0);
+            m_highScoreText.text = highScore.ToString();
+        }
+        
+        if (m_currentScoreText)
+        {
+            var currentScore = PlayerPrefs.GetInt("CurrentScore", 0);
+            m_currentScoreText.text = currentScore.ToString();
+        }
     }
 }

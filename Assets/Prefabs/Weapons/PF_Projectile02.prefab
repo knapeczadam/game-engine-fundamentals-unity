@@ -90,13 +90,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
+      propertyPath: m_lifeTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
+        type: 3}
       propertyPath: _forceMultiplier
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
       propertyPath: m_forceMultiplier
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

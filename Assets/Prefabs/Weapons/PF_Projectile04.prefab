@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 281855875839270188, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
       propertyPath: m_Name
-      value: PF_Projectile02
+      value: PF_Projectile04
       objectReference: {fileID: 0}
     - target: {fileID: 366365759082279406, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
@@ -86,7 +86,12 @@ PrefabInstance:
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
       propertyPath: m_damage
-      value: 5
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
+        type: 3}
+      propertyPath: m_lifeTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
@@ -96,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 8569422000190578540, guid: 553d67aec3e08654fa454027eb396e1e,
         type: 3}
       propertyPath: m_forceMultiplier
-      value: 0.8
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

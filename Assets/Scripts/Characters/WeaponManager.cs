@@ -9,6 +9,9 @@ public class WeaponManager : MonoBehaviour
     public GameObject m_currentWeapon { get; set; } = null;
     
     [SerializeField] private bool m_isTutorial = false;
+
+    public delegate void WeapongChange();
+    public event WeapongChange OnWeaponChange = null;
     
     private readonly Dictionary<int, int> m_weaponRules = new Dictionary<int, int>()
     {
@@ -82,6 +85,7 @@ public class WeaponManager : MonoBehaviour
                     m_weaponDisplay[allowedWeapon.Key].SetActive(true);
                     catManager.m_catCount = 0;
                     m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key + 1]}";
+                    OnWeaponChange?.Invoke();
                 }
                 break;
             }

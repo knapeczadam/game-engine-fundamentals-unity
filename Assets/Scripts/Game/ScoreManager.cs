@@ -59,6 +59,8 @@ public class ScoreManager : MonoBehaviour
         m_score += score;
         OnScoreChanged?.Invoke(m_score);
         
+        PlayerPrefs.SetInt("CurrentScore", m_score);
+        
         if (m_score > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", m_score);
