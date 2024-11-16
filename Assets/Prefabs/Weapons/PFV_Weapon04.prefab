@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_Weapon04
+      value: PFV_Weapon04
       objectReference: {fileID: 0}
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -83,10 +83,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3754596834325181677, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4179475670960916788, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_VersionIndex
       value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586687561797986468, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -119,6 +129,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4779312076606057451, guid: 1f8e6f92bcca1be4a8d9405d0344a6ef,
         type: 3}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: _onFireEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bcdd7ccf1fe9bb4fa97c72648ca71e0, type: 3}
     - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_audioClip

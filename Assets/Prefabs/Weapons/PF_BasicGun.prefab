@@ -371,31 +371,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6169893454ff5478657a040714a4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_weaponName: Basic Weapon
+  m_fireRate: 25
+  m_fastFire: 0
   m_bulletTemplate: {fileID: 281855875839270188, guid: 553d67aec3e08654fa454027eb396e1e,
     type: 3}
-  m_fireRate: 25
   m_fireSockets:
   - {fileID: 2289473201588775759}
-  m_amplitude: 1
-  m_frequency: 1
   _onFireEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8322097063268657989}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_cameraManager: {fileID: 0}
-  m_weaponName: Basic Weapon
-  m_fastFire: 0
+  m_amplitude: 1
+  m_frequency: 1
 --- !u!82 &8322097063268657989
 AudioSource:
   m_ObjectHideFlags: 0

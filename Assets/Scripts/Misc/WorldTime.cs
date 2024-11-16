@@ -12,7 +12,7 @@ namespace GEF
         #endregion
 
         #region Properties
-        [SerializeField] private float m_dayLength; // in seconds
+        [SerializeField, Range(1.0f, 600.0f)] private float m_dayLength = 30.0f; // in seconds
         private TimeSpan m_currentTime;
         private float m_minuteLength => m_dayLength / WorldTimeConstants.MINUTES_IN_DAY;
         #endregion

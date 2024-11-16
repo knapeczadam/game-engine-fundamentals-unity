@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_Weapon01
+      value: PFV_Weapon01
       objectReference: {fileID: 0}
     - target: {fileID: 2289473201588775759, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -125,6 +125,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6676379210209860676, guid: d6b96cb5f3624a74b988d8a633d0eabe,
         type: 3}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: _onFireEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: baefafa75c823ef4b819877ce42feeed, type: 3}
     - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_audioClip

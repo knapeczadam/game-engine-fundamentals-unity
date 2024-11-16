@@ -19,7 +19,6 @@ namespace GEF
                         m_instance = newInstance.AddComponent<SpawnManager>();
                     }
                 }
-
                 return m_instance;
             }
         }
