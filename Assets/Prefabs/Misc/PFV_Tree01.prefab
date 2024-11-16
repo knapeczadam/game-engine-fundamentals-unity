@@ -28,6 +28,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFV_Tree01
       objectReference: {fileID: 0}
+    - target: {fileID: 4590720754246180882, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_target
+      value: 
+      objectReference: {fileID: 4876580773674062914}
+    - target: {fileID: 4590720754246180882, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4986978984545955945, guid: 82858993f0828a24f854e37783285fcd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -93,6 +103,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7187442579450684700, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565370091422791313, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565370091422791313, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9146669867066623182, guid: 82858993f0828a24f854e37783285fcd,
         type: 3}
       propertyPath: m_Radius
@@ -103,3 +128,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82858993f0828a24f854e37783285fcd, type: 3}
+--- !u!1 &4876580773674062914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1121898090750046207, guid: 82858993f0828a24f854e37783285fcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5493494613548202941}
+  m_PrefabAsset: {fileID: 0}

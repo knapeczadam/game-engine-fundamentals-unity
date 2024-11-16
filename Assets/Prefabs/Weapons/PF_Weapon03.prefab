@@ -109,6 +109,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4779312076606057451, guid: 0586d15410c8a1f479b1c7bdec41ae46,
         type: 3}
+    - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f965fce7d6fceb4b8ee256ac1689a0b, type: 3}
+    - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8401042708780459293, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

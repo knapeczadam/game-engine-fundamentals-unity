@@ -7,6 +7,7 @@ public class MyTree : MonoBehaviour
 {
     [SerializeField] private Transform m_catSocket = null;
     private List<Highlight> m_highlights = new List<Highlight>();
+    private AudioSource m_catSound = null;
     
     private void Awake()
     {
@@ -15,6 +16,11 @@ public class MyTree : MonoBehaviour
         {
             m_highlights.Add(highlightComponent);
         }
+    }
+    
+    private void Start()
+    {
+        m_catSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,5 +62,18 @@ public class MyTree : MonoBehaviour
     {
         var cat = gameObject.GetComponentInChildren<StaticCat>();
         return cat != null;
+    }
+    
+    public void PlayCatSound()
+    {
+        if (HasCat())
+        {
+            m_catSound.Play();
+        }
+    }
+    
+    public void StopCatSound()
+    {
+        m_catSound.Stop();
     }
 }

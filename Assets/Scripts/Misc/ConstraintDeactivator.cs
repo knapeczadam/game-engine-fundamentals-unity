@@ -12,4 +12,13 @@ public class ConstraintDeactivator : MonoBehaviour
             constraint.constraints = RigidbodyConstraints.None;
         }
     }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        var constraint = other.GetComponent<Rigidbody>();
+        if (constraint)
+        {
+            constraint.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        }
+    }
 }

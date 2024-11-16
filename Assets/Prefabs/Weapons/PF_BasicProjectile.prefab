@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 366365759082279406}
   - component: {fileID: 8569422000190578540}
   - component: {fileID: 1946453960428859806}
+  - component: {fileID: 9185594337169437448}
   m_Layer: 8
   m_Name: PF_BasicProjectile
   m_TagString: Friend
@@ -48,8 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 30
   m_lifeTime: 1
-  m_damage: 10
+  m_damage: 25
   m_forceMultiplier: 1
+  m_explosions:
+  - {fileID: 3736169725345633902, guid: 6bb55d3fc3fe0a44f911a67ac376aad0, type: 3}
+  - {fileID: 8495663438503282330, guid: f7ffb02d9d3023a44a316c1f84eae45b, type: 3}
 --- !u!54 &1946453960428859806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,6 +81,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &9185594337169437448
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281855875839270188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4833005845598361598
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +291,6 @@ GameObject:
   - component: {fileID: 2041446734279103748}
   - component: {fileID: 3732826082176051857}
   - component: {fileID: 7341103398773358952}
-  - component: {fileID: 2996019631181063802}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -339,24 +363,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2996019631181063802
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6740156006231555502}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

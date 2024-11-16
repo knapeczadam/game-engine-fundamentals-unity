@@ -25,10 +25,10 @@ public class SwitchWeaponBehaviour : MonoBehaviour
             return;
         }
 
-        // if (m_weaponManager.m_allowedWeapons[weaponIndex] == false)
-        // {
-        //     return;
-        // }
+        if (m_weaponManager.m_allowedWeapons[weaponIndex] == false)
+        {
+            return;
+        }
         
         for (int i = 0; i < m_weaponManager.m_weapons.Count; i++)
         {

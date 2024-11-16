@@ -14,6 +14,7 @@ public class EnemyHealth : Health
     [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD2 = null;
     [SerializeField] private GameObject m_canvas = null;
     [SerializeField] private GameObject m_scoreTextTemplate = null;
+    private AudioSource m_audioSource = null;
     
     private float m_deathTime = 10.0f;
     
@@ -32,6 +33,7 @@ public class EnemyHealth : Health
     private void Start()
     {
         m_deathTime = UnityEngine.Random.Range(10.0f, 20.0f);
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     public override bool TakeDamage(float damage, float forceMultiplier)
@@ -128,5 +130,7 @@ public class EnemyHealth : Health
         var position = new Vector3(transform.position.x, 2.0f, transform.position.z);
         text.transform.position = Camera.main.WorldToScreenPoint(position);
         text.SetActive(true);
+        
+        m_audioSource.Stop();
     }
 }

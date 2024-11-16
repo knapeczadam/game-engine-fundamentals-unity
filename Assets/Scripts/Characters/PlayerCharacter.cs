@@ -79,7 +79,6 @@ public class PlayerCharacter : BasicCharacter
         }
     }
 
-
     private void Update()
     {
         HandleMovementInput();

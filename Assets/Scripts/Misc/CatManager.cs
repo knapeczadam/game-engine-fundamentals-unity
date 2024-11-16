@@ -10,6 +10,8 @@ public class CatManager : MonoBehaviour
     private bool m_inSafeZone  = false;
     private bool            m_isDay           = false;
     public bool m_destroyCat = false;
+
+    [SerializeField] private GameObject m_fx = null;
     
     private void Awake()
     {
@@ -35,6 +37,10 @@ public class CatManager : MonoBehaviour
             m_catCount++;
             OnCatCountChange?.Invoke(m_catCount, this);
             Debug.Log($"Cat count: {m_catCount}");
+            if (m_fx)
+            {
+                Instantiate(m_fx, transform.position, Quaternion.identity);
+            }
             
         }
     }

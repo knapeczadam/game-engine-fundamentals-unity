@@ -284,6 +284,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8565370091422791313, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565370091422791313, guid: 82858993f0828a24f854e37783285fcd,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5656132292591184595, guid: 82858993f0828a24f854e37783285fcd, type: 3}

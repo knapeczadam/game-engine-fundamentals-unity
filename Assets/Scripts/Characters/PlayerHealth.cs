@@ -20,13 +20,13 @@ public class PlayerHealth : Health
             switch (other.gameObject.tag)
             {
                 case Tags.SlOW_ENEMY:
-                    TakeDamage(0.1f);
+                    TakeDamage(0.5f);
                     break;
                 case Tags.FAST_ENEMY:
-                    TakeDamage(0.05f);
+                    TakeDamage(0.25f);
                     break;
                 case Tags.BOSS_ENEMY:
-                    TakeDamage(0.5f);
+                    TakeDamage(0.8f);
                     break;
                 case Tags.ENEMY: // base case
                     TakeDamage(0.25f);

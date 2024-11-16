@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private bool m_isTutorial = false;
+    [SerializeField] private LayerMask m_ignoredLayer = 0;
     private LineRenderer m_lineRenderer = null;
     
     private void Awake()
@@ -16,19 +16,9 @@ public class Laser : MonoBehaviour
     {
         // Set the start point of the line renderer
         m_lineRenderer.SetPosition(0, transform.position);
+        
         // raycast to detect the end point of the line renderer
-        RaycastHit hit;
-        bool isHit = false;
-
-        if (m_isTutorial)
-        {
-            int layerMask = 1 << LayerMask.NameToLayer("Enemy");
-            isHit = Physics.Raycast(transform.position, transform.forward, out hit, 100.0f, layerMask);
-        }
-        else
-        {
-            isHit = Physics.Raycast(transform.position, transform.forward, out hit);
-        }
+        bool isHit = Physics.Raycast(transform.position, transform.forward, out var hit, 100.0f, ~m_ignoredLayer);
         
         if (isHit)
         {

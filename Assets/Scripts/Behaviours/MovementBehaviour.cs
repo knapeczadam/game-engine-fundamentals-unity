@@ -56,7 +56,7 @@ public class MovementBehaviour : MonoBehaviour
 
         if (!m_canRun)
         {
-            movementSpeed *= 0.5f;
+            // movementSpeed *= 0.5f;
         }
 
         if (!m_canRun && m_runPressed)
