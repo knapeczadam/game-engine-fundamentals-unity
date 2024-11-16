@@ -3,69 +3,79 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BasicProjectile : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private float m_speed           = 30.0f;
-    [SerializeField] private float m_lifeTime        = 1.0f;
-    [SerializeField] private float m_damage          = 20.0f;
-    [SerializeField] private float m_forceMultiplier = 1.0f;
-    [SerializeField] List<GameObject> m_explosions = new List<GameObject>();
-    
-    private static readonly string[] m_RAYCAST_MASKS = { "Ground", "StaticLevel" };
-    private static readonly string[] m_SHOOTABLE_LAYERS = { "Enemy", "Friend" };
-
-    private void Awake()
+    public class BasicProjectile : MonoBehaviour
     {
-        Invoke(nameof(Die), m_lifeTime);
+        #region Properties
+        [SerializeField, Range(1.0f,  50.0f)]  private float m_speed           = 30.0f;
+        [SerializeField, Range(0.1f,  10.0f)]  private float m_lifeTime        = 1.0f;
+        [SerializeField, Range(1.0f,  100.0f)] private float m_damage          = 20.0f;
+        [SerializeField, Range(0.01f, 50.0f)]  private float m_forceMultiplier = 1.0f;
+        [SerializeField] List<GameObject> m_explosions = new List<GameObject>();
 
-        foreach (var explosion in m_explosions)
+        private static readonly string[] m_RAYCAST_MASKS = { "Ground", "StaticLevel" };
+        private static readonly string[] m_SHOOTABLE_LAYERS = { "Enemy", "Friend" };
+        #endregion
+
+        #region Lifecycle
+        private void Awake()
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Invoke(nameof(Die), m_lifeTime);
+
+            foreach (var explosion in m_explosions)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+            }
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (!WallDetection())
+        private void FixedUpdate()
         {
-            transform.position += transform.forward * (m_speed * Time.deltaTime);
-        }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    private bool WallDetection()
-    {
-        Ray collisionRay = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(collisionRay, Time.deltaTime * m_speed, LayerMask.GetMask(m_RAYCAST_MASKS)))
-        {
-            Die();
-            return true;
-        }
-        return false;
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        var allowedLayers = LayerMask.GetMask(m_SHOOTABLE_LAYERS);
-        if ((allowedLayers & (1 << other.gameObject.layer)) == 0)
-        {
-            return;
+            if (!WallDetection())
+            {
+                transform.position += transform.forward * (m_speed * Time.deltaTime);
+            }
         }
         
-        if (other.CompareTag(tag))
+        private void OnTriggerEnter(Collider other)
         {
-            return;
+            var allowedLayers = LayerMask.GetMask(m_SHOOTABLE_LAYERS);
+            if ((allowedLayers & (1 << other.gameObject.layer)) == 0)
+            {
+                return;
+            }
+
+            if (other.CompareTag(tag))
+            {
+                return;
+            }
+
+            Health health = other.GetComponent<Health>();
+            if (health)
+            {
+                health.TakeDamage(m_damage, m_forceMultiplier);
+                Die();
+            }
         }
-        
-        Health health = other.GetComponent<Health>();
-        if (health)
+        #endregion
+
+        #region Methods
+        private void Die()
         {
-            health.TakeDamage(m_damage, m_forceMultiplier);
-            Die();
+            Destroy(gameObject);
         }
+
+        private bool WallDetection()
+        {
+            Ray collisionRay = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(collisionRay, Time.deltaTime * m_speed, LayerMask.GetMask(m_RAYCAST_MASKS)))
+            {
+                Die();
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
     }
 }

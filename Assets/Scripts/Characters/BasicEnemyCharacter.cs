@@ -1,51 +1,59 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BasicEnemyCharacter : BasicCharacter
+namespace GEF
 {
-     [SerializeField] private float m_attackRange = 2.0f;
-    private GameObject m_playerTarget = null;
-
-    private void Start()
+    public class BasicEnemyCharacter : BasicCharacter
     {
-        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player)
+        #region Properties
+        [SerializeField, Range(1.0f, 20.0f)] private float m_attackRange = 2.0f;
+        private GameObject m_playerTarget = null;
+        #endregion
+
+        #region Lifecycle
+        private void Start()
         {
-            m_playerTarget = player.gameObject;
-        }
-    }
-
-    private void Update()
-    {
-        HandleMovement();
-        HandleAttack();
-    }
-
-    private void HandleMovement()
-    {
-        if (m_movementBehaviour)
-        {
-            m_movementBehaviour.m_target = m_playerTarget;
-        }
-    }
-
-    private void HandleAttack()
-    {
-        if (m_attackBehaviour && m_playerTarget)
-        {
-            if ((transform.position - m_playerTarget.transform.position).sqrMagnitude <= m_attackRange * m_attackRange)
+            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+            if (player)
             {
-                Debug.Log("Attacking player");
-                m_attackBehaviour.Attack();
-                // Invoke(nameof(Die), 0.2f);
+                m_playerTarget = player.gameObject;
             }
         }
-    }
 
-    private void Die()
-    {
-        Destroy(gameObject);
+        private void Update()
+        {
+            HandleMovement();
+            HandleAttack();
+        }
+        #endregion
+
+        #region Methods
+        private void HandleMovement()
+        {
+            if (m_movementBehaviour)
+            {
+                m_movementBehaviour.m_target = m_playerTarget;
+            }
+        }
+
+        private void HandleAttack()
+        {
+            if (m_attackBehaviour && m_playerTarget)
+            {
+                if ((transform.position - m_playerTarget.transform.position).sqrMagnitude <=
+                    m_attackRange * m_attackRange)
+                {
+                    Debug.Log("Attacking player");
+                    m_attackBehaviour.Attack();
+                    // Invoke(nameof(Die), 0.2f);
+                }
+            }
+        }
+
+        private void Die()
+        {
+            Destroy(gameObject);
+        }
+        #endregion
     }
-    
-    
 }

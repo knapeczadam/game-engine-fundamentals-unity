@@ -1,30 +1,41 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[DisallowMultipleComponent]
-public class AttackBehaviour : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private GameObject m_gunTemplate = null;
-    [SerializeField] private GameObject m_socket      = null;
-
-    protected BasicWeapon Weapon { get; set; } = null;
-    
-    private void Awake()
+    [DisallowMultipleComponent]
+    public class AttackBehaviour : MonoBehaviour
     {
-        if (m_gunTemplate && m_socket)
-        {
-            var gunObject = Instantiate(m_gunTemplate, m_socket.transform, true);
-            gunObject.transform.localPosition = Vector3.zero;
-            gunObject.transform.localRotation = Quaternion.identity;
-            Weapon = gunObject.GetComponent<BasicWeapon>();
-        }
-    }
+        #region Properties
+        protected BasicWeapon m_weapon { get; set; } = null;
+        #endregion
+        
+        #region Fields
+        [SerializeField] private GameObject m_gunTemplate = null;
+        [SerializeField] private GameObject m_socket      = null;
+        #endregion
 
-    public virtual void Attack()
-    {
-        if (Weapon)
+        #region Lifecycle
+        private void Awake()
         {
-            Weapon.Fire();
+            if (m_gunTemplate && m_socket)
+            {
+                var gunObject = Instantiate(m_gunTemplate, m_socket.transform, true);
+                gunObject.transform.localPosition = Vector3.zero;
+                gunObject.transform.localRotation = Quaternion.identity;
+                m_weapon = gunObject.GetComponent<BasicWeapon>();
+            }
         }
+        #endregion
+
+        #region Public Methods
+        public virtual void Attack()
+        {
+            if (m_weapon)
+            {
+                m_weapon.Fire();
+            }
+        }
+        #endregion
     }
 }

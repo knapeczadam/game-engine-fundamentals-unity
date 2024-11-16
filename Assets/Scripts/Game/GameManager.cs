@@ -4,30 +4,37 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-public class GameManager : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private GameObject m_player = null;
-    [SerializeField] private List<UnityEvent> m_onGameOver = new List<UnityEvent>();
+    public class GameManager : MonoBehaviour
+    {
+        #region Properties
+        [SerializeField] private GameObject m_player = null;
+        [SerializeField] private UnityEvent m_onGameOver = null;
+        #endregion
 
-    private void Update()
-    {
-        if (m_player == null)
+        #region Lifecycle
+        private void Update()
         {
-            TriggerGameOver();
+            if (m_player == null)
+            {
+                TriggerGameOver();
+            }
         }
-    }
-    
-    void TriggerGameOver()
-    {
-        foreach (var unityEvent in m_onGameOver)
-        {
-            unityEvent.Invoke();
-        }
-    }
-    
-    public void ToggleTimeScale()
-    {
-        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-    }
+        #endregion
 
+        #region Public Methods
+        public void ToggleTimeScale()
+        {
+            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        }
+        #endregion
+
+        #region Methods
+        private void TriggerGameOver()
+        {
+            m_onGameOver?.Invoke();
+        }
+        #endregion
+    }
 }

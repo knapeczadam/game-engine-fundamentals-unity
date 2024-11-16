@@ -3,69 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class WaveManager : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private float m_firstWaveStart         = 5.0f;
-    [SerializeField] private float m_waveStartFrequency     = 15.0f;
-    [SerializeField] private float m_waveEndFrequency       = 7.0f;
-    [SerializeField] private float m_waveFrequencyIncrement = 0.5f;
-    [SerializeField] private List<GameObject> m_spawnPointsToEnable = new List<GameObject>();
-    [SerializeField] private List<GameObject> m_textAnimationsToEnable = new List<GameObject>();
-    private int m_currentWave = 0;
-    private WeaponManager m_weaponManager = null;
-
-    private float  m_currentFrequency   = 0.0f;
-    
-    void Awake()
+    public class WaveManager : MonoBehaviour
     {
-        m_currentFrequency = m_waveStartFrequency;
+        #region Properties
+        [SerializeField, Range(1.0f,  10.0f)] private float m_firstWaveStart         = 5.0f;
+        [SerializeField, Range(1.0f,  30.0f)] private float m_waveStartFrequency     = 15.0f;
+        [SerializeField, Range(1.0f,  20.0f)] private float m_waveEndFrequency       = 7.0f;
+        [SerializeField, Range(0.01f, 5.0f)]  private float m_waveFrequencyIncrement = 0.5f;
+        [SerializeField] private List<GameObject> m_spawnPointsToEnable = new List<GameObject>();
+        [SerializeField] private List<GameObject> m_textAnimationsToEnable = new List<GameObject>();
+        private int           m_currentWave      = 0;
+        private WeaponManager m_weaponManager    = null;
+        private float         m_currentFrequency = 0.0f;
+        #endregion
 
-        Invoke(nameof(StartNewWave), m_firstWaveStart);
-    }
-
-    private void Start()
-    {
-        var playerCharacter = FindObjectOfType<PlayerCharacter>();
-        if (playerCharacter)
+        #region Lifecycle
+        void Awake()
         {
-            m_weaponManager = playerCharacter.GetComponent<WeaponManager>();
-            if (m_weaponManager)
+            m_currentFrequency = m_waveStartFrequency;
+
+            Invoke(nameof(StartNewWave), m_firstWaveStart);
+        }
+
+        private void Start()
+        {
+            var playerCharacter = FindObjectOfType<PlayerCharacter>();
+            if (playerCharacter)
             {
-                m_weaponManager.OnWeaponChange += OnWeaponChange;
+                m_weaponManager = playerCharacter.GetComponent<WeaponManager>();
+                if (m_weaponManager)
+                {
+                    m_weaponManager.OnWeaponChange += OnWeaponChange;
+                }
             }
         }
-    }
 
-    private void OnDestroy()
-    {
-        if (m_weaponManager)
+        private void OnDestroy()
         {
-            m_weaponManager.OnWeaponChange -= OnWeaponChange;
+            if (m_weaponManager)
+            {
+                m_weaponManager.OnWeaponChange -= OnWeaponChange;
+            }
         }
-    }
+        #endregion
 
-    private void OnWeaponChange()
-    {
-        Invoke(nameof(ActivateNextWave), 2.0f);
-    }
-    
-    private void ActivateNextWave()
-    {
-        ++m_currentWave;
-        if (m_currentWave < m_spawnPointsToEnable.Count)
+        #region Methods
+        private void OnWeaponChange()
         {
-            m_spawnPointsToEnable[m_currentWave].SetActive(true);
-            m_textAnimationsToEnable[m_currentWave].SetActive(true);
+            Invoke(nameof(ActivateNextWave), 2.0f);
         }
-    }
 
-    void StartNewWave()
-    {
-        SpawnManager.Instance.SpawnWave();
+        private void ActivateNextWave()
+        {
+            ++m_currentWave;
+            if (m_currentWave < m_spawnPointsToEnable.Count)
+            {
+                m_spawnPointsToEnable[m_currentWave].SetActive(true);
+                m_textAnimationsToEnable[m_currentWave].SetActive(true);
+            }
+        }
 
-        m_currentFrequency = Mathf.Clamp(m_currentFrequency - m_waveFrequencyIncrement,
-            m_waveEndFrequency, m_waveStartFrequency);
+        private void StartNewWave()
+        {
+            SpawnManager.Instance.SpawnWave();
 
-        Invoke(nameof(StartNewWave), m_currentFrequency);
+            m_currentFrequency = Mathf.Clamp(m_currentFrequency - m_waveFrequencyIncrement,
+                m_waveEndFrequency, m_waveStartFrequency);
+
+            Invoke(nameof(StartNewWave), m_currentFrequency);
+        }
+        #endregion
     }
 }

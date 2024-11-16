@@ -4,17 +4,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ButtonInfoDisplay : MonoBehaviour
-{ 
-    private TMP_Text m_infoText = null;
-    
-    private void Awake()
+namespace GEF
+{
+    public class ButtonInfoDisplay : MonoBehaviour
     {
-        m_infoText = GetComponentInChildren<TMP_Text>();
-    }
+        #region Properties
+        private TMP_Text m_infoText = null;
+        #endregion
 
-    public void UpdateText(string info)
-    {
-        m_infoText.text = info;
+        #region Lifecycle
+        private void Awake()
+        {
+            m_infoText = GetComponentInChildren<TMP_Text>();
+        }
+        #endregion
+
+        #region Public Methods
+        public void UpdateText(string info)
+        {
+            m_infoText.text = info;
+        }
+        #endregion
     }
 }

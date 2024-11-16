@@ -2,23 +2,30 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class HighScoreDisplay : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private TMP_Text m_highScoreText = null;
-    [SerializeField] private TMP_Text m_currentScoreText = null;
-
-    private void OnEnable()
+    public class HighScoreDisplay : MonoBehaviour
     {
-        if (m_highScoreText)
+        #region Properties
+        [SerializeField] private TMP_Text m_highScoreText    = null;
+        [SerializeField] private TMP_Text m_currentScoreText = null;
+        #endregion
+
+        #region Lifecycle
+        private void OnEnable()
         {
-            var highScore = PlayerPrefs.GetInt("HighScore", 0);
-            m_highScoreText.text = highScore.ToString();
+            if (m_highScoreText)
+            {
+                var highScore = PlayerPrefs.GetInt("HighScore", 0);
+                m_highScoreText.text = highScore.ToString();
+            }
+
+            if (m_currentScoreText)
+            {
+                var currentScore = PlayerPrefs.GetInt("CurrentScore", 0);
+                m_currentScoreText.text = currentScore.ToString();
+            }
         }
-        
-        if (m_currentScoreText)
-        {
-            var currentScore = PlayerPrefs.GetInt("CurrentScore", 0);
-            m_currentScoreText.text = currentScore.ToString();
-        }
+        #endregion
     }
 }

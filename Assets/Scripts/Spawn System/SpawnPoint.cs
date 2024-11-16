@@ -1,27 +1,36 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SpawnPoint : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private GameObject m_spawnTemplate = null;
-
-    private void OnEnable()
+    public class SpawnPoint : MonoBehaviour
     {
-        SpawnManager.Instance.RegisterSpawnPoint(this);
+        #region Properties
+        [SerializeField] private GameObject m_spawnTemplate = null;
+        #endregion
 
-        SpawnManager.Instance.SpawnWave();
-    }
+        #region Lifecycle
+        private void OnEnable()
+        {
+            SpawnManager.Instance.RegisterSpawnPoint(this);
 
-    private void OnDisable()
-    {
-        if (SpawnManager.Exists)
-        { 
-            SpawnManager.Instance.UnregisterSpawnPoint(this);  
-        } 
-    }
+            SpawnManager.Instance.SpawnWave();
+        }
 
-    public GameObject Spawn()
-    {
-        return Instantiate(m_spawnTemplate, transform.position, transform.rotation);
+        private void OnDisable()
+        {
+            if (SpawnManager.Exists)
+            {
+                SpawnManager.Instance.UnregisterSpawnPoint(this);
+            }
+        }
+        #endregion
+
+        #region Public Methods
+        public GameObject Spawn()
+        {
+            return Instantiate(m_spawnTemplate, transform.position, transform.rotation);
+        }
+        #endregion
     }
 }

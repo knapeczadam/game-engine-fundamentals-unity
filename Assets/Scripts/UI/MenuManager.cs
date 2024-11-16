@@ -2,25 +2,32 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+namespace GEF
 {
-    public void LoadScene(string sceneName)
+    public class MenuManager : MonoBehaviour
     {
-        // StartCoroutine(LoadSceneAsync(sceneName));
-        SceneManager.LoadScene(sceneName);
-    }
-
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        while (asyncLoad != null && !asyncLoad.isDone)
+        #region Public Methods
+        public void LoadScene(string sceneName)
         {
-            yield return null;
+            // StartCoroutine(LoadSceneAsync(sceneName));
+            SceneManager.LoadScene(sceneName);
         }
-    }
+        
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+        #endregion
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        #region Methods
+        private IEnumerator LoadSceneAsync(string sceneName)
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+            while (asyncLoad != null && !asyncLoad.isDone)
+            {
+                yield return null;
+            }
+        }
+        #endregion
     }
 }

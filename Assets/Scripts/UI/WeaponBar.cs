@@ -1,50 +1,59 @@
 using TMPro;
 using UnityEngine;
 
-public class WeaponBar : MonoBehaviour
+namespace GEF
 {
-    private TMP_Text      m_weaponText    = null;
-    private WeaponManager m_weaponManager = null;
-
-    private void Awake()
+    public class WeaponBar : MonoBehaviour
     {
-        m_weaponText = GetComponent<TMP_Text>();
-        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player)
-        {
-            m_weaponManager = player.GetComponent<WeaponManager>();
-        }
-    }
+        #region Properties
+        private TMP_Text      m_weaponText    = null;
+        private WeaponManager m_weaponManager = null;
+        #endregion
 
-    void Start()
-    {
-        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player)
+        #region Lifecycle
+        private void Awake()
         {
-            var switchWeaponBehaviour = player.GetComponent<SwitchWeaponBehaviour>();
-            if (switchWeaponBehaviour)
+            m_weaponText = GetComponent<TMP_Text>();
+            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+            if (player)
             {
-                UpdateWeaponText(0);
-                switchWeaponBehaviour.OnWeaponSwitched += UpdateWeaponText;
+                m_weaponManager = player.GetComponent<WeaponManager>();
             }
         }
-    }
-    
-    private void OnDestroy()
-    {
-        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player)
+
+        void Start()
         {
-            var switchWeaponBehaviour = player.GetComponent<SwitchWeaponBehaviour>();
-            if (switchWeaponBehaviour)
+            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+            if (player)
             {
-                switchWeaponBehaviour.OnWeaponSwitched -= UpdateWeaponText;
+                var switchWeaponBehaviour = player.GetComponent<SwitchWeaponBehaviour>();
+                if (switchWeaponBehaviour)
+                {
+                    UpdateWeaponText(0);
+                    switchWeaponBehaviour.OnWeaponSwitched += UpdateWeaponText;
+                }
             }
         }
-    }
-    
-    private void UpdateWeaponText(int weaponIndex)
-    {
-        m_weaponText.text = m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>().m_weaponName;
+
+        private void OnDestroy()
+        {
+            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+            if (player)
+            {
+                var switchWeaponBehaviour = player.GetComponent<SwitchWeaponBehaviour>();
+                if (switchWeaponBehaviour)
+                {
+                    switchWeaponBehaviour.OnWeaponSwitched -= UpdateWeaponText;
+                }
+            }
+        }
+        #endregion
+
+        #region Methods
+        private void UpdateWeaponText(int weaponIndex)
+        {
+            m_weaponText.text = m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>().WeaponName;
+        }
+        #endregion
     }
 }

@@ -1,24 +1,25 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Score : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private int m_hitScore = 0;
-    [SerializeField] private int m_killScore = 0;
-    
-    public int HitScore
+    public class Score : MonoBehaviour
     {
-        get
+        #region Properties
+        [SerializeField, Range(0, 10)] private int m_hitScore  = 0;
+        [SerializeField, Range(0, 10)] private int m_killScore = 0;
+        #endregion
+
+        #region Public Methods
+        public int HitScore
         {
-            return m_hitScore;
+            get { return m_hitScore; }
         }
-    }
-    
-    public int KillScore
-    {
-        get
+
+        public int KillScore
         {
-            return m_killScore;
+            get { return m_killScore; }
         }
+        #endregion
     }
 }

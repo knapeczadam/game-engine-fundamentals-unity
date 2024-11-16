@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class UILookAt : MonoBehaviour
+namespace GEF
 {
-    private void LateUpdate()
+    public class UILookAt : MonoBehaviour
     {
-        transform.LookAt(Camera.main.transform);
+        #region Lifecycle
+        private void LateUpdate()
+        {
+            transform.LookAt(Camera.main.transform);
+        }
+        #endregion
     }
 }

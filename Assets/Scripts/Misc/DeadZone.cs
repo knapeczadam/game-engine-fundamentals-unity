@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadZone : MonoBehaviour
+namespace GEF
 {
-    private void OnTriggerEnter(Collider other)
+    public class DeadZone : MonoBehaviour
     {
-        Destroy(other.gameObject);
+        #region Lifecycle
+        private void OnTriggerEnter(Collider other)
+        {
+            Destroy(other.gameObject);
+        }
+        #endregion
     }
 }

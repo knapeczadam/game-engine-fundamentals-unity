@@ -1,35 +1,44 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class HUD : MonoBehaviour
+namespace GEF
 {
-    private UIDocument    m_attachedDocument = null;
-    private VisualElement m_root             = null;
-    private IntegerField  m_catCountField    = null;
-
-    private void Start()
+    public class HUD : MonoBehaviour
     {
-        m_attachedDocument = GetComponent<UIDocument>();
-        if (m_attachedDocument)
-        {
-            m_root = m_attachedDocument.rootVisualElement;
-        }
+        #region Properties
+        private UIDocument    m_attachedDocument = null;
+        private VisualElement m_root             = null;
+        private IntegerField  m_catCountField    = null;
+        #endregion
 
-        if (m_root != null)
+        #region Lifecycle
+        private void Start()
         {
-            m_catCountField = m_root.Q<IntegerField>();
-
-            CatManager catManager = FindObjectOfType<CatManager>();
-            if (catManager)
+            m_attachedDocument = GetComponent<UIDocument>();
+            if (m_attachedDocument)
             {
-                m_catCountField.value = catManager.m_catCount;
-                catManager.OnCatCountChange += OnCatCountChange;
+                m_root = m_attachedDocument.rootVisualElement;
+            }
+
+            if (m_root != null)
+            {
+                m_catCountField = m_root.Q<IntegerField>();
+
+                CatManager catManager = FindObjectOfType<CatManager>();
+                if (catManager)
+                {
+                    m_catCountField.value = catManager.m_catCount;
+                    catManager.OnCatCountChange += OnCatCountChange;
+                }
             }
         }
-    }
+        #endregion
 
-    private void OnCatCountChange(int catCount, CatManager catManager)
-    {
-        m_catCountField.value = catCount;
+        #region Methods
+        private void OnCatCountChange(int catCount, CatManager catManager)
+        {
+            m_catCountField.value = catCount;
+        }
+        #endregion
     }
 }

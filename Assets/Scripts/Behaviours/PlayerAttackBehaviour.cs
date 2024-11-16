@@ -1,42 +1,53 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[DisallowMultipleComponent]
-public class PlayerAttackBehaviour : AttackBehaviour
+namespace GEF
 {
-    private WeaponManager   m_weaponManager   = null;
-    private PickUpBehaviour m_pickUpBehaviour = null;
-    public  bool            m_canAttack       = true;
-    
-    private void Awake()
+    [DisallowMultipleComponent]
+    public class PlayerAttackBehaviour : AttackBehaviour
     {
-        m_weaponManager = GetComponent<WeaponManager>();
-        m_pickUpBehaviour = GetComponent<PickUpBehaviour>();
-    }
+        #region Properties
+        private WeaponManager   m_weaponManager   = null;
+        private PickUpBehaviour m_pickUpBehaviour = null;
+        private bool            m_canAttack       = true;
+        #endregion
 
-    private void Start()
-    {
-        if (m_pickUpBehaviour)
+        #region Lifecycle
+        private void Awake()
         {
-            m_pickUpBehaviour.OnPickUp += HandlePickUp;
+            m_weaponManager = GetComponent<WeaponManager>();
+            m_pickUpBehaviour = GetComponent<PickUpBehaviour>();
         }
-    }
 
-    private void HandlePickUp(bool catPickedUp)
-    {
-        m_canAttack = !catPickedUp;
-    }
-    
-    public override void Attack()
-    {
-        Weapon = m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>();
-        if (m_canAttack && Weapon)
+        private void Start()
         {
-            Weapon.Fire();
+            if (m_pickUpBehaviour)
+            {
+                m_pickUpBehaviour.OnPickUp += HandlePickUp;
+            }
         }
-        else
+        #endregion
+        
+        #region Public Methods
+        public override void Attack()
         {
-            Debug.Log("Cannot attack while carrying a cat.");
+            m_weapon = m_weaponManager.m_currentWeapon.GetComponent<BasicWeapon>();
+            if (m_canAttack && m_weapon)
+            {
+                m_weapon.Fire();
+            }
+            else
+            {
+                Debug.Log("Cannot attack while carrying a cat.");
+            }
         }
+        #endregion
+
+        #region Methods
+        private void HandlePickUp(bool catPickedUp)
+        {
+            m_canAttack = !catPickedUp;
+        }
+        #endregion
     }
 }

@@ -1,24 +1,31 @@
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+namespace GEF
 {
-    void Start()
+    public class HealthBar : MonoBehaviour
     {
-        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
-        if (player)
+        #region Lifecycle
+        void Start()
         {
-            Health playerHealth = player.GetComponent<Health>();
-            if (playerHealth)
+            PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+            if (player)
             {
-                UpdateHealth(playerHealth.m_maxHealth, playerHealth.m_currentHealth);
-                playerHealth.OnHealthChange += UpdateHealth;
+                Health playerHealth = player.GetComponent<Health>();
+                if (playerHealth)
+                {
+                    UpdateHealth(playerHealth.MaxHealth, playerHealth.m_currentHealth);
+                    playerHealth.OnHealthChange += UpdateHealth;
+                }
             }
         }
-    }
-    
-    public void UpdateHealth(float startHealth, float currentHealth)
-    {
-        var value = currentHealth / startHealth;
-        transform.localScale = new Vector3(value, 1, 1);
+        #endregion
+
+        #region Public Methods
+        public void UpdateHealth(float startHealth, float currentHealth)
+        {
+            var value = currentHealth / startHealth;
+            transform.localScale = new Vector3(value, 1, 1);
+        }
+        #endregion
     }
 }

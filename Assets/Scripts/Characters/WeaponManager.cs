@@ -3,114 +3,122 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class WeaponManager : MonoBehaviour
+namespace GEF
 {
-    public List<GameObject> m_weapons = new List<GameObject>();
-    public GameObject m_currentWeapon { get; set; } = null;
-    
-    [SerializeField] private bool m_isTutorial = false;
-    private AudioSource m_weaponUnlockSound = null;
+    public class WeaponManager : MonoBehaviour
+    {
+        #region Fields
+        public List<GameObject> m_weapons = new List<GameObject>();
+        public GameObject m_currentWeapon { get; set; } = null;
+        public delegate void WeapongChange();
+        public event WeapongChange OnWeaponChange = null;
 
-    public delegate void WeapongChange();
-    public event WeapongChange OnWeaponChange = null;
-    
-    private readonly Dictionary<int, int> m_weaponRules = new Dictionary<int, int>()
-    {
-        {0, 0},  // default weapon needs 0 cast
-        {1, 3},  
-        {2, 5},
-        {3, 10},
-        {4, 15},
-        {5, 20},
-        {6, 30},
-        {7, 50},
-        {8, 100},
-        {9, 200},
-    };
-    
-    public Dictionary<int, bool> m_allowedWeapons = new Dictionary<int, bool>()
-    {
-        {0, true},
-        {1, false},
-        {2, false},
-        {3, false},
-        {4, false},
-        {5, false},
-        {6, false},
-        {7, false},
-        {8, false},
-        {9, false},
-    };
-    
-    [SerializeField] private List<GameObject> m_animations = new List<GameObject>();
-    [SerializeField] private List<GameObject> m_weaponDisplay = new List<GameObject>();
-    [SerializeField] private TMP_Text m_weaponText = null;
-    
-    private CatManager _catManager = null;
-    
-    private void Start()
-    {
-        _catManager = FindObjectOfType<CatManager>();
-        if (_catManager)
+        public Dictionary<int, bool> m_allowedWeapons = new Dictionary<int, bool>()
         {
-            _catManager.OnCatCountChange += OnCatCountChange;
-        }
-        
-        if (m_isTutorial)
+            { 0, true },
+            { 1, false },
+            { 2, false },
+            { 3, false },
+            { 4, false },
+            { 5, false },
+            { 6, false },
+            { 7, false },
+            { 8, false },
+            { 9, false },
+        };
+        #endregion
+
+        #region Properties
+        [SerializeField] private List<GameObject> m_animations    = new List<GameObject>();
+        [SerializeField] private List<GameObject> m_weaponDisplay = new List<GameObject>();
+        [SerializeField] private bool     m_isTutorial = false;
+        [SerializeField] private TMP_Text m_weaponText = null;
+        private AudioSource m_weaponUnlockSound = null;
+        private CatManager  _catManager         = null;
+        private readonly Dictionary<int, int> m_weaponRules = new Dictionary<int, int>()
         {
-            m_weaponRules[1] = 2;
-            m_weaponRules[2] = 0;
-        }
-        
-        m_weaponUnlockSound = GetComponent<AudioSource>();
-    }
-    
-    private void OnDestroy()
-    {
-        if (_catManager)
+            { 0, 0 }, // default weapon needs 0 cast
+            { 1, 3 },
+            { 2, 5 },
+            { 3, 10 },
+            { 4, 15 },
+            { 5, 20 },
+            { 6, 30 },
+            { 7, 50 },
+            { 8, 100 },
+            { 9, 200 },
+        };
+        #endregion
+
+        #region Lifecycle
+        public void Reset()
         {
-            _catManager.OnCatCountChange -= OnCatCountChange;
-        }
-    }
-    
-    private void OnCatCountChange(int catCount, CatManager catManager)
-    {
-        foreach (var allowedWeapon in m_allowedWeapons)
-        {
-            if (!allowedWeapon.Value)
+            foreach (var allowedWeapon in m_allowedWeapons)
             {
-                m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key]}";
-                if (catCount >= m_weaponRules[allowedWeapon.Key])
-                {
-                    m_allowedWeapons[allowedWeapon.Key] = true;
-                    m_animations[allowedWeapon.Key].SetActive(true);
-                    m_weaponDisplay[allowedWeapon.Key - 1].SetActive(false);
-                    m_weaponDisplay[allowedWeapon.Key].SetActive(true);
-                    catManager.m_catCount = 0;
-                    m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key + 1]}";
-                    OnWeaponChange?.Invoke();
-                    m_weaponUnlockSound.Play();
-                }
-                break;
+                m_allowedWeapons[allowedWeapon.Key] = false;
+            }
+
+            m_allowedWeapons[0] = true;
+
+            foreach (var weapon in m_weapons)
+            {
+                weapon.SetActive(false);
+            }
+
+            m_weapons[0].SetActive(true);
+            m_currentWeapon = m_weapons[0];
+        }
+        
+        private void Start()
+        {
+            _catManager = FindObjectOfType<CatManager>();
+            if (_catManager)
+            {
+                _catManager.OnCatCountChange += OnCatCountChange;
+            }
+
+            if (m_isTutorial)
+            {
+                m_weaponRules[1] = 2;
+                m_weaponRules[2] = 0;
+            }
+
+            m_weaponUnlockSound = GetComponent<AudioSource>();
+        }
+
+        private void OnDestroy()
+        {
+            if (_catManager)
+            {
+                _catManager.OnCatCountChange -= OnCatCountChange;
             }
         }
-    }
+        #endregion
 
-    public void Reset()
-    {
-        foreach (var allowedWeapon in m_allowedWeapons)
+        #region Methods
+        private void OnCatCountChange(int catCount, CatManager catManager)
         {
-            m_allowedWeapons[allowedWeapon.Key] = false;
-        }
-        m_allowedWeapons[0] = true;
+            foreach (var allowedWeapon in m_allowedWeapons)
+            {
+                if (!allowedWeapon.Value)
+                {
+                    m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key]}";
+                    if (catCount >= m_weaponRules[allowedWeapon.Key])
+                    {
+                        m_allowedWeapons[allowedWeapon.Key] = true;
+                        m_animations[allowedWeapon.Key].SetActive(true);
+                        m_weaponDisplay[allowedWeapon.Key - 1].SetActive(false);
+                        m_weaponDisplay[allowedWeapon.Key].SetActive(true);
+                        catManager.m_catCount = 0;
+                        m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key + 1]}";
+                        OnWeaponChange?.Invoke();
+                        m_weaponUnlockSound.Play();
+                    }
 
-        foreach (var weapon in m_weapons)
-        {
-            weapon.SetActive(false);
+                    break;
+                }
+            }
         }
-        m_weapons[0].SetActive(true);
-        m_currentWeapon = m_weapons[0];
-        
-        
+        #endregion
     }
 }

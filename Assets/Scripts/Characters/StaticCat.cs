@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class StaticCat : MonoBehaviour
+namespace GEF
 {
+    public class StaticCat : MonoBehaviour
+    {
+    }
 }

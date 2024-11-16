@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : MonoBehaviour
+namespace GEF
 {
-    public GameObject m_catSocket = null;
+    public class Cat : MonoBehaviour
+    {
+        #region Properties
+        public GameObject m_catSocket = null;
+        #endregion
+    }
 }

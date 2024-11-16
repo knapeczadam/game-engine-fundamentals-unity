@@ -1,75 +1,92 @@
 using TMPro;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+namespace GEF
 {
-    public int m_score { get; private set; } = 0;
-    public delegate void ScoreChanged(int newScore);
-    public event ScoreChanged OnScoreChanged;
-    
-    private static ScoreManager _instance = null;
-    public static ScoreManager Instance
+    public class ScoreManager : MonoBehaviour
     {
-        get
+        #region Fields
+        public int m_score { get; private set; } = 0;
+        public delegate void ScoreChanged(int newScore);
+        public event ScoreChanged OnScoreChanged;
+        public static ScoreManager Instance
         {
-            if (_instance == null && !m_applicationQuitting)
+            get
             {
-                _instance = FindObjectOfType<ScoreManager>();
-                if (_instance == null)
+                if (_instance == null && !m_applicationQuitting)
                 {
-                    GameObject newInstance = new GameObject("Singleton_SpawnManager");
-                    _instance = newInstance.AddComponent<ScoreManager>();
+                    _instance = FindObjectOfType<ScoreManager>();
+                    if (_instance == null)
+                    {
+                        GameObject newInstance = new GameObject("Singleton_SpawnManager");
+                        _instance = newInstance.AddComponent<ScoreManager>();
+                    }
                 }
+
+                return _instance;
             }
-            return _instance;
         }
-    }
+        public static bool m_applicationQuitting = false;
+        #endregion
 
-    public static bool m_exists { get { return _instance != null; } }
-    public static bool m_applicationQuitting = false;
+        #region Properties
+        private static ScoreManager _instance = null;
+        #endregion
 
-    protected void OnApplicationQuit()
-    {
-        m_applicationQuitting = true;
-    }
-
-    private void Awake()
-    {
-        // DontDestroyOnLoad(gameObject);
-        if (_instance == null)
+        #region Public Methods
+        public static bool m_exists
         {
-            _instance = this;
+            get { return _instance != null; }
         }
-        else if (_instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+        #endregion
 
-    protected void OnDestroy()
-    {
-        if (_instance == this)
+        #region Lifecycle
+        public void Reset()
         {
-            _instance = null;
+            m_score = 0;
+            OnScoreChanged?.Invoke(m_score);
         }
-    }
-    
-    public void AddScore(int score)
-    {
-        m_score += score;
-        OnScoreChanged?.Invoke(m_score);
         
-        PlayerPrefs.SetInt("CurrentScore", m_score);
-        
-        if (m_score > PlayerPrefs.GetInt("HighScore", 0))
+        private void Awake()
         {
-            PlayerPrefs.SetInt("HighScore", m_score);
+            // DontDestroyOnLoad(gameObject);
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+            else if (_instance != this)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 
-    public void Reset()
-    {
-        m_score = 0;
-        OnScoreChanged?.Invoke(m_score);
+        protected void OnApplicationQuit()
+        {
+            m_applicationQuitting = true;
+        }
+        
+        protected void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
+        #endregion
+
+        #region Public Methods
+        public void AddScore(int score)
+        {
+            m_score += score;
+            OnScoreChanged?.Invoke(m_score);
+
+            PlayerPrefs.SetInt("CurrentScore", m_score);
+
+            if (m_score > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", m_score);
+            }
+        }
+        #endregion
     }
 }

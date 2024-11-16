@@ -2,78 +2,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[DisallowMultipleComponent]
-public class MyTree : MonoBehaviour
+namespace GEF
 {
-    [SerializeField] private Transform m_catSocket = null;
-    private List<Highlight> m_highlights = new List<Highlight>();
-    private AudioSource m_catSound = null;
-    
-    private void Awake()
+    [DisallowMultipleComponent]
+    public class MyTree : MonoBehaviour
     {
-        var highlightComponents = GetComponentsInChildren<Highlight>();
-        foreach (var highlightComponent in highlightComponents)
-        {
-            m_highlights.Add(highlightComponent);
-        }
-    }
-    
-    private void Start()
-    {
-        m_catSound = GetComponent<AudioSource>();
-    }
+        #region Properties
+        [SerializeField] private Transform m_catSocket = null;
+        private List<Highlight> m_highlights = new List<Highlight>();
+        private AudioSource m_catSound = null;
+        #endregion
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (HasCat() && other.CompareTag(Tags.PLAYER))
+        #region Lifecycle
+        private void Awake()
         {
-            foreach (var highlight in m_highlights)
+            var highlightComponents = GetComponentsInChildren<Highlight>();
+            foreach (var highlightComponent in highlightComponents)
             {
-                highlight.EnableHighlight();
+                m_highlights.Add(highlightComponent);
             }
         }
-        else if (!HasCat() && other.CompareTag(Tags.CAT))
+
+        private void Start()
         {
-            var aiCat = other.GetComponent<AICat>();
-            if (aiCat)
+            m_catSound = GetComponent<AudioSource>();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (HasCat() && other.CompareTag(Tags.PLAYER))
             {
-                var rootCat = aiCat.transform.parent;
-                var staticCat = rootCat.GetComponentInChildren<StaticCat>(true);
-                
-                rootCat.SetParent(m_catSocket, false);
-                aiCat.gameObject.SetActive(false);
-                staticCat.gameObject.SetActive(true);
+                foreach (var highlight in m_highlights)
+                {
+                    highlight.EnableHighlight();
+                }
+            }
+            else if (!HasCat() && other.CompareTag(Tags.CAT))
+            {
+                var aiCat = other.GetComponent<AICat>();
+                if (aiCat)
+                {
+                    var rootCat = aiCat.transform.parent;
+                    var staticCat = rootCat.GetComponentInChildren<StaticCat>(true);
+
+                    rootCat.SetParent(m_catSocket, false);
+                    aiCat.gameObject.SetActive(false);
+                    staticCat.gameObject.SetActive(true);
+                }
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(Tags.PLAYER))
+        private void OnTriggerExit(Collider other)
         {
-            foreach (var highlight in m_highlights)
+            if (other.CompareTag(Tags.PLAYER))
             {
-                highlight.DisableHighlight();
+                foreach (var highlight in m_highlights)
+                {
+                    highlight.DisableHighlight();
+                }
             }
         }
-    }
+        #endregion
 
-    public bool HasCat()
-    {
-        var cat = gameObject.GetComponentInChildren<StaticCat>();
-        return cat != null;
-    }
-    
-    public void PlayCatSound()
-    {
-        if (HasCat())
+        #region Public Methods
+        public bool HasCat()
         {
-            m_catSound.Play();
+            var cat = gameObject.GetComponentInChildren<StaticCat>();
+            return cat != null;
         }
-    }
-    
-    public void StopCatSound()
-    {
-        m_catSound.Stop();
+
+        public void PlayCatSound()
+        {
+            if (HasCat())
+            {
+                m_catSound.Play();
+            }
+        }
+
+        public void StopCatSound()
+        {
+            m_catSound.Stop();
+        }
+        #endregion
     }
 }
