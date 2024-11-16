@@ -147,13 +147,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 100
   m_bloodEffects:
-  - {fileID: 100000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
-  - {fileID: 100000, guid: cfc7596704bbd7f489156fcd4c05c7e9, type: 3}
-  - {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
-  - {fileID: 100000, guid: 6fe4d785744af2c40a2157f5b209d97f, type: 3}
-  - {fileID: 100000, guid: aec54d7a991d7b644b145d550a4b7831, type: 3}
-  - {fileID: 100000, guid: 14987c031123b98408a165a8bf1288d4, type: 3}
-  - {fileID: 100000, guid: 43dd1ba2a5dde844eb01240da13ab96b, type: 3}
+  - {fileID: 8781988155356899164, guid: 6e66bd0d806958e4fa93d40ebd963706, type: 3}
+  - {fileID: 8781988155356899164, guid: a32c540c4a1686c4d9cca4b642e53f97, type: 3}
+  - {fileID: 8781988155356899164, guid: d91479af18dace842927a1d60566d6c3, type: 3}
+  - {fileID: 8781988155356899164, guid: a78620a7ce5fa7c4ea5b0666c9908030, type: 3}
+  - {fileID: 8781988155356899164, guid: 22ff756ba094aec4cb0492601db7b3fa, type: 3}
+  - {fileID: 8781988155356899164, guid: a6c348a6dbe89414984f31dfbfad8abc, type: 3}
+  - {fileID: 8781988155356899164, guid: 0a5e605b8d8ec9b44b06e09ed89180d1, type: 3}
+  - {fileID: 8781988155356899164, guid: d5379917489496740be0eb124fb3d04f, type: 3}
   m_bloodSplatter: {fileID: 0}
   m_bodyRendererLOD0: {fileID: 0}
   m_bodyRendererLOD1: {fileID: 0}
