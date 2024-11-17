@@ -29,7 +29,7 @@ namespace GEF
         protected override void Awake()
         {
             base.Awake();
-            m_id = GetComponent<MyID>().GetID();
+            m_id = GetComponent<ID>().GetID();
             m_hitScore = GetComponent<Score>().HitScore;
             m_killScore = GetComponent<Score>().KillScore;
         }

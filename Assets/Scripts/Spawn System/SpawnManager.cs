@@ -31,7 +31,8 @@ namespace GEF
         {
             { 1, 5 },
             { 2, 3 },
-            { 3, 1 }
+            { 3, 1 },
+            { 4, 100 }
         };
         private static SpawnManager m_instance = null;
         private List<SpawnPoint> _spawnPoints = new List<SpawnPoint>();
@@ -96,7 +97,7 @@ namespace GEF
         {
             foreach (var spawnPoint in _spawnPoints)
             {
-                var spawnId = spawnPoint.GetComponent<MyID>().GetID();
+                var spawnId = spawnPoint.GetComponent<ID>().GetID();
                 int maxSpawned = m_maxSpawnedObjects[spawnId];
                 if (!m_spawnedObjects.ContainsKey(spawnId))
                 {
