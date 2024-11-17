@@ -11,13 +11,15 @@ namespace GEF
         #region Properties
         [SerializeField] private GameObject m_player = null;
         [SerializeField] private UnityEvent m_onGameOver = null;
+        private bool m_gameOver = false;
         #endregion
 
         #region Lifecycle
         private void Update()
         {
-            if (m_player == null)
+            if (!m_gameOver && m_player == null)
             {
+                m_gameOver = true;
                 TriggerGameOver();
             }
         }

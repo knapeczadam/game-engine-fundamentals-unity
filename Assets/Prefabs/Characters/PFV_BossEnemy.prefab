@@ -155,6 +155,16 @@ PrefabInstance:
       propertyPath: m_SelectedVertices.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 72529993208379606, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 72529993208379606, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b4caa4dca0d6e54d919e45e8af566dd, type: 3}
     - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: _hitScore
@@ -178,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Name
-      value: PF_BossEnemy
+      value: PFV_BossEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}

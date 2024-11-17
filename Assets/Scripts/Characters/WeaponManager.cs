@@ -112,7 +112,7 @@ namespace GEF
                         catManager.m_catCount = 0;
                         m_weaponText.text = $"{catManager.m_catCount} / {m_weaponRules[allowedWeapon.Key + 1]}";
                         OnWeaponChange?.Invoke();
-                        m_weaponUnlockSound.Play();
+                        m_weaponUnlockSound.PlayOneShot(m_weaponUnlockSound.clip);
                     }
 
                     break;

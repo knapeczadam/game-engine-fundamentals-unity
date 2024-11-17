@@ -155,6 +155,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 44
       objectReference: {fileID: 0}
+    - target: {fileID: 72529993208379606, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42761324bd3a1ce40930bf4b1ddb0d88, type: 3}
     - target: {fileID: 291968322144936975, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: _hitScore
@@ -178,7 +183,7 @@ PrefabInstance:
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Name
-      value: PF_FastEnemy
+      value: PFV_FastEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}

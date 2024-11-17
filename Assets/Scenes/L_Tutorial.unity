@@ -691,6 +691,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 218108214}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &218108216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5446429932454360000, guid: 78d0c799c4f02764da867621c9a48d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 218108214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587e8197c306aa248b3ac0d5f64d7f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &230080068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2361245968634676562, guid: 86594a2da1401a246ba4abe3ab8e692e,
@@ -7375,19 +7387,27 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 218108216}
+    - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
+        type: 3}
       propertyPath: m_cameraTiltAction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -5939848911804961759, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+        type: 3}
     - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_cameraDistanceAction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -458960002357580977, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+        type: 3}
     - target: {fileID: 3132998388467347962, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_cameraRotationAction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -1923116884805994921, guid: 50f2d97a5e8b15040b60f1af7460a4a2,
+        type: 3}
     - target: {fileID: 3472509096683633923, guid: 7e2f613ed06778d4ea39458ee103626a,
         type: 3}
       propertyPath: m_Mesh

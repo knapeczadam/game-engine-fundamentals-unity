@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Name
-      value: PF_SlowEnemy
+      value: PFV_SlowEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1072375956893043455, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
@@ -170,6 +170,11 @@ PrefabInstance:
       objectReference: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
     - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
+      propertyPath: m_bloodAudioSource
+      value: 
+      objectReference: {fileID: 6794347299944241492}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
       propertyPath: m_bodyRendererLOD0
       value: 
       objectReference: {fileID: 2537485945164571299}
@@ -183,6 +188,11 @@ PrefabInstance:
       propertyPath: m_bodyRendererLOD2
       value: 
       objectReference: {fileID: 2537485945164571303}
+    - target: {fileID: 5503433317752064907, guid: b46d0dae891d59b4eb649448305ce698,
+        type: 3}
+      propertyPath: m_defaultAudioSource
+      value: 
+      objectReference: {fileID: 3271148301390603236}
     - target: {fileID: 5740899966392781748, guid: b46d0dae891d59b4eb649448305ce698,
         type: 3}
       propertyPath: m_Volume
@@ -303,6 +313,18 @@ CapsuleCollider:
   m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!82 &3271148301390603236 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 72529993208379606, guid: b46d0dae891d59b4eb649448305ce698,
+    type: 3}
+  m_PrefabInstance: {fileID: 3198920957372488498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6794347299944241492 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8227662512501473894, guid: b46d0dae891d59b4eb649448305ce698,
+    type: 3}
+  m_PrefabInstance: {fileID: 3198920957372488498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5435573209979777113
 PrefabInstance:
   m_ObjectHideFlags: 0

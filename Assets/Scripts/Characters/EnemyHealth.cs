@@ -10,14 +10,15 @@ namespace GEF
     public class EnemyHealth : Health
     {
         #region Properties
-        [SerializeField] private GameObject          m_bloodSplatter     = null;
-        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD0  = null;
-        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD1  = null;
-        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD2  = null;
-        [SerializeField] private GameObject          m_canvas            = null;
-        [SerializeField] private GameObject          m_scoreTextTemplate = null;
+        [SerializeField] private GameObject          m_bloodSplatter      = null;
+        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD0   = null;
+        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD1   = null;
+        [SerializeField] private SkinnedMeshRenderer m_bodyRendererLOD2   = null;
+        [SerializeField] private GameObject          m_canvas             = null;
+        [SerializeField] private GameObject          m_scoreTextTemplate  = null;
+        [SerializeField] private AudioSource         m_defaultAudioSource = null;
+        [SerializeField] private AudioSource         m_bloodAudioSource   = null;
         [SerializeField] private List<GameObject> m_bloodEffects = new List<GameObject>();
-        private AudioSource m_audioSource = null;
         private float       m_deathTime   = 10.0f;
         private int         m_id          = 0;
         private int         m_hitScore    = 0;
@@ -36,7 +37,6 @@ namespace GEF
         private void Start()
         {
             m_deathTime = UnityEngine.Random.Range(10.0f, 20.0f);
-            m_audioSource = GetComponent<AudioSource>();
         }
         #endregion
 
@@ -53,6 +53,9 @@ namespace GEF
             {
                 CreateBloodEffectInstance();
             }
+            
+            // play the blood audio source
+            m_bloodAudioSource.PlayDelayed(0.1f);
 
             // first disable the agent
             var agent = GetComponent<NavMeshAgent>();
@@ -118,7 +121,7 @@ namespace GEF
             text.transform.position = Camera.main.WorldToScreenPoint(position);
             text.SetActive(true);
 
-            m_audioSource.Stop();
+            m_defaultAudioSource.Stop();
         }
         
         private IEnumerator DisableRigidbody(Rigidbody rb, NavMeshAgent agent, NavMeshMovementBehaviour movement)

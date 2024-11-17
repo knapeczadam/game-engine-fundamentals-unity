@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_Name
-      value: PF_EnemyGun
+      value: PFV_EnemyGun
       objectReference: {fileID: 0}
     - target: {fileID: 588522278659070824, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
@@ -120,6 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
+      propertyPath: m_amplitude
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
       propertyPath: _bulletTemplate
       value: 
       objectReference: {fileID: 1753854652978862321, guid: b51f705d8e684f14dac8ef2a8c3151f8,
@@ -130,11 +135,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1753854652978862321, guid: b51f705d8e684f14dac8ef2a8c3151f8,
         type: 3}
+    - target: {fileID: 4727895905314642383, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: _onFireEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: ca8ffbc2da0d0c54c9fa601b80272e13, type: 3}
     - target: {fileID: 5598599008271561839, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322097063268657989, guid: e3c3808a6a2e10e45af2313e3e63f5cb,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca8ffbc2da0d0c54c9fa601b80272e13, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

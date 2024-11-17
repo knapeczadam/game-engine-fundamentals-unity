@@ -75,7 +75,7 @@ namespace GEF
         {
             if (HasCat())
             {
-                m_catSound.Play();
+                m_catSound.PlayOneShot(m_catSound.clip);
             }
         }
 
