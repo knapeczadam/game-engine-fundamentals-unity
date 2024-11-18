@@ -483,6 +483,8 @@ MonoBehaviour:
   m_desiredMovementDirection: {x: 0, y: 0, z: 0}
   m_movementSpeed: 2
   m_rotationSpeed: 10
+  m_runSpeed: 2
+  m_infiniteRun: 0
   m_smoothRotation: 1
 --- !u!54 &9082197393933412983
 Rigidbody:
@@ -602,9 +604,9 @@ MonoBehaviour:
   - {fileID: 4532865107213917972}
   - {fileID: 52924718594412882}
   - {fileID: 4845108524639218469}
-  m_isTutorial: 0
   m_animations: []
   m_weaponDisplay: []
+  m_isTutorial: 0
   m_weaponText: {fileID: 0}
 --- !u!114 &640470700792874317
 MonoBehaviour:
@@ -620,7 +622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_gunTemplate: {fileID: 0}
   m_socket: {fileID: 0}
-  m_canAttack: 1
 --- !u!114 &4924767170343786399
 MonoBehaviour:
   m_ObjectHideFlags: 0

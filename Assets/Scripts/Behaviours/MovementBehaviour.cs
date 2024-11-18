@@ -5,9 +5,9 @@ namespace GEF
     public class MovementBehaviour : MonoBehaviour
     {
         #region Fields
-        [HideInInspector] public bool m_runPressed = false;
-        [HideInInspector] public GameObject m_target = null;
-        [HideInInspector] public Vector3 m_desiredMovementDirection = Vector3.zero;
+        [HideInInspector] public bool       m_runPressed               = false;
+        [HideInInspector] public GameObject m_target                   = null;
+        [HideInInspector] public Vector3    m_desiredMovementDirection = Vector3.zero;
         #endregion
 
         #region Properties
@@ -15,6 +15,8 @@ namespace GEF
         
         [SerializeField, Range(0.01f, 10.0f)] protected float m_movementSpeed = 1.0f;
         [SerializeField, Range(0.01f, 20.0f)] private   float m_rotationSpeed = 10.0f;
+        [SerializeField, Range(1.0f,  10.0f)] private   float m_runSpeed      = 2.0f;
+        [SerializeField] bool m_infiniteRun = false;
         [SerializeField] private bool m_smoothRotation = true;
         private PickUpBehaviour m_pickUpBehaviour = null;
         private bool m_canRun = true;
@@ -53,9 +55,9 @@ namespace GEF
 
             Vector3 movement = m_desiredMovementDirection.normalized;
             float movementSpeed = m_movementSpeed;
-            if (m_canRun && m_runPressed)
+            if ((m_canRun && m_runPressed) || (m_canRun && m_infiniteRun))
             {
-                movementSpeed *= 2.0f;
+                movementSpeed *= m_runSpeed;
             }
 
             if (!m_canRun)
