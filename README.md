@@ -1,11 +1,11 @@
-# 🎮 Game Engine Fundamentals – Howest DAE (2024)
+# 🎮 Game Engine Fundamentals – Granny’s cats
 
 Hey there, fellow DAE student, curious visitor, or game tech enthusiast 👋  
-Welcome to my **Game Engine Fundamentals (Unity)** repository — a Unity prototype developed during the **third semester (2024)** at **Digital Arts & Entertainment**, **Howest University**, **Kortrijk, Belgium**.
+Welcome to my **Game Engine Fundamentals (Unity)** repository — a Unity prototype developed during the **third semester (2024)** at **DAE**.
 
 ---
 
-## 🗂️ About this repository
+## 🗄️ About this repository
 
 This repository contains my **Unity project** for the **Game Engine Fundamentals** course.  
 The purpose of the course was to **get familiar with both Unity and Unreal Engine**, focusing on **rapid prototyping**, **C# scripting**, and **iteration through feedback**.
@@ -18,12 +18,12 @@ Gameplay mechanics were designed to explore **Unity’s scripting API**, **prefa
 
 ---
 
-## 🧱 Course Information
+## 🔎 Course Information
 
-**📘 Course:** Game Engine Fundamentals  
-**🏫 University:** Howest DAE – Digital Arts & Entertainment  
+**📚 Course:** Game Engine Fundamentals  
+**🏫 University:** Howest University of Applied Sciences - Digital Arts and Entertainment   
 **📍 Location:** Kortrijk, Belgium  
-**🗓️ Semester:** 2024 – Third semester  
+**🗓️ Academic year:** 2024–25 | Third semester  
 **🎓 Study load:** 6 credits  
 **⏱️ Total study time:** 180 hours  
 
@@ -31,20 +31,26 @@ Gameplay mechanics were designed to explore **Unity’s scripting API**, **prefa
 
 ## 👨‍🏫 Teaching Staff
 
-- **Co-ordinator:** Brecht Lecluyse
-- **Other teaching staff:** Emiel De Paepe
+- **Co-ordinator:** Brecht Lecluyse  
+- **Other teaching staff:** Emiel De Paepe  
 
 ---
 
-## 🎯 Learning Goals (Extract)
+## 🎯 Learning Goals
 
-> *The student Bachelor Digital Arts & Entertainment develops, by means of game technology, in a technically efficient way, interactive 3D applications within a professional context.*
-
-- Uses Unity’s scripting API to implement gameplay systems.  
-- Applies prefab-based workflows to build modular gameplay.  
-- Integrates player feedback and iteration into development.  
-- Reflects critically on peer feedback.  
-- Develops interactive 3D gameplay mechanics within engine limitations.  
+- Understands the **complete production pipeline** of a professional entertainment application.  
+- Defines and describes **different production tasks** and their relationships.  
+- Reflects on **received feedback** and applies it constructively.  
+- **Divides large tasks** into manageable subtasks to meet deadlines effectively.  
+- Maintains a **critical attitude** toward both personal and team work, justifying feedback and improvements.  
+- Describes **core principles of game design and game mechanics**.  
+- Translates a **concept or idea into a complete end product**.  
+- Uses **correct terminology** to describe digital assets and their attributes.  
+- Analyzes and documents a **personal visual or design style**.  
+- Selects and applies the **appropriate workflow and pipeline** for asset creation based on requirements.  
+- Develops **3D games or applications** where elements are correctly positioned in space.  
+- Uses the **game engine effectively** to solve specific design or technical problems.  
+- Utilizes **existing frameworks, engines, or programming languages** to build interactive experiences.  
 
 ---
 
@@ -60,7 +66,7 @@ Gameplay mechanics were designed to explore **Unity’s scripting API**, **prefa
 
 ---
 
-## 📦 Release
+## 🚀 Release
 
 `game_engine_fundamentals-unity-1.0.0-windows-x64.zip`
 
@@ -73,9 +79,10 @@ It served as a creative challenge to combine randomly assigned words into a cohe
 
 ---
 
-### 🪪 License
+### ⚖️ License
 This repository is licensed under the **MIT License** — feel free to explore, learn, or adapt anything useful.
 
 ---
 
-*Made with Unity, C#, and a love for creative problem-solving 🌅 — Adam*
+*Made with Unity, C#, and a love for creative problem-solving 🌅  
+— Ádám*
