@@ -31,8 +31,8 @@ Gameplay mechanics were designed to explore **Unity’s scripting API**, **prefa
 
 ## 👨‍🏫 Teaching Staff
 
-- **Co-ordinator:** Lecluyse Brecht  
-- **Other teaching staff:** De Paepe Emiel
+- **Co-ordinator:** Brecht Lecluyse
+- **Other teaching staff:** Emiel De Paepe
 
 ---
 
