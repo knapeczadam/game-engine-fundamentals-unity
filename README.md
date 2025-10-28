@@ -1,4 +1,4 @@
-# 🎮 Game Engine Fundamentals – Granny’s cats
+# 🙀 Game Engine Fundamentals – Unity
 
 Hey there, fellow DAE student, curious visitor, or game tech enthusiast 👋  
 Welcome to my **Game Engine Fundamentals (Unity)** repository — a Unity prototype developed during the **third semester (2024)** at **DAE**.
